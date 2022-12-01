@@ -9,7 +9,7 @@ app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
-#設定 session 密鑰
+# #設定 session 密鑰
 app.secret_key='tian12345'
 
 # mysql.connector 引入方式
@@ -52,13 +52,14 @@ def api_attractions():
         val =(page_count_stage,page_count_maxnum)
         mycursor.execute(sql,val)
         count_result = mycursor.fetchall()
-        # print(count_result)
+        print(count_result[0][9])
         count_result_len = len(count_result)
         # print(count_result_len)
         #處理資料庫型態
         for i in range(count_result_len):
             count_result[i]=list(count_result[i])
             count_result[i][9]=count_result[i][9].split(" ")
+        
 
         count_result_title = mycursor.description
         result_title = [tit[0] for tit in count_result_title]
@@ -147,14 +148,14 @@ def api_attractionId(attractionId):
             id_result_number = mycursor_len.fetchall()
             id_result_item = [res[0] for res in id_result_number ]
             id_result_len = len(id_result_item)
-            print(id_result_item)
-            print(type(id_result_item))
+            # print(id_result_item)
+            # print(type(id_result_item))
             mycursor_data = new.cursor()
             sql2 = "select * from datas2 where id = %s"
             val2 = (id,)
             mycursor_data.execute(sql2,val2)
             id_result = mycursor_data.fetchone()
-            print(id_result==None)
+            # print(id_result==None)
         if id_result == None:
             return jsonify({
             "error":True,
@@ -192,6 +193,7 @@ def api_categories():
         mycursor.execute(sql)
         category_result = mycursor.fetchall()
         category_data = [cat[0] for cat in category_result]
+        print(category_data)
         return jsonify({	
             "data": category_data
         })
@@ -209,3 +211,4 @@ def api_categories():
     })
 
 app.run(host='0.0.0.0',port=3000)
+

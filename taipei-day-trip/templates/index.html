@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>台北</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>台北一日遊</title>
     <link rel="stylesheet" href="../static/css/all.css" />
-    
+    <link rel="stylesheet" href="../static/css/index.css" />
   </head>
-  <body>
+  <body id="body">
     <nav>
       <div class="nav-bar">
         <div class="nav-bar-left">
@@ -22,7 +21,7 @@
       </div>
     </nav>
     <main>
-      <section class="page-one">
+      <section class="pageOne">
         <div class="text">
           <h2>輕鬆享受台北一日悠閒</h2>
           <p>探索每個角落，體驗程式的深度旅遊行程</p>
@@ -31,154 +30,30 @@
               type="text"
               name=""
               class="search"
-              value="輸入景點名稱查詢"
+              placeholder="輸入景點名稱查詢"
             />
-            <button type="" class="icon">
+            <div type="" class="icon">
               <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            </div>
           </form>
           <!-- 建立搜尋表單 -->
-          <div class="searchForm">
-            <div class="searchItem">公共藝術</div>
-            <div class="searchItem">其    他</div>
-            <div class="searchItem">單車遊蹤</div>
-            <!-- <div></div> -->
-            <div class="searchItem">宗教信仰</div>
-            <div class="searchItem">戶外踏青</div>
-            <div class="searchItem">春季活動</div>
-            <!-- <div></div> -->
-            <div class="searchItem">歷史建築</div>
-            <div class="searchItem">藍色公路</div>
-            <div class="searchItem">藝文館所</div>
-            <!-- <div></div> -->
-            <div class="searchItem">親子共遊</div>
-            <div class="searchItem">養生溫泉</div>
-            <!-- <div class="searchItem">1 2 3</div> -->
-            <!-- <div></div> -->
+          <div class="searchContainer">
+            <div class="searchForm"></div>
           </div>
         </div>
       </section>
-      <section class="page-two">
-        <div class="boxes">
-          <div class="item">
-            <div class="name-top">
-                <img src="../static/img/QMFR1520.JPG" alt="" class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-top">
-                <p>平安樓</p>
-                </div>
-            <div class="name-btn">
-              <p>忠孝復興</p>
-              <p>公共藝術</p>
-            </div>
-          </div>    
-          
-        </div>
+      <section class="pageTwo">
+        <div class="imgBoxes"></div>
       </section>
+      <div class="loading">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
     </main>
     <footer>
       <p>COPYRIGHT © 2021 台北一日遊</p>
     </footer>
-    
-  </body> 
-  <!-- JS -->
-  <script src="../static/new.js"></script>
-   
-</html> -->
+  </body>
+  <script src="../static/all.js"></script>
+</html>

@@ -1,0 +1,322 @@
+*{
+    box-sizing: border-box;  
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    
+}
+// RWD
+    @mixin mobile{
+    @media(max-width:360px){
+    @content;
+    }
+  }
+
+nav{
+    width: 100%;
+    height: 54px;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    
+    .nav-bar{
+    max-width: 1200px;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile{
+            width: 100%;
+        }
+    .nav-bar-left{
+        
+        p{
+            font-weight: 700;
+            font-size: 30px;
+            color:#448899; 
+            line-height: 34px; 
+            padding: 10px 0;
+
+                @include mobile{
+                padding: 10px; 
+                
+                }
+            }
+        }
+        .nav-bar-right{
+            display: flex;  
+               
+             p{  
+                padding: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 54px;
+                color: #666666;
+                padding: 0 10px;
+                @include mobile{
+                padding: 20px 10px; 
+                line-height: 13px;
+                   }     
+            }
+        }
+    }
+}
+main{
+    width: 100%;
+    margin-bottom: 120px;
+    padding-top:90px;
+    .attractionPage{
+        max-width: 1200px;
+        margin: 0 auto;
+        .pageTop{
+            width: 100%;
+            // height: 50vh;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+            }
+            .pageTopImg{
+                width: 540px;
+                height: 406px;
+                position: relative;
+                @include mobile{
+                    width: 360px;
+                    height: 350px;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+                .imgArrow{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+                    position: absolute;
+                    top:50%;
+                    left:0;
+                    transform: translate(0,-50%);
+                    .imgArrowBlock{
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        background-color: white;
+                        opacity: .6;
+                        font-size: 1.5rem;
+                        line-height: 36px;
+                        justify-content: center;
+                        i{
+                            display: flex;
+                            justify-content: center;
+                            line-height: 36px;
+                            text-align: center;
+                        }
+                    }
+                }
+                .ballBlock{
+                    width: 100%;
+                    height: 15px;
+                    display: flex;
+                    justify-content: center;
+                    // background-color: rgb(162, 116, 116);
+                    margin: 0 auto;
+                    position: absolute;
+                    bottom: 12px;
+                    .ball{
+                        width: 15px;
+                        height: 15px;
+                        accent-color: yellow;
+                        margin-right:5px;
+                    }
+                }
+            } 
+            .pageTopTour{
+                @include mobile{
+                   padding: 10px;
+                }
+
+                .pageTopTourTitle{
+                    display: flex;
+                    flex-direction: column;
+                    color: #666666;
+                    
+                    h2{
+                        font-weight: 700;
+                        font-size: 24px;
+                        
+                    }
+                    p{
+                        font-weight: 500;
+                        font-size: 16px;
+                        margin-top: 15px;
+                        
+                    }
+                }
+                .pageTopTourBooking{
+                   width: 600px;
+                   height: 302px; 
+                   background: #E8E8E8;
+                   border-radius: 5px;
+                   margin-top: 20px;
+                   padding: 20px 20px;
+                   display: flex;
+                   flex-direction: column;
+                   color: #666666;
+                   margin-bottom: 41px;
+                   @include mobile{
+                    width: 340px;
+                    height: 300px;}
+
+                    h4{ 
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 13px;
+                        margin-bottom: 24px;
+                        @include mobile{
+                        margin-bottom: 20px;
+                        }
+                    }
+                    p{
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 13px;
+                        margin-bottom: 24px;
+                        @include mobile{
+                        line-height: 26px;
+                        margin-bottom: 10px;
+                        }
+                    }
+                    .date{
+                        margin-bottom: 20px;
+                        label{
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 13px;
+                        }
+                        input{
+                            width: 193px;
+                            height: 35px;
+                            padding: 5px 10px;
+                        }
+
+                    }
+                    .time{
+                        margin-bottom: 20px;
+                        @include mobile{
+                        margin-bottom: 15px;
+                            }
+                        label{
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 13px;
+                            }
+                        input{
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 13px;
+                        accent-color: #448899;
+                        }
+                    }
+                    .cash{
+                        margin-bottom: 24px;
+                        @include mobile{
+                        margin-bottom: 15px;
+                            }
+                        label{
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 13px;
+                        margin-right: 10px;
+                        }
+                        input{
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 13px;
+                        }
+                    }
+                    .readyBooking{
+                        width: 154px;
+                        height: 36x;
+                        background: #448899;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: flex-start;
+                        padding: 10px 20px;
+                        color: #FFFFFF;
+                        font-weight: 400;
+                        font-size: 19px;
+                        line-height: 16px;
+                        border: none;
+                    }
+
+                }
+            }
+        }
+        .hr{
+            @include mobile{
+                width: 93%;
+                margin: 0 auto;
+                
+            }
+        }
+
+        .pageBtm{
+            margin: 50px 10px 0 0;
+            color: #666666;
+            font-size: 16px;
+            line-height: 20px;
+            @include mobile{
+            margin: 50px 0 0 0 ;
+            padding: 0 20px;
+                
+            }
+            .content{
+                font-weight: 400;
+                line-height: 23px;
+            }
+            .address{
+                margin: 30px 0;
+                font-weight: 700;
+                line-height: 13px;
+                p{
+                margin:10px 0;
+                font-weight: 400;
+                line-height: 23px;
+                }
+            }
+            .traffic{
+                margin: 30px 0;
+                font-weight: 700;
+                line-height: 13px;
+                
+                p{
+                margin:10px 0;
+                font-weight: 400;
+                line-height: 23px;
+                }
+            }
+        }
+    }
+}
+
+
+footer{
+    width: 100%;
+    height: 104px;
+    background: #757575;
+
+    p{
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 104px;
+    text-align: center;
+    }
+    }
