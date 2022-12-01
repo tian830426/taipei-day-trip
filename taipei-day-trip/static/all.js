@@ -191,6 +191,7 @@ function icon(){
             imgBoxes.removeChild(imgBoxes.firstChild)
         }
         urlPage = urlKeywordDemo + search.value;
+        keyword = search.value;
         getData();
     },false);
 }
