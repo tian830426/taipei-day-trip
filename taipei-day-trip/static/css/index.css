@@ -31,7 +31,7 @@ nav .nav-bar {
 }
 @media (max-width: 500px) {
   nav .nav-bar {
-    width: 90%;
+    width: 92%;
   }
 }
 @media (max-width: 360px) {
@@ -47,7 +47,7 @@ nav .nav-bar .nav-bar-left p {
 }
 @media (max-width: 500px) {
   nav .nav-bar .nav-bar-left p {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 @media (max-width: 360px) {
@@ -99,7 +99,7 @@ main .pageOne .text {
 }
 @media (max-width: 500px) {
   main .pageOne .text {
-    width: 90%;
+    width: 92%;
   }
 }
 @media (max-width: 360px) {
@@ -139,7 +139,7 @@ main .pageOne .text .but {
 }
 @media (max-width: 500px) {
   main .pageOne .text .but {
-    width: 330px;
+    width: 310px;
   }
 }
 @media (max-width: 360px) {
@@ -158,6 +158,11 @@ main .pageOne .text .but .search {
   padding: 15px 10px;
   border: none;
   border-radius: 6px 0 0 6px;
+}
+@media (max-width: 500px) {
+  main .pageOne .text .but .search {
+    width: 280px;
+  }
 }
 @media (max-width: 360px) {
   main .pageOne .text .but .search {
@@ -182,6 +187,11 @@ main .pageOne .text .but .icon {
 main .pageOne .text .but .icon i {
   color: #F8F8F8;
   font-size: 30px;
+}
+@media (max-width: 500px) {
+  main .pageOne .text .but .icon i {
+    font-size: 26px;
+  }
 }
 @media (max-width: 360px) {
   main .pageOne .text .but .icon i {
@@ -264,8 +274,8 @@ main .pageTwo .imgBoxes {
 }
 @media (max-width: 500px) {
   main .pageTwo .imgBoxes {
-    width: 90%;
-    margin: 25px auto;
+    width: 92%;
+    margin: 30px auto;
     grid-gap: 15px;
   }
 }
@@ -275,7 +285,7 @@ main .pageTwo .imgBoxes {
     grid-template-columns: repeat(1, 322px);
     grid-template-rows: repeat(12, 235px);
     grid-gap: 15px;
-    margin: 20px auto;
+    margin: 30px auto;
   }
 }
 main .pageTwo .imgBoxes .item {
