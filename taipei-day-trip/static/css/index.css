@@ -21,17 +21,22 @@ nav .nav-bar {
 }
 @media (max-width: 1250px) {
   nav .nav-bar {
-    width: 80%;
+    width: 90%;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   nav .nav-bar {
-    width: 80%;
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  nav .nav-bar {
+    width: 90%;
   }
 }
 @media (max-width: 360px) {
   nav .nav-bar {
-    width: 100%;
+    width: 90%;
   }
 }
 nav .nav-bar .nav-bar-left p {
@@ -40,9 +45,14 @@ nav .nav-bar .nav-bar-left p {
   font-weight: 700;
   color: #448899;
 }
+@media (max-width: 500px) {
+  nav .nav-bar .nav-bar-left p {
+    font-size: 28px;
+  }
+}
 @media (max-width: 360px) {
   nav .nav-bar .nav-bar-left p {
-    padding: 10px;
+    font-size: 26px;
   }
 }
 nav .nav-bar .nav-bar-right {
@@ -79,13 +89,23 @@ main .pageOne .text {
 }
 @media (max-width: 1250px) {
   main .pageOne .text {
-    width: 80%;
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  main .pageOne .text {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  main .pageOne .text {
+    width: 90%;
   }
 }
 @media (max-width: 360px) {
   main .pageOne .text {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
   }
 }
 main .pageOne .text h2 {
@@ -97,7 +117,7 @@ main .pageOne .text h2 {
 }
 @media (max-width: 360px) {
   main .pageOne .text h2 {
-    font-size: 20px;
+    font-size: 26px;
   }
 }
 main .pageOne .text p {
@@ -117,9 +137,15 @@ main .pageOne .text .but {
   height: 46px;
   display: flex;
 }
+@media (max-width: 500px) {
+  main .pageOne .text .but {
+    width: 330px;
+  }
+}
 @media (max-width: 360px) {
   main .pageOne .text .but {
     width: 280px;
+    height: 40px;
   }
 }
 main .pageOne .text .but .search {
@@ -148,9 +174,19 @@ main .pageOne .text .but .icon {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 360px) {
+  main .pageOne .text .but .icon {
+    height: 40px;
+  }
+}
 main .pageOne .text .but .icon i {
   color: #F8F8F8;
   font-size: 30px;
+}
+@media (max-width: 360px) {
+  main .pageOne .text .but .icon i {
+    font-size: 24px;
+  }
 }
 main .pageOne .text .searchContainer {
   width: 400px;
@@ -210,25 +246,35 @@ main .pageTwo .imgBoxes {
 }
 @media (max-width: 1250px) {
   main .pageTwo .imgBoxes {
-    width: 80%;
+    width: 90%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    grid-gap: 25px;
+    margin: 45px auto;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   main .pageTwo .imgBoxes {
-    width: 80%;
+    width: 90%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    grid-gap: 20px;
+    margin: 35px auto;
+  }
+}
+@media (max-width: 500px) {
+  main .pageTwo .imgBoxes {
+    width: 90%;
+    margin: 25px auto;
   }
 }
 @media (max-width: 360px) {
   main .pageTwo .imgBoxes {
-    width: 100%;
+    width: 90%;
     grid-template-columns: repeat(1, 322px);
     grid-template-rows: repeat(12, 235px);
     grid-gap: 15px;
-    padding: 0 20px;
+    margin: 20px auto;
   }
 }
 main .pageTwo .imgBoxes .item {
@@ -245,6 +291,8 @@ main .pageTwo .imgBoxes .item .name-top {
   align-items: center;
   position: relative;
   border-right-color: #448899;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .pageTwo .imgBoxes .item .name-top p {
   width: 100%;
@@ -262,6 +310,12 @@ main .pageTwo .imgBoxes .item .name-top p {
 @media (max-width: 1250px) {
   main .pageTwo .imgBoxes .item .name-top p {
     font-size: 15px;
+  }
+}
+@media (max-width: 500px) {
+  main .pageTwo .imgBoxes .item .name-top p {
+    font-size: 13px;
+    padding: 4px;
   }
 }
 @media (max-width: 360px) {
@@ -290,6 +344,14 @@ main .pageTwo .imgBoxes .item .name-btm p {
   line-height: 40px;
   background-color: white;
   color: #757575;
+  display: inline-block;
+  max-height: 20vh;
+}
+@media (max-width: 500px) {
+  main .pageTwo .imgBoxes .item .name-btm p {
+    font-size: 13px;
+    padding: 4px;
+  }
 }
 @media (max-width: 360px) {
   main .pageTwo .imgBoxes .item .name-btm p {
