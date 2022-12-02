@@ -57,10 +57,10 @@ nav{
                 font-weight: 700;
                 color:#448899; 
                 @include rwdThird{
-                    font-size: 28px;
+                    font-size: 26px;
                 }
                 @include mobile{
-                    font-size: 26px;
+                    font-size: 24px;
                 }
             }
         }
@@ -245,6 +245,7 @@ main{
             @include rwdThird(){
                 width: 90%;
                 margin: 25px auto;
+                grid-gap:15px;
             }
             @include mobile{
                 width:90%;

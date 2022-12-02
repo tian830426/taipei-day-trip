@@ -47,12 +47,12 @@ nav .nav-bar .nav-bar-left p {
 }
 @media (max-width: 500px) {
   nav .nav-bar .nav-bar-left p {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 @media (max-width: 360px) {
   nav .nav-bar .nav-bar-left p {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 nav .nav-bar .nav-bar-right {
@@ -266,6 +266,7 @@ main .pageTwo .imgBoxes {
   main .pageTwo .imgBoxes {
     width: 90%;
     margin: 25px auto;
+    grid-gap: 15px;
   }
 }
 @media (max-width: 360px) {
