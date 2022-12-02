@@ -32,7 +32,11 @@ for item in data['result']['results']:
         file_format = "https"+item['file'].lower().split('https')[i]          
         if ".jpg" in file_format:    
             new_file.append(file_format) 
-    new_file = str(new_file) .replace("[","").replace("]","").replace(",","").replace("'","")
+    # print(new_file[0])
+    
+    new_file = str(new_file)
+    # .replace("[","").replace("]","").replace(",","").replace("'","")
+    print(new_file)
     item['file'] = new_file
 
     # print(item['file'])
