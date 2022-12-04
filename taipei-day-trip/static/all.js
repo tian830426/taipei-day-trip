@@ -13,6 +13,10 @@ let attractionMrt = "";
 let attractionCategory = "";
 let attractionLen = 0; 
 
+//設定id 全域變數
+let attractionId = "";
+let attractionIdUrl = "";
+
 if (nextPage == 0){
     urlPage = urlDemo+nextPage
     getData();    
@@ -53,8 +57,13 @@ function getData(){
 //loading picture
 function loadPicture(){
     for(let i = 0; i < attractionLen; i++){
+
         let item = document.createElement('div')
         item.setAttribute('class','item') 
+        //a 連結
+        let itemId = document.createElement('a')
+        itemId.appendChild(item)
+
         let nameTop = document.createElement('div')
         nameTop.setAttribute('class','name-top')
         let nameBtm = document.createElement('div')
@@ -63,12 +72,18 @@ function loadPicture(){
         item.appendChild(nameBtm)
 
         let imgBoxes = document.querySelector('.imgBoxes')
-        imgBoxes.appendChild(item)
+        imgBoxes.appendChild(itemId)
+        // let imgBoxes = document.querySelector('.imgBoxes')
+        // imgBoxes.appendChild(item)
 
         attractionImg = attractions[i]["images"][0]
         attractionName = attractions[i]["name"]
         attractionMrt = attractions[i]["mrt"]
         attractionCategory = attractions[i]["category"]
+        // id
+        attractionId = attractions[i]["id"]
+        attractionIdUrl = '/attraction/'+ attractionId
+        itemId.setAttribute("href",attractionIdUrl)
 
         let newImg = document.createElement("img")
         newImg.setAttribute("class","name-top")
