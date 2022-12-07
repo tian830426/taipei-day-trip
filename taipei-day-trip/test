@@ -1,0 +1,36 @@
+# 註冊api
+# @app.route('/api/user', methods =['POST'])
+# def api_signin():
+#     name = request.form['name']
+#     email = request.form['email']
+#     password = request.form['password']
+
+#     # session["name"] = name
+#     # session["email"] = email
+#     # session["password"] = password
+
+#     mycursor = new.cursor()
+#     sql = "select email from userinformation where email = %s "
+#     mycursor.execute(sql,)
+#     myresult = mycursor.fetchall()
+
+#     if (mycursor.rowcount != 0) :
+#         return jsonify({
+#             "error": true,
+#             "message": "此email已被註冊"
+#         },400)
+#     else:
+#         mycursor = new.cursor()
+#         sql2 = "insert into userinformation(name, email, password) values (%s, %s, %s)"
+#         val2 = (name, email, password)
+#         mycursor.execute(sq2,val2)
+#         new.commit()
+#         return jsonify({
+#             "ok": true
+#         },200)
+
+#     # return jsonify({
+#     #     "error" : true,
+#     #     "message" : "系統錯誤"
+#     # },500)
+

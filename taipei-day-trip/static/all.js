@@ -13,7 +13,7 @@ let attractionMrt = "";
 let attractionCategory = "";
 let attractionLen = 0; 
 
-//設定id 全域變數
+//設定 id 全域變數
 let attractionId = "";
 let attractionIdUrl = "";
 
@@ -54,6 +54,7 @@ function getData(){
         }
     });
 }
+
 //loading picture
 function loadPicture(){
     for(let i = 0; i < attractionLen; i++){
@@ -211,3 +212,71 @@ function icon(){
     },false);
 }
 icon();
+
+//signin / signup toggle 
+let navSignup = document.querySelector('.nav-signup')
+navSignup.addEventListener("click",(e)=>{
+    let signupContainer = document.querySelector(".signupContainer")
+    signupContainer.style.display = "block";
+
+},false)
+
+let signupXmark = document.querySelector('.signupXmark')
+signupXmark.addEventListener("click",(e)=>{
+   let signupContainer = document.querySelector(".signupContainer")
+   signupContainer.style.display = "none";
+},false)
+
+let signinXmark = document.querySelector('.signinXmark')
+signinXmark.addEventListener("click",(e)=>{
+   let signinContainer = document.querySelector(".signinContainer")
+   signinContainer.style.display = "none";
+   
+},false)
+
+let signinToggle = document.querySelector(".signinToggle")
+signinToggle.addEventListener("click",(e)=>{
+    let signupContainer = document.querySelector(".signupContainer")
+    signupContainer.style.display = "none";
+    let signinContainer = document.querySelector(".signinContainer")
+    signinContainer.style.display = "block";
+})
+
+let signupToggle = document.querySelector(".signupToggle")
+signupToggle.addEventListener("click",(e)=>{
+    let signupContainer = document.querySelector(".signupContainer")
+    signupContainer.style.display = "block";
+    let signinContainer = document.querySelector(".signinContainer")
+    signinContainer.style.display = "none";
+})
+
+// request signup data => fetch response to backend
+// signupData();
+function signupData(){
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    let signupData = {
+        "name": name,
+        "email" :email,
+        "password" : password
+    }
+    console.log(signupData);
+
+    fetch('/api/user',{
+        method:"POST",
+        credentials:"include",
+        body:JSON.stringify(signupData),
+        caches:"no-cache",
+        headers: new Headers({
+            "content-type" : "application/json"
+        })
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(jsonData){
+        console.log(jsonData);
+    })
+}

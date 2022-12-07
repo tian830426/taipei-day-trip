@@ -14,12 +14,12 @@
     }
 }
 @mixin rwdSecond{
-    @media(max-width:680px){
+    @media(max-width:1000px){
       @content;
     }
 }
 @mixin rwdThird{
-    @media(max-width:500px){
+    @media(max-width:700px){
       @content;
     }
 }
@@ -55,7 +55,6 @@ nav{
             width: 95%;
         }
     .nav-bar-left{
-        
         p{
             font-weight: 700;
             font-size: 30px;
@@ -68,11 +67,10 @@ nav{
             @include mobile{
                 font-size: 24px;
             }
-            }
         }
+    }
         .nav-bar-right{
-            display: flex;  
-               
+            display: flex;           
              p{  
                 padding: 5px;
                 font-weight: 500;
@@ -83,7 +81,7 @@ nav{
                 @include mobile{
                 padding: 20px 10px; 
                 line-height: 13px;
-                   }     
+                }     
             }
         }
     }
@@ -95,18 +93,17 @@ main{
     @include rwdFrist{
         padding-top:40px;
     }
-
     .attractionPage{
         max-width: 1200px;
         margin: 0 auto;
             @include rwdFrist{
-                width:95%;
+                width:100%;
             }
             @include rwdSecond{
-                width:90%;
+                width:100%;
             }
             @include rwdThird{
-                width: 90%;
+                width: 100%;
             }
             @include mobile{
                 padding-top:0;
@@ -117,13 +114,14 @@ main{
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 10px;
+            margin: 0 10px;
             @include rwdSecond{
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
                 margin: 0 auto;
+                padding: 0px;
             }
             @include rwdThird{
                 width: 100%;
@@ -140,46 +138,54 @@ main{
                 flex-direction: column;
                 margin: 0 auto;
             }
-            .pageTopImg{
-                // width: 80%;
-                // width: 740px;
-                width: 46vw;
-                margin: 15px;
+            .pageTopImg{          
+                width: 740px;
                 height: 406px;
                 overflow: hidden;
                 position: relative;
-                position: no-repeat;
                 object-fit: cover;
+
                 @include rwdFrist{
                     width: 100%;
-                    height: 380px;
-
+                    height: 406px;
+                    margin-left: 15px;
                 }
                 @include rwdSecond{
-                    width: 95%;
+                    width: 100%;
                     height: 406px;
-                    margin: 0 auto;
-                    // overflow: hidden;
+                    margin-left: 0px
+
                 }
                 @include rwdThird{
-                    width:85vw;
-                    height: 400px;
+                    width:100%;
+                    height: 440px;
+                    margin-left: 0px
                 }
                 @include mobile{
                     width: 360px;
                     height: 350px;
+                    margin-left: 0px
                 }
                 .imgBoxes{
                     width: 100%;
                     height: 100%;
                     overflow: hidden;
-                    display: flex;
                     object-fit: cover;
                     object-position: center center;
+                    display: block;
+                    @include rwdFrist{
+                    display: block;
+                    }
 
                     @include rwdSecond{
-                        width: 100vw;
+                        width: 100%;
                         height: 100%;
+                        display: block;
+                    }
+
+                    @include rwdThird{
+                        width: 100%;
+                        display: block;
                     }
                     .swiperImg{
                     width: 100%;
@@ -188,19 +194,17 @@ main{
                     object-position: center center;
                     @include rwdFrist{
                         width: 100%;
-                        height: 100%;
+                        
                     }
                     @include rwdSecond{
-                        width: 100vw;
+                        width: 100%;
                     }
                     @include rwdThird{
                         width: 100%;
-                        height: 100%;
-                        margin-right:90px ;
+                        margin: 0 auto;
                     }
                     @include mobile{
-                        width: 360px;
-                        height: 100%;
+                        width: 100%;
                        margin: 0 auto;
                     }
                 }
@@ -255,14 +259,14 @@ main{
             } 
             .pageTopTour{
                 width: 50vw;
-                margin: 10px;
+                margin: 10px 10px 20px 20px;
                 @include rwdFrist{
-                    margin: 20px;
+                    // margin: 20px;
                 }
 
                 @include rwdSecond{
                 margin-top: 20px;
-                margin-left: 20px;
+                // margin-left: 20px;
                 }
                 @include mobile{
                 width: 100vw;
@@ -290,7 +294,6 @@ main{
                     }      
                 }
                 .pageTopTourBooking{
-                   width: 40vw;
                    height: 302px; 
                    background: #E8E8E8;
                    border-radius: 5px;
@@ -302,19 +305,19 @@ main{
                    margin-bottom: 41px;
 
                    @include rwdFrist{
-                    width: 45vw;
+                    width: 50vw;
                     height: 340px;
                    }
                    @include rwdSecond{
-                    width: 80vw;
-                    height: 380px;
+                    width: 90vw;
+                    height: 310px;
                    }
                    @include rwdThird{
-                    width: 80vw;
-                    height: 355px;
+                    width: 100;vw;
+                    height: 320px;
                    }
                    @include mobile{
-                    width: 90vw;
+                    width: 100vw;
                     height: 320px;
                     margin: 15px 0 ;   
                 }
@@ -427,18 +430,25 @@ main{
             margin: 0 auto;
             border: 1px solid #E8E8E8;
 
+            @include rwdFrist{
+                width: 95vw;
+            }
             @include rwdSecond{
-                width: 100%;
-                margin: 0 auto;  
+               width: 95vw;
+                
+            }
+
+            @include rwdThird{
+                width: 95vw;
             }
             @include mobile{
-                width: 93%;
-                margin: 0 auto;          
+                width: 93%; 
+                margin-top: 10px;       
             }
         }
 
         .pageBtm{
-            margin: 40px 10px 0 0;
+            margin: 40px 10px 20px 20px;
             color: #666666;
             font-size: 16px;
             line-height: 20px;

@@ -69,7 +69,7 @@ nav{
         }
         .nav-bar-right{         
             display:flex; 
-            p{
+           p,.nav-signup{
                 padding: 5px;
                 font-weight: 500;
                 font-size: 16px;
@@ -95,6 +95,7 @@ main{
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
+        z-index: 9;
            
         .text{
             position: absolute;
@@ -230,22 +231,33 @@ main{
             }
         }   
         //登入會員帳號
-        .accountContainer{
+        .signinContainer{
             width: 340px;
             height: 275px;
-            border-top: 10px solid linear-gradient(270deg, #337788 0%, #66AABB 100%) ;
             display: flex;
             flex-direction: column;
             margin: 0 auto;
             background: #ffffff;
             box-shadow: 0px 4px 60px #AAAAAA;
             border-radius: 6px;
-            position: absolute;
-            top: 80px;
-            left: 790px;
+            // position: absolute;
+            top: -70px;
+            left: 500px;
+            // z-index: 10;
+            display: none;
+            position: fixed;
+            z-index: 10;
+            .borderTop{
+                width: 340px;
+                height: 10px;
+                position: absolute;
+                top: 0;
+                background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%) ;
+                border-radius: 6px 6px 0 0 ;
+                margin-bottom: 15px;
+            }
             .accountBox{
-                padding: 15px;
-
+                padding: 30px 15px 15px 15px;
                 h3{
                     font-weight: 700;
                     font-size: 24px;
@@ -272,7 +284,7 @@ main{
                 }
                 }
                       
-                .signIn{
+                .signinbtn{
                     width: 310px;
                     height: 47px;
                     text-align: center;
@@ -282,41 +294,55 @@ main{
                     border-radius: 5px;
                     font-size: 19px;
                     line-height: 16px;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                     border: none;
                 }
-                p{
+                .signupToggle{
                     font-weight: 500;
                     font-size: 16px;
-                    line-height: 13px;
                     color: #666666;
                     text-align: center;
+                    margin: 0;
                 }
-                .xmark{
+                .signinXmark{
                     position: absolute;
+                    width: 16px;
+                    height: 16px;
                     top: 27px;
                     right: 17px;
                     font-size: 1rem;
                     font-weight: 200;
+                    color: #666666;
                 }
             }
         }
         //註冊頁面
-        .signinContainer{
+        .signupContainer{
             width: 340px;
             height: 332px;
-            // border-top: 10px solid linear-gradient(270deg, #337788 0%, #66AABB 100%) ;
             display: flex;
             flex-direction: column;
             margin: 0 auto;
             background: #ffffff;
             box-shadow: 0px 4px 60px #AAAAAA;
             border-radius: 6px;
-            position: absolute;
-            top: 80px;
-            left: 400px;
+            // position: absolute;
+            top: -70px;
+            left: 500px;
+            display: none;
+            position: fixed;
+            z-index: 10;
+            .borderTop{
+                width: 340px;
+                height: 10px;
+                position: absolute;
+                top: 0;
+                background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%)  ;
+                border-radius: 6px 6px 0 0 ;
+                // margin-bottom: 15px;
+            }
             .accountBox{
-                padding: 15px;
+                padding: 30px 15px 15px 15px;
 
                 h3{
                     font-weight: 700;
@@ -344,7 +370,7 @@ main{
                 }
                 }
                       
-                .signIn{
+                .signupBtn{
                     width: 310px;
                     height: 47px;
                     text-align: center;
@@ -354,22 +380,23 @@ main{
                     border-radius: 5px;
                     font-size: 19px;
                     line-height: 16px;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                     border: none;
                 }
-                p{
+                .signinToggle{
                     font-weight: 500;
                     font-size: 16px;
-                    line-height: 13px;
                     color: #666666;
                     text-align: center;
+                    margin: 0;
                 }
-                .xmark{
+                .signupXmark{
                     position: absolute;
                     top: 27px;
                     right: 17px;
                     font-size: 1rem;
                     font-weight: 200;
+                    color: #666666;
                 }
             }
         }

@@ -1,9 +1,9 @@
 import json
 import mysql.connector
 
-# with open("taipei-attractions.json", "r" , encoding="utf-8") as response:
-#     data = json.load(response)  #利用json模組處理json資料格式
-# for item in data['result']['results']:
+with open("taipei-attractions.json", "r" , encoding="utf-8") as response:
+    data = json.load(response)  #利用json模組處理json資料格式
+for item in data['result']['results']:
     # print(item["file"])
     # print(item['_id'])
     # print(item['name'])
@@ -23,7 +23,7 @@ new = mysql.connector.connect(
 )
 
 with open("taipei-attractions.json", "r" , encoding="utf-8") as response:
-    data = json.load(response)  #利用json模組處理json資料格式
+    data = json.load(response)  
 for item in data['result']['results']:
     itemLen = len(data['result']['results']) 
     fileLen = len(item['file'].lower().split('https'))
@@ -32,13 +32,12 @@ for item in data['result']['results']:
         file_format = "https"+item['file'].lower().split('https')[i]          
         if ".jpg" in file_format:    
             new_file.append(file_format) 
-    # print(new_file[0])
+    
     
     new_file = str(new_file)
     # .replace("[","").replace("]","").replace(",","").replace("'","")
     print(new_file)
     item['file'] = new_file
-
     # print(item['file'])
 
     #增加資料到資料夾
@@ -49,7 +48,6 @@ for item in data['result']['results']:
     # new.commit()
 
     # 創建第二個資料庫 datas2
-
     # create table datas2(id int ,
     # name varchar(255) ,
     # category varchar(255) ,
@@ -60,7 +58,6 @@ for item in data['result']['results']:
     # lat float ,
     # lng  float ,
     # images TEXT);
-
 
     #增加資料到資料夾  
     # mycursor = new.cursor()
@@ -74,13 +71,10 @@ for item in data['result']['results']:
     # print(type(item['file'])) 
     # print(type(str(item['file']) ) ) 
 
-
-
     # mysql报错：1406, "Data too long for column
     # 參考資料：http://huanyouchen.github.io/2018/05/22/mysql-error-1406-Data-too-long-for-column/
     # SET @@global.sql_mode= '';
 
-    
 
 
 

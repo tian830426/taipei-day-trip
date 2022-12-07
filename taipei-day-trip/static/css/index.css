@@ -60,7 +60,7 @@ nav .nav-bar .nav-bar-left p {
 nav .nav-bar .nav-bar-right {
   display: flex;
 }
-nav .nav-bar .nav-bar-right p {
+nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
   padding: 5px;
   font-weight: 500;
   font-size: 16px;
@@ -69,7 +69,7 @@ nav .nav-bar .nav-bar-right p {
   padding: 0 10px;
 }
 @media (max-width: 360px) {
-  nav .nav-bar .nav-bar-right p {
+  nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
     padding: 20px 10px;
     line-height: 13px;
   }
@@ -83,6 +83,7 @@ main .pageOne {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  z-index: 9;
 }
 main .pageOne .text {
   position: absolute;
@@ -247,89 +248,32 @@ main .pageOne .text .searchContainer .searchForm .searchItem:hover {
   background-color: rgb(232, 232, 232);
   border-radius: 5px;
 }
-main .pageOne .text .accountContainer {
-  width: 340px;
-  height: 275px;
-  border-top: 10px solid linear-gradient(270deg, #337788 0%, #66AABB 100%);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 4px 60px #AAAAAA;
-  border-radius: 6px;
-  position: absolute;
-  top: 80px;
-  left: 790px;
-}
-main .pageOne .text .accountContainer .accountBox {
-  padding: 15px;
-}
-main .pageOne .text .accountContainer .accountBox h3 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #666666;
-}
-main .pageOne .text .accountContainer .accountBox .accountContent {
-  display: flex;
-  flex-direction: column;
-}
-main .pageOne .text .accountContainer .accountBox .accountContent .email, main .pageOne .text .accountContainer .accountBox .accountContent .password {
-  width: 310px;
-  height: 47px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 13px;
-  padding: 10px;
-  color: #757575;
-  margin-bottom: 10px;
-  border: 1px solid #CCCCCC;
-  border-radius: 5px;
-}
-main .pageOne .text .accountContainer .accountBox .signIn {
-  width: 310px;
-  height: 47px;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 400;
-  background: #448899;
-  border-radius: 5px;
-  font-size: 19px;
-  line-height: 16px;
-  margin-bottom: 10px;
-  border: none;
-}
-main .pageOne .text .accountContainer .accountBox p {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 13px;
-  color: #666666;
-  text-align: center;
-}
-main .pageOne .text .accountContainer .accountBox .xmark {
-  position: absolute;
-  top: 27px;
-  right: 17px;
-  font-size: 1rem;
-  font-weight: 200;
-}
 main .pageOne .text .signinContainer {
   width: 340px;
-  height: 332px;
+  height: 275px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   background: #ffffff;
   box-shadow: 0px 4px 60px #AAAAAA;
   border-radius: 6px;
+  top: -70px;
+  left: 500px;
+  display: none;
+  position: fixed;
+  z-index: 10;
+}
+main .pageOne .text .signinContainer .borderTop {
+  width: 340px;
+  height: 10px;
   position: absolute;
-  top: 80px;
-  left: 400px;
+  top: 0;
+  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 15px;
 }
 main .pageOne .text .signinContainer .accountBox {
-  padding: 15px;
+  padding: 30px 15px 15px 15px;
 }
 main .pageOne .text .signinContainer .accountBox h3 {
   font-weight: 700;
@@ -343,7 +287,7 @@ main .pageOne .text .signinContainer .accountBox .accountContent {
   display: flex;
   flex-direction: column;
 }
-main .pageOne .text .signinContainer .accountBox .accountContent .name, main .pageOne .text .signinContainer .accountBox .accountContent .email, main .pageOne .text .signinContainer .accountBox .accountContent .password {
+main .pageOne .text .signinContainer .accountBox .accountContent .email, main .pageOne .text .signinContainer .accountBox .accountContent .password {
   width: 310px;
   height: 47px;
   font-weight: 500;
@@ -355,7 +299,7 @@ main .pageOne .text .signinContainer .accountBox .accountContent .name, main .pa
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
-main .pageOne .text .signinContainer .accountBox .signIn {
+main .pageOne .text .signinContainer .accountBox .signinbtn {
   width: 310px;
   height: 47px;
   text-align: center;
@@ -365,22 +309,103 @@ main .pageOne .text .signinContainer .accountBox .signIn {
   border-radius: 5px;
   font-size: 19px;
   line-height: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: none;
 }
-main .pageOne .text .signinContainer .accountBox p {
+main .pageOne .text .signinContainer .accountBox .signupToggle {
+  font-weight: 500;
+  font-size: 16px;
+  color: #666666;
+  text-align: center;
+  margin: 0;
+}
+main .pageOne .text .signinContainer .accountBox .signinXmark {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 27px;
+  right: 17px;
+  font-size: 1rem;
+  font-weight: 200;
+  color: #666666;
+}
+main .pageOne .text .signupContainer {
+  width: 340px;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 60px #AAAAAA;
+  border-radius: 6px;
+  top: -70px;
+  left: 500px;
+  display: none;
+  position: fixed;
+  z-index: 10;
+}
+main .pageOne .text .signupContainer .borderTop {
+  width: 340px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+  border-radius: 6px 6px 0 0;
+}
+main .pageOne .text .signupContainer .accountBox {
+  padding: 30px 15px 15px 15px;
+}
+main .pageOne .text .signupContainer .accountBox h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #666666;
+}
+main .pageOne .text .signupContainer .accountBox .accountContent {
+  display: flex;
+  flex-direction: column;
+}
+main .pageOne .text .signupContainer .accountBox .accountContent .name, main .pageOne .text .signupContainer .accountBox .accountContent .email, main .pageOne .text .signupContainer .accountBox .accountContent .password {
+  width: 310px;
+  height: 47px;
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
+  padding: 10px;
+  color: #757575;
+  margin-bottom: 10px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+main .pageOne .text .signupContainer .accountBox .signupBtn {
+  width: 310px;
+  height: 47px;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 400;
+  background: #448899;
+  border-radius: 5px;
+  font-size: 19px;
+  line-height: 16px;
+  margin-bottom: 15px;
+  border: none;
+}
+main .pageOne .text .signupContainer .accountBox .signinToggle {
+  font-weight: 500;
+  font-size: 16px;
   color: #666666;
   text-align: center;
+  margin: 0;
 }
-main .pageOne .text .signinContainer .accountBox .xmark {
+main .pageOne .text .signupContainer .accountBox .signupXmark {
   position: absolute;
   top: 27px;
   right: 17px;
   font-size: 1rem;
   font-weight: 200;
+  color: #666666;
 }
 main .pageTwo {
   width: 100%;
