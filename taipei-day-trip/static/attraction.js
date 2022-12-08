@@ -25,8 +25,9 @@ function getData(){
     fetch(attractionUrl).then(function(response){
         return response.json();
     }).then(function(data){
-
+        console.log(data);
         attractionId = data["data"]["id"]
+        
         attractions = data["data"];
         
         attractionImg = attractions["images"];
@@ -111,14 +112,14 @@ document.getElementById('afternoon').addEventListener('click',(e)=>{
 
         function moveRightBall(){
             let pagination = document.querySelectorAll('.pagination');
-            pagination[idx].style.backgroundColor = 'black';
-            pagination[(idx-1)].style.backgroundColor = 'white';
+            pagination[idx].style.backgroundColor = 'white';
+            pagination[(idx+1)].style.backgroundColor = 'black';
         }
         
         function moveLeftBall(){
             let pagination = document.querySelectorAll('.pagination');  
-            pagination[idx].style.backgroundColor = ' black';
-            pagination[(idx+1)].style.backgroundColor = 'white';
+            pagination[idx].style.backgroundColor = ' white';
+            pagination[(idx-1)].style.backgroundColor = 'black';
 
         }
 
