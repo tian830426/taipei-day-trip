@@ -34,7 +34,7 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
-#取得景點列表API
+# 取得景點列表API
 @app.route('/api/attractions',methods = ['GET'])
 def api_attractions():
     page_num = request.args.get('page','')
@@ -49,21 +49,21 @@ def api_attractions():
         page_count_stage = page_num * page_count_maxnum 
         mycursor = new.cursor()
         sql = "select * from datas2 limit %s,%s "
-        val =(page_count_stage,page_count_maxnum)
+        val = (page_count_stage,page_count_maxnum)
         mycursor.execute(sql,val)
         count_result = mycursor.fetchall()
-        print(count_result[0][9])
+        # print(count_result[0][9])
         count_result_len = len(count_result)
         # print(count_result_len)
         #處理資料庫型態
         for i in range(count_result_len):
-            count_result[i]=list(count_result[i])
-            count_result[i][9]=count_result[i][9].split(" ")
+            count_result[i] = list(count_result[i])
+            count_result[i][9] = count_result[i][9].split(" ")
         
-
         count_result_title = mycursor.description
         result_title = [tit[0] for tit in count_result_title]
         count_data = []
+
         for i in range (count_result_len):
             count_data.append(dict(zip(result_title,count_result[i])))
 
@@ -108,8 +108,8 @@ def api_attractions():
         
         if key_word_result_len !=0:
             for i in range(key_word_result_len):
-                key_word_result[i]=list(key_word_result[i])
-                key_word_result[i][9]=key_word_result[i][9].split(" ")
+                key_word_result[i] = list(key_word_result[i])
+                key_word_result[i][9] = key_word_result[i][9].split(" ")
 
             key_word_result_title = mycursor1.description
             key_word_result_title_name = [tit[0] for tit in key_word_result_title]
@@ -164,8 +164,8 @@ def api_attractionId(attractionId):
 
         else :
 
-            id_result =list(id_result)
-            id_result[9]=id_result[9].split(" ")
+            id_result = list(id_result)
+            id_result[9] = id_result[9].split(" ")
             # print(id_result[9])
             
             id_result_title = mycursor_data.description
@@ -209,6 +209,127 @@ def api_categories():
         "error":True,
         "message":"未定義"
     })
+
+
+# 註冊api
+# @app.route('/api/user', methods =['POST'])
+# def api_signup():
+   
+#     name = request.form['name']
+#     email = request.form['email']
+#     password = request.form['password']
+
+#     # session["name"] = name
+#     # session["email"] = email
+#     # session["password"] = password
+
+#     mycursor = new.cursor()
+#     sql = "select email from userinformation where email = %s "
+#     val = (email,)
+#     mycursor.execute(sql,val)
+#     myresult = mycursor.fetchall()
+    
+#     try:
+#         if (mycursor.rowcount != 0) :
+#             return jsonify({
+#                 "error": True,
+#                 "message": "此email已被註冊"
+#             },400)
+#         else:
+#             mycursor2 = new.cursor()
+#             sql2 = "insert into userinformation(name, email, password) values (%s, %s, %s)"
+#             val2 = (name, email, password)
+#             mycursor2.execute(sql2,val2)
+#             new.commit()
+#             return jsonify({
+#                 "name": myresult[0][0],
+#                 "email": myresult[0][1],
+#                 "password": myresult[0][2]
+#             },{
+#                 "ok": True
+#             },200)
+#     except:
+#         return jsonify({
+#             "error" : rue,
+#             "message" : "系統錯誤"
+#         },500)
+
+# # 登入api
+# @app.route('/api/user/auth',methods = ['GET','PUT','DELETE'])
+# def api_signin():
+#     name = request.args.get('name')
+#     email = request.args.get('email')
+#     password = request.args.get('password')
+
+#     session['name'] = name
+#     session['email'] = email
+#     session['password'] = password
+
+#     mycursor = new.cursor()
+#     sql = "select name, email, password from userinformation where email = %s and password = %s "
+#     val = (email,password)
+#     mycursor.execute(sql,val)
+#     myresult = mycursor.fetchall()
+
+#     if  mycursor.rowcount!= 0 and myresult[0][2] == email and myresult[0][3] == password:
+#         name = request.args.get("name","")       
+#         session['name'] = myresult[0][1]
+#         session['enter'] = 'open'
+#         return jsonify({
+#                 "data": {
+#                 "id": myresult[0][0]
+#                 "name":myresult[0][1]
+#                 "email":myresult[0][1]
+#             }
+#             },200)  
+#     else:        
+#         return {None}
+
+
+
+name = ''
+email = ''
+password = ''
+
+# use signupData from frontend
+@app.route("/api/user", methods = ['POST'])
+def api_signup():
+    # signupData = json.loads(request.data)
+    signupData = request.get_json()
+    name = signupData['name']
+    email = signupData['email']
+    password = signupData['password']
+
+    print(name,email,password)
+
+    return '123'
+
+    # mycursor = new.cursor()
+    # sql = "select email from userinformation where email = %s "
+    # val = (email,)
+    # mycursor.execute(sql,val)
+    # myresult = mycursor.fetchall()
+    
+    # try:
+    #     if (mycursor.rowcount != 0) :
+    #         return jsonify({
+    #             "error": True,
+    #             "message": "此email已被註冊"
+    #         },400)
+    #     else:
+    #         mycursor2 = new.cursor()
+    #         sql2 = "insert into userinformation(name, email, password) values (%s, %s, %s)"
+    #         val2 = (name, email, password)
+    #         mycursor2.execute(sql2,val2)
+    #         new.commit()
+    #         return jsonify({
+    #             "ok": True
+    #         },200)
+    # except:
+    #     return jsonify({
+    #         "error" : True,
+    #         "message" : "系統錯誤"
+    #     },500)
 
 app.run(host='0.0.0.0',port=3000)
 

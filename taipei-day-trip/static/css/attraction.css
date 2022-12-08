@@ -4,12 +4,14 @@
   margin: 0;
   font-family: "Noto Sans TC";
   font-style: normal;
+  text-decoration: none;
 }
 
 nav {
   width: 100%;
   height: 54px;
   position: fixed;
+  top: 0;
   z-index: 2;
   background-color: white;
 }
@@ -19,9 +21,24 @@ nav .nav-bar {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 1200px) {
+  nav .nav-bar {
+    width: 90%;
+  }
+}
+@media (max-width: 1000px) {
+  nav .nav-bar {
+    width: 90%;
+  }
+}
+@media (max-width: 700px) {
+  nav .nav-bar {
+    width: 90%;
+  }
+}
 @media (max-width: 360px) {
   nav .nav-bar {
-    width: 100%;
+    width: 95%;
   }
 }
 nav .nav-bar .nav-bar-left p {
@@ -31,9 +48,14 @@ nav .nav-bar .nav-bar-left p {
   line-height: 34px;
   padding: 10px 0;
 }
+@media (max-width: 700px) {
+  nav .nav-bar .nav-bar-left p {
+    font-size: 24px;
+  }
+}
 @media (max-width: 360px) {
   nav .nav-bar .nav-bar-left p {
-    padding: 10px;
+    font-size: 24px;
   }
 }
 nav .nav-bar .nav-bar-right {
@@ -56,40 +78,167 @@ nav .nav-bar .nav-bar-right p {
 
 main {
   width: 100%;
-  margin-bottom: 120px;
-  padding-top: 90px;
+  margin-bottom: 100px;
+  padding-top: 54px;
+}
+@media (max-width: 1200px) {
+  main {
+    padding-top: 40px;
+  }
 }
 main .attractionPage {
   max-width: 1200px;
   margin: 0 auto;
 }
+@media (max-width: 1200px) {
+  main .attractionPage {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage {
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage {
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  main .attractionPage {
+    padding-top: 0;
+    width: 100%;
+  }
+}
 main .attractionPage .pageTop {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  margin: 0 10px;
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0px;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .pageTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0px;
+  }
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 0 auto;
   }
 }
 main .attractionPage .pageTop .pageTopImg {
-  width: 540px;
+  width: 740px;
   height: 406px;
+  overflow: hidden;
   position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 1200px) {
+  main .attractionPage .pageTop .pageTopImg {
+    width: 100%;
+    height: 406px;
+    margin-left: 15px;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopImg {
+    width: 100%;
+    height: 406px;
+    margin-left: 0px;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .pageTop .pageTopImg {
+    width: 100%;
+    height: 440px;
+    margin-left: 0px;
+  }
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopImg {
     width: 360px;
     height: 350px;
+    margin-left: 0px;
   }
 }
-main .attractionPage .pageTop .pageTopImg img {
+main .attractionPage .pageTop .pageTopImg .imgBoxes {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  display: block;
+}
+@media (max-width: 1200px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+    display: block;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+    width: 100%;
+    display: block;
+  }
+}
+main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+@media (max-width: 1200px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 360px) {
+  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 main .attractionPage .pageTop .pageTopImg .imgArrow {
   width: 100%;
@@ -119,7 +268,7 @@ main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock i {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-main .attractionPage .pageTop .pageTopImg .ballBlock {
+main .attractionPage .pageTop .pageTopImg .swiper-pagination {
   width: 100%;
   height: 15px;
   display: flex;
@@ -128,15 +277,29 @@ main .attractionPage .pageTop .pageTopImg .ballBlock {
   position: absolute;
   bottom: 12px;
 }
-main .attractionPage .pageTop .pageTopImg .ballBlock .ball {
-  width: 15px;
-  height: 15px;
-  accent-color: yellow;
-  margin-right: 5px;
+main .attractionPage .pageTop .pageTopImg .swiper-pagination .pagination {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 4px white;
+  background-color: white;
+  padding: 3px;
+  margin-right: 8px;
+}
+main .attractionPage .pageTop .pageTopTour {
+  width: 50vw;
+  margin: 10px 10px 20px 20px;
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopTour {
+    margin-top: 20px;
+  }
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopTour {
+    width: 100vw;
     padding: 10px;
+    margin: 0px;
   }
 }
 main .attractionPage .pageTop .pageTopTour .pageTopTourTitle {
@@ -148,13 +311,15 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourTitle h2 {
   font-weight: 700;
   font-size: 24px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourTitle p {
-  font-weight: 500;
-  font-size: 16px;
+main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at {
+  display: flex;
   margin-top: 15px;
 }
+main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .category, main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .mrt {
+  font-weight: 500;
+  font-size: 16px;
+}
 main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
-  width: 600px;
   height: 302px;
   background: #E8E8E8;
   border-radius: 5px;
@@ -165,10 +330,29 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
   color: #666666;
   margin-bottom: 41px;
 }
+@media (max-width: 1200px) {
+  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+    width: 50vw;
+    height: 340px;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+    width: 90vw;
+    height: 310px;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+    width: 100;
+    height: 320px;
+  }
+}
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
-    width: 340px;
-    height: 300px;
+    width: 95vw;
+    height: 320px;
+    margin: 15px 0;
   }
 }
 main .attractionPage .pageTop .pageTopTour .pageTopTourBooking h4 {
@@ -187,6 +371,17 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
   font-size: 16px;
   line-height: 13px;
   margin-bottom: 24px;
+}
+@media (max-width: 1200px) {
+  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1000px) {
+  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+    line-height: 26px;
+  }
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
@@ -208,39 +403,46 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .date input {
   padding: 5px 10px;
 }
 main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time {
     margin-bottom: 15px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time label {
+main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div label {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time input {
+main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div #morning, main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div #afternoon {
+  width: 18px;
+  height: 18px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 16x;
   line-height: 13px;
   accent-color: #448899;
+  margin-right: 4px;
 }
 main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash {
   margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 13px;
+  margin-right: 10px;
+  display: flex;
 }
 @media (max-width: 360px) {
   main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash {
     margin-bottom: 15px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash label {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 13px;
-  margin-right: 10px;
-}
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash input {
+main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash .price {
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
@@ -260,47 +462,62 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .readyBooking {
   line-height: 16px;
   border: none;
 }
+main .attractionPage .hr {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #E8E8E8;
+}
+@media (max-width: 1000px) {
+  main .attractionPage .hr {
+    width: 90vw;
+  }
+}
+@media (max-width: 700px) {
+  main .attractionPage .hr {
+    width: 90vw;
+  }
+}
 @media (max-width: 360px) {
   main .attractionPage .hr {
     width: 93%;
-    margin: 0 auto;
+    margin-top: 10px;
   }
 }
 main .attractionPage .pageBtm {
-  margin: 50px 10px 0 0;
+  margin: 40px 10px 20px 20px;
   color: #666666;
   font-size: 16px;
   line-height: 20px;
 }
 @media (max-width: 360px) {
   main .attractionPage .pageBtm {
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0;
     padding: 0 20px;
   }
 }
 main .attractionPage .pageBtm .content {
   font-weight: 400;
-  line-height: 23px;
+  line-height: 30px;
 }
-main .attractionPage .pageBtm .address {
+main .attractionPage .pageBtm h4 {
   margin: 30px 0;
   font-weight: 700;
   line-height: 13px;
 }
-main .attractionPage .pageBtm .address p {
+main .attractionPage .pageBtm h4 .address {
   margin: 10px 0;
   font-weight: 400;
-  line-height: 23px;
+  line-height: 30px;
 }
-main .attractionPage .pageBtm .traffic {
+main .attractionPage .pageBtm h4 {
   margin: 30px 0;
   font-weight: 700;
   line-height: 13px;
 }
-main .attractionPage .pageBtm .traffic p {
+main .attractionPage .pageBtm h4 .traffic {
   margin: 10px 0;
   font-weight: 400;
-  line-height: 23px;
+  line-height: 30px;
 }
 
 footer {
