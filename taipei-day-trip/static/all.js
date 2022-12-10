@@ -48,7 +48,7 @@ function getData() {
           urlPage =
             "/api/attractions?page=" + data["nextPage"] + "&keyword=" + keyword;
         } else {
-          console.log("nextPage= " + data["nextPage"]);
+          // console.log("nextPage= " + data["nextPage"]);
           urlPage = urlDemo + data["nextPage"];
           judge = 1;
           loadMore();
@@ -229,7 +229,7 @@ function icon() {
 }
 icon();
 
-//signin / signup toggle
+// click  signup container alert
 let navSignup = document.querySelector(".nav-signup");
 navSignup.addEventListener(
   "click",
@@ -240,6 +240,7 @@ navSignup.addEventListener(
   false
 );
 
+// control xmark
 let signupXmark = document.querySelector(".signupXmark");
 signupXmark.addEventListener(
   "click",
@@ -260,6 +261,7 @@ signinXmark.addEventListener(
   false
 );
 
+//control signup and singin container page
 let signinToggle = document.querySelector(".signinToggle");
 signinToggle.addEventListener("click", (e) => {
   let signupContainer = document.querySelector(".signupContainer");
@@ -276,18 +278,22 @@ signupToggle.addEventListener("click", (e) => {
   signinContainer.style.display = "none";
 });
 
-// request signup data => fetch response to backend
-function signupData(){
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+// signup (POST)
+let signupBtn = document.querySelector(".signupBtn");
+signupBtn.addEventListener("click", (e) => {
+  signupData();
+});
 
-const signupData = {
-    "name": name,
-    "email": email,
-    "password": password,
+function signupData() {
+  const name = document.getElementById("signup_name").value;
+  const email = document.getElementById("signup_email").value;
+  const password = document.getElementById("signup_password").value;
+
+  const signupData = {
+    name: name,
+    email: email,
+    password: password,
   };
-  console.log(signupData);
 
   fetch("/api/user", {
     method: "POST",
@@ -297,9 +303,138 @@ const signupData = {
     headers: new Headers({
       "content-type": "application/json",
     }),
-    }).then(function (response) {
-    return response.json();
-    }).then(function(jsonData){
-       console.log(jsonData);
+  })
+    .then(function (response) {
+      // if (response.status == 200){
+      // let signupStatus = document.querySelector(".signupStatus")
+      // signupStatus.innerHTML = '此信箱已註冊過，請重新註冊或登入'
+      // }
+      // console.log(response.status);
+      return response.json();
     })
+    .then(function (data) {
+      // console.log(data);
+      // console.log(data[1]);
+      if (data['ok'] == true) {
+        let signupStatus = document.querySelector(".signupStatus");
+        signupStatus.innerHTML = "恭喜你！註冊成功！";
+      } else if (data['error'] == true) {
+        let signupContainer = document.querySelector(".signupContainer");
+        signupContainer.style.height = "375px";
+        // let signupContainerPlus = document.querySelector('.signupContainerPlus')
+        // signupContainerPlus.style.display='block'
+        let signupStatus = document.querySelector(".signupStatus");
+        signupStatus.innerHTML = "此信箱已註冊過，請重新輸入";
+      } else {
+        console.log("系統錯誤");
+      }
+    });
 }
+
+let signinBtn = document.querySelector(".signinBtn");
+signinBtn.addEventListener("click", (e) => {
+  signinData();
+  // getcookies();
+});
+
+//signin (PUT)
+function signinData() {
+  const email = document.getElementById("signin_email").value;
+  const password = document.getElementById("signin_password").value;
+
+  const signinData = {
+    email: email,
+    password: password,
+  };
+
+  fetch("/api/user/auth", {
+    method: "PUT",
+    credentials: "include",
+    body: JSON.stringify(signinData),
+    caches: "no-cache",
+    headers: new Headers({
+      "content-type": "application/json",
+    }),
+  })
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      if (data['ok'] == true) {
+        // console.log('123');
+        // let navSignup = document.querySelector(".nav-signup")
+        // navSignup.innerHTML = '已登入'
+        let signinContainer = document.querySelector(".signinContainer");
+        signinContainer.style.display = "none";
+        getcookies();
+      } else if (data["error"] == true) {
+        // signinContainer.style.display= 'none';
+        // let signinContainerPlus = document.querySelector(".signinContainerPlus");
+        // signinContainerPlus.style.display= 'block';
+        let signinContainer = document.querySelector(".signinContainer");
+        signinContainer.style.height = "320px";
+        let signinStatus = document.querySelector(".signinStatus");
+        signinStatus.innerHTML = "帳號密碼輸入錯誤，請重新輸入";
+      }
+    });
+}
+
+//signin (GET)
+function getcookies() {
+  fetch("/api/user/auth", {
+    method: "GET",
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("取得token", data);
+      if (data["data"] != null) {
+        console.log("登入中狀態");
+        let navsignup = document.querySelector(".nav-signup");
+        navsignup.style.display = "none";
+        let navsignout = document.querySelector(".nav-signout");
+        navsignout.style.display = "block";
+        
+      } else {
+      }
+    });
+}
+
+// signoutData();
+function signoutData() {}
+  let navsignout = document.querySelector(".nav-signout");
+  navsignout.addEventListener("click", (e) => {
+    console.log('456');
+    const hh = {}
+    fetch("/api/user/auth", {
+      method: "DELETE",
+    //   credentials: "include",
+    //   body: JSON.stringify(hh),
+    //   caches: "no-cache",
+    //   headers: new Headers({
+    //   "content-type": "application/json",
+    // }),
+    })
+      .then(function (response) {
+        // console.log(response);
+        return response.json();
+      })
+
+      .then(function (data) {
+        console.log(data);
+        if (data['ok'] == true ) {
+          console.log("成功清除");
+          let navsignup = document.querySelector(".nav-signup");
+          navsignup.style.display = "block";
+          let navsignout = document.querySelector(".nav-signout");
+          navsignout.style.display = "none";
+        } else {
+          console.log("有問題");
+        }
+      });
+  });
+// }
+
+//signin (DELETE)

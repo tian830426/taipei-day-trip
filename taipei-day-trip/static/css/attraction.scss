@@ -71,7 +71,7 @@ nav{
     }
         .nav-bar-right{
             display: flex;           
-             p{  
+             p,.nav-signup{  
                 padding: 5px;
                 font-weight: 500;
                 font-size: 16px;
@@ -83,6 +83,19 @@ nav{
                 line-height: 13px;
                 }     
             }
+            .nav-signout{
+                display: none;
+                padding: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 54px;
+                color: #666666;
+                padding: 0 10px;
+                @include mobile{
+                padding: 20px 10px; 
+                line-height: 13px;
+            } 
+        }
         }
     }
 }
@@ -313,7 +326,7 @@ main{
                     height: 310px;
                    }
                    @include rwdThird{
-                    width: 100;vw;
+                    width: 100vw;
                     height: 320px;
                    }
                    @include mobile{

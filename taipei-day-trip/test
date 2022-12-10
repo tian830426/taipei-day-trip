@@ -1,36 +1,25 @@
-# 註冊api
-# @app.route('/api/user', methods =['POST'])
-# def api_signin():
-#     name = request.form['name']
-#     email = request.form['email']
-#     password = request.form['password']
 
-#     # session["name"] = name
-#     # session["email"] = email
-#     # session["password"] = password
+>>> import jwt
+>>> encoded_jwt = jwt.encode({"some": "payload"}, "secret", algorithm="HS256")
+>>> print(encoded_jwt)
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb21lIjoicGF5bG9hZCJ9.4twFt5NiznN84AWoo1d7KO1T_yoc0Z6XOpOVswacPZg
+>>> jwt.decode(encoded_jwt, "secret", algorithms=["HS256"])
+{'some': 'payload'}
 
-#     mycursor = new.cursor()
-#     sql = "select email from userinformation where email = %s "
-#     mycursor.execute(sql,)
-#     myresult = mycursor.fetchall()
 
-#     if (mycursor.rowcount != 0) :
-#         return jsonify({
-#             "error": true,
-#             "message": "此email已被註冊"
-#         },400)
-#     else:
-#         mycursor = new.cursor()
-#         sql2 = "insert into userinformation(name, email, password) values (%s, %s, %s)"
-#         val2 = (name, email, password)
-#         mycursor.execute(sq2,val2)
-#         new.commit()
-#         return jsonify({
-#             "ok": true
-#         },200)
 
-#     # return jsonify({
-#     #     "error" : true,
-#     #     "message" : "系統錯誤"
-#     # },500)
 
+set_<span class="highlighted">cookie</span></code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">value=''</em>, <em class="sig-param">max_age=None</em>, <em class="sig-param">expires=None</em>, <em class="sig-param">path='/'</em>, <em class="sig-param">domain=None</em>, <em class="sig-param">secure=False</em>, <em class="sig-param">httponly=False</em>, <em class="sig-param">samesite=None</em><span class="sig-paren">)</span>
+
+
+@app.route("/set")
+def setcookie():
+    resp = make_response('Setting cookie!')
+    resp.set_cookie(key='framework', value='flask', expires=time.time()+6*60)
+    return resp
+
+
+@app.route("/get")
+def getcookie():
+    framework = request.cookies.get('framework')
+    <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>The framework is <span class="pl-pds">'</span></s
