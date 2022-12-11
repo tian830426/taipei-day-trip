@@ -300,7 +300,7 @@ def api_signupData():
         connection_object.close()
 
 # use signinData from frontend
-@app.route("/api/user/auth",methods=['PUT','GET','DElETE'])
+@app.route("/api/user/auth",methods=['PUT','GET','DELETE'])
 def api_signinData():
     connection_object = connection_pool.get_connection()
     try:

@@ -106,6 +106,210 @@ main{
     @include rwdFrist{
         padding-top:40px;
     }
+      //登入會員帳號
+      .signinContainer{
+        width: 340px;
+        height: 275px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        background: #ffffff;
+        box-shadow: 0px 4px 60px #AAAAAA;
+        border-radius: 6px;
+        // position: absolute;
+        top: 50px;
+        left: 600px;
+        // z-index: 10;
+        display: none;
+        position: fixed;
+        z-index: 10;
+        .borderTop{
+            width: 340px;
+            height: 10px;
+            position: absolute;
+            top: 0;
+            background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%) ;
+            border-radius: 6px 6px 0 0 ;
+            margin-bottom: 15px;
+        }
+        .accountBox{
+            padding: 30px 15px 15px 15px;
+            h3{
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 24px; 
+                margin-bottom: 15px; 
+                text-align: center;
+                color: #666666;
+
+            }
+            .accountContent{
+                display: flex;
+                flex-direction: column;
+                 .email,.password{
+                width: 310px;
+                height: 47px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 13px;
+                padding: 10px;
+                color: #757575;
+                margin-bottom: 10px;
+                border: 1px solid #CCCCCC;
+                border-radius: 5px;
+            }
+            .signin_emailStatus{
+                font-weight: 500;
+                font-size: 12px;
+                color: #ff0707;
+                text-align: start;
+                margin: 0;
+                line-height: 12px;
+            }
+            }
+                  
+            .signinBtn{
+                width: 310px;
+                height: 47px;
+                text-align: center;
+                color: #FFFFFF;
+                font-weight: 400;
+                background: #448899;
+                border-radius: 5px;
+                font-size: 19px;
+                line-height: 16px;
+                margin-bottom: 15px;
+                border: none;
+            }
+            .signinStatus{
+                font-weight: 500;
+                font-size: 16px;
+                color: #ff0707;
+                text-align: center;
+                margin: 0;
+                line-height: 30px;
+            }
+            .signupToggle{
+                font-weight: 500;
+                font-size: 16px;
+                color: #666666;
+                text-align: center;
+                margin: 0;
+                line-height: 40px;
+            }
+            .signinXmark{
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                top: 27px;
+                right: 17px;
+                font-size: 1rem;
+                font-weight: 200;
+                color: #666666;
+            }
+        }
+    }
+    //註冊頁面
+    .signupContainer{
+        width: 340px;
+        height: 332px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        background: #ffffff;
+        box-shadow: 0px 4px 60px #AAAAAA;
+        border-radius: 6px;
+        // position: absolute;
+        top: 50px;
+        left: 600px;
+        display: none;
+        position: fixed;
+        z-index: 10;
+        .borderTop{
+            width: 340px;
+            height: 10px;
+            position: absolute;
+            top: 0;
+            background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%)  ;
+            border-radius: 6px 6px 0 0 ;
+            // margin-bottom: 15px;
+        }
+        .accountBox{
+            padding: 30px 15px 15px 15px;
+
+            h3{
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 24px; 
+                margin-bottom: 15px; 
+                text-align: center;
+                color: #666666;
+
+            }
+            .accountContent{
+                display: flex;
+                flex-direction: column;
+                .name,.email,.password{
+                width: 310px;
+                height: 47px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 13px;
+                padding: 10px;
+                color: #757575;
+                margin-bottom: 10px;
+                border: 1px solid #CCCCCC;
+                border-radius: 5px;
+            }
+            .signup_emailStatus{
+                font-weight: 500;
+                font-size: 12px;
+                color: #ff0707;
+                text-align: start;
+                margin: 0;
+                line-height: 12px;
+            }
+            }
+                  
+            .signupBtn{
+                width: 310px;
+                height: 47px;
+                text-align: center;
+                color: #FFFFFF;
+                font-weight: 400;
+                background: #448899;
+                border-radius: 5px;
+                font-size: 19px;
+                line-height: 16px;
+                margin-bottom: 15px;
+                border: none;
+            }
+            .signupStatus{
+                font-weight: 500;
+                font-size: 16px;
+                color: #ff0707;
+                text-align: center;
+                margin: 0;
+                line-height: 30px;
+            }
+            .signinToggle{
+                font-weight: 500;
+                font-size: 16px;
+                color: #666666;
+                text-align: center;
+                margin: 0;
+                line-height: 35px;
+            }
+            .signupXmark{
+                position: absolute;
+                top: 27px;
+                right: 17px;
+                font-size: 1rem;
+                font-weight: 200;
+                color: #666666;
+            }
+        }
+    }
     .attractionPage{
         max-width: 1200px;
         margin: 0 auto;

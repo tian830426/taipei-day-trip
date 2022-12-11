@@ -289,6 +289,18 @@ function signupData() {
   const email = document.getElementById("signup_email").value;
   const password = document.getElementById("signup_password").value;
 
+  emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+ 
+  //validate ok or not
+  if(email.search(emailRule)!= -1){
+    console.log('true');
+  }else{
+    let signupContainer = document.querySelector(".signupContainer");
+    signupContainer.style.height = "390px";
+        let signup_emailStatus = document.querySelector(".signup_emailStatus");
+        signup_emailStatus.innerHTML = "信箱格式輸入錯誤!";
+  }
+
   const signupData = {
     name: name,
     email: email,
@@ -315,14 +327,12 @@ function signupData() {
     .then(function (data) {
       // console.log(data);
       // console.log(data[1]);
-      if (data['ok'] == true) {
+      if (data['ok'] == true && email.search(emailRule)!= -1) {
         let signupStatus = document.querySelector(".signupStatus");
         signupStatus.innerHTML = "恭喜你！註冊成功！";
       } else if (data['error'] == true) {
         let signupContainer = document.querySelector(".signupContainer");
         signupContainer.style.height = "375px";
-        // let signupContainerPlus = document.querySelector('.signupContainerPlus')
-        // signupContainerPlus.style.display='block'
         let signupStatus = document.querySelector(".signupStatus");
         signupStatus.innerHTML = "此信箱已註冊過，請重新輸入";
       } else {
@@ -341,6 +351,18 @@ signinBtn.addEventListener("click", (e) => {
 function signinData() {
   const email = document.getElementById("signin_email").value;
   const password = document.getElementById("signin_password").value;
+
+  emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+ 
+  //validate ok or not
+  if(email.search(emailRule)!= -1){
+    console.log('true');
+  }else{
+    let signinContainer = document.querySelector(".signinContainer");
+    signinContainer.style.height = "345px";
+        let signin_emailStatus = document.querySelector(".signin_emailStatus");
+        signin_emailStatus.innerHTML = "信箱格式輸入錯誤!";
+  }
 
   const signinData = {
     email: email,
@@ -367,7 +389,7 @@ function signinData() {
         // navSignup.innerHTML = '已登入'
         let signinContainer = document.querySelector(".signinContainer");
         signinContainer.style.display = "none";
-        getcookies();
+        getcookie();
       } else if (data["error"] == true) {
         // signinContainer.style.display= 'none';
         // let signinContainerPlus = document.querySelector(".signinContainerPlus");
@@ -380,8 +402,35 @@ function signinData() {
     });
 }
 
+// function xhrr(){
+//   let xhr = new XMLHttpRequest();
+// xhr.open('get',"/api/user/auth",true)
+// xhr.send(null)
+// xhr.onload = function(){
+//  if (xhr.status === 200){
+//   let navsignup = document.querySelector(".nav-signup");
+//   navsignup.style.display = "none";
+//   let navsignout = document.querySelector(".nav-signout");
+//   navsignout.style.display = "block";
+
+//   console.log(xhr);
+//   console.log(xhr.response);
+//  }
+// }
+// }
+
+// console.log(xhr);
+
 //signin (GET)
-function getcookies() {
+
+
+window.addEventListener('load',function(){
+  console.log('抓到你刷新頁面了嗎，讓我們檢查看看 token');
+  getcookie();
+})
+
+// getcookie();
+function getcookie() {
   fetch("/api/user/auth", {
     method: "GET",
   })
@@ -395,19 +444,17 @@ function getcookies() {
         let navsignup = document.querySelector(".nav-signup");
         navsignup.style.display = "none";
         let navsignout = document.querySelector(".nav-signout");
-        navsignout.style.display = "block";
-        
-      } else {
-      }
+        navsignout.style.display = "block"; 
+      } 
     });
 }
+
+
 
 // signoutData();
 function signoutData() {}
   let navsignout = document.querySelector(".nav-signout");
   navsignout.addEventListener("click", (e) => {
-    console.log('456');
-    const hh = {}
     fetch("/api/user/auth", {
       method: "DELETE",
     //   credentials: "include",
