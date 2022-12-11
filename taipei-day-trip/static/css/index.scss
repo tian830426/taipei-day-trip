@@ -120,8 +120,9 @@ nav{
         box-shadow: 0px 4px 60px #AAAAAA;
         border-radius: 6px;
         // position: absolute;
-        top: 50px;
-        left: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         // z-index: 10;
         display: none;
         position: fixed;
@@ -223,8 +224,11 @@ nav{
         box-shadow: 0px 4px 60px #AAAAAA;
         border-radius: 6px;
         // position: absolute;
-        top: 50px;
-        left: 600px;
+        // top: 50px;
+        // left: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         display: none;
         position: fixed;
         z-index: 10;
