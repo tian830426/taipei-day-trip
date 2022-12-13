@@ -99,15 +99,8 @@ nav{
         }
     }
 }
-main{
-    width: 100%;
-    margin-bottom: 100px;
-    padding-top:54px;
-    @include rwdFrist{
-        padding-top:40px;
-    }
-      //登入會員帳號
-      .signinContainer{
+    //登入會員帳號
+    .signinContainer{
         width: 340px;
         height: 275px;
         display: flex;
@@ -116,9 +109,9 @@ main{
         background: #ffffff;
         box-shadow: 0px 4px 60px #AAAAAA;
         border-radius: 6px;
-        top: 50%;
+        top: 54px;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,0);
         // position: absolute;
         // top: 50px;
         // left: 600px;
@@ -225,9 +218,9 @@ main{
         // position: absolute;
         // top: 50px;
         // left: 600px;
-        top: 50%;
+        top: 54px;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,0);
         display: none;
         position: fixed;
         z-index: 10;
@@ -316,6 +309,15 @@ main{
             }
         }
     }
+    
+main{
+    width: 100%;
+    margin-bottom: 100px;
+    padding-top:54px;
+    @include rwdFrist{
+        padding-top:40px;
+    }
+
     .attractionPage{
         max-width: 1200px;
         margin: 0 auto;

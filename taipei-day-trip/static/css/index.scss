@@ -108,7 +108,6 @@ nav{
         }
     }
 }
-   main{
      //登入會員帳號
      .signinContainer{
         width: 340px;
@@ -119,11 +118,11 @@ nav{
         background: #ffffff;
         box-shadow: 0px 4px 60px #AAAAAA;
         border-radius: 6px;
-        // position: absolute;
-        top: 50%;
+        position: relative;
+        top: 54px;
         left: 50%;
-        transform: translate(-50%,-50%);
-        // z-index: 10;
+        transform: translate(-50%,0);
+        z-index: 10;
         display: none;
         position: fixed;
         z-index: 10;
@@ -226,9 +225,9 @@ nav{
         // position: absolute;
         // top: 50px;
         // left: 600px;
-        top: 50%;
+        top: 54px;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,0);
         display: none;
         position: fixed;
         z-index: 10;
@@ -317,6 +316,8 @@ nav{
             }
         }
     }
+   #main{
+
     .pageOne{
         width: 100%;
         height: 320px;

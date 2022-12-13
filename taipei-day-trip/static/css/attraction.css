@@ -91,17 +91,7 @@ nav .nav-bar .nav-bar-right .nav-signout {
   }
 }
 
-main {
-  width: 100%;
-  margin-bottom: 100px;
-  padding-top: 54px;
-}
-@media (max-width: 1200px) {
-  main {
-    padding-top: 40px;
-  }
-}
-main .signinContainer {
+.signinContainer {
   width: 340px;
   height: 275px;
   display: flex;
@@ -110,14 +100,14 @@ main .signinContainer {
   background: #ffffff;
   box-shadow: 0px 4px 60px #AAAAAA;
   border-radius: 6px;
-  top: 50%;
+  top: 54px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   display: none;
   position: fixed;
   z-index: 10;
 }
-main .signinContainer .borderTop {
+.signinContainer .borderTop {
   width: 340px;
   height: 10px;
   position: absolute;
@@ -126,10 +116,10 @@ main .signinContainer .borderTop {
   border-radius: 6px 6px 0 0;
   margin-bottom: 15px;
 }
-main .signinContainer .accountBox {
+.signinContainer .accountBox {
   padding: 30px 15px 15px 15px;
 }
-main .signinContainer .accountBox h3 {
+.signinContainer .accountBox h3 {
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
@@ -137,11 +127,11 @@ main .signinContainer .accountBox h3 {
   text-align: center;
   color: #666666;
 }
-main .signinContainer .accountBox .accountContent {
+.signinContainer .accountBox .accountContent {
   display: flex;
   flex-direction: column;
 }
-main .signinContainer .accountBox .accountContent .email, main .signinContainer .accountBox .accountContent .password {
+.signinContainer .accountBox .accountContent .email, .signinContainer .accountBox .accountContent .password {
   width: 310px;
   height: 47px;
   font-weight: 500;
@@ -153,7 +143,7 @@ main .signinContainer .accountBox .accountContent .email, main .signinContainer 
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
-main .signinContainer .accountBox .accountContent .signin_emailStatus {
+.signinContainer .accountBox .accountContent .signin_emailStatus {
   font-weight: 500;
   font-size: 12px;
   color: #ff0707;
@@ -161,7 +151,7 @@ main .signinContainer .accountBox .accountContent .signin_emailStatus {
   margin: 0;
   line-height: 12px;
 }
-main .signinContainer .accountBox .signinBtn {
+.signinContainer .accountBox .signinBtn {
   width: 310px;
   height: 47px;
   text-align: center;
@@ -174,7 +164,7 @@ main .signinContainer .accountBox .signinBtn {
   margin-bottom: 15px;
   border: none;
 }
-main .signinContainer .accountBox .signinStatus {
+.signinContainer .accountBox .signinStatus {
   font-weight: 500;
   font-size: 16px;
   color: #ff0707;
@@ -182,7 +172,7 @@ main .signinContainer .accountBox .signinStatus {
   margin: 0;
   line-height: 30px;
 }
-main .signinContainer .accountBox .signupToggle {
+.signinContainer .accountBox .signupToggle {
   font-weight: 500;
   font-size: 16px;
   color: #666666;
@@ -190,7 +180,7 @@ main .signinContainer .accountBox .signupToggle {
   margin: 0;
   line-height: 40px;
 }
-main .signinContainer .accountBox .signinXmark {
+.signinContainer .accountBox .signinXmark {
   position: absolute;
   width: 16px;
   height: 16px;
@@ -200,7 +190,8 @@ main .signinContainer .accountBox .signinXmark {
   font-weight: 200;
   color: #666666;
 }
-main .signupContainer {
+
+.signupContainer {
   width: 340px;
   height: 332px;
   display: flex;
@@ -209,14 +200,14 @@ main .signupContainer {
   background: #ffffff;
   box-shadow: 0px 4px 60px #AAAAAA;
   border-radius: 6px;
-  top: 50%;
+  top: 54px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   display: none;
   position: fixed;
   z-index: 10;
 }
-main .signupContainer .borderTop {
+.signupContainer .borderTop {
   width: 340px;
   height: 10px;
   position: absolute;
@@ -224,10 +215,10 @@ main .signupContainer .borderTop {
   background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
   border-radius: 6px 6px 0 0;
 }
-main .signupContainer .accountBox {
+.signupContainer .accountBox {
   padding: 30px 15px 15px 15px;
 }
-main .signupContainer .accountBox h3 {
+.signupContainer .accountBox h3 {
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
@@ -235,11 +226,11 @@ main .signupContainer .accountBox h3 {
   text-align: center;
   color: #666666;
 }
-main .signupContainer .accountBox .accountContent {
+.signupContainer .accountBox .accountContent {
   display: flex;
   flex-direction: column;
 }
-main .signupContainer .accountBox .accountContent .name, main .signupContainer .accountBox .accountContent .email, main .signupContainer .accountBox .accountContent .password {
+.signupContainer .accountBox .accountContent .name, .signupContainer .accountBox .accountContent .email, .signupContainer .accountBox .accountContent .password {
   width: 310px;
   height: 47px;
   font-weight: 500;
@@ -251,7 +242,7 @@ main .signupContainer .accountBox .accountContent .name, main .signupContainer .
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
-main .signupContainer .accountBox .accountContent .signup_emailStatus {
+.signupContainer .accountBox .accountContent .signup_emailStatus {
   font-weight: 500;
   font-size: 12px;
   color: #ff0707;
@@ -259,7 +250,7 @@ main .signupContainer .accountBox .accountContent .signup_emailStatus {
   margin: 0;
   line-height: 12px;
 }
-main .signupContainer .accountBox .signupBtn {
+.signupContainer .accountBox .signupBtn {
   width: 310px;
   height: 47px;
   text-align: center;
@@ -272,7 +263,7 @@ main .signupContainer .accountBox .signupBtn {
   margin-bottom: 15px;
   border: none;
 }
-main .signupContainer .accountBox .signupStatus {
+.signupContainer .accountBox .signupStatus {
   font-weight: 500;
   font-size: 16px;
   color: #ff0707;
@@ -280,7 +271,7 @@ main .signupContainer .accountBox .signupStatus {
   margin: 0;
   line-height: 30px;
 }
-main .signupContainer .accountBox .signinToggle {
+.signupContainer .accountBox .signinToggle {
   font-weight: 500;
   font-size: 16px;
   color: #666666;
@@ -288,13 +279,24 @@ main .signupContainer .accountBox .signinToggle {
   margin: 0;
   line-height: 35px;
 }
-main .signupContainer .accountBox .signupXmark {
+.signupContainer .accountBox .signupXmark {
   position: absolute;
   top: 27px;
   right: 17px;
   font-size: 1rem;
   font-weight: 200;
   color: #666666;
+}
+
+main {
+  width: 100%;
+  margin-bottom: 100px;
+  padding-top: 54px;
+}
+@media (max-width: 1200px) {
+  main {
+    padding-top: 40px;
+  }
 }
 main .attractionPage {
   max-width: 1200px;

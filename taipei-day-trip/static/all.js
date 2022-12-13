@@ -236,6 +236,9 @@ navSignup.addEventListener(
   (e) => {
     let signupContainer = document.querySelector(".signupContainer");
     signupContainer.style.display = "block";
+    let main = document.querySelector('#main');
+    main.style.opacity=.7;
+   
   },
   false
 );
@@ -247,6 +250,7 @@ signupXmark.addEventListener(
   (e) => {
     let signupContainer = document.querySelector(".signupContainer");
     signupContainer.style.display = "none";
+    main.style.opacity=1;
   },
   false
 );
@@ -257,6 +261,7 @@ signinXmark.addEventListener(
   (e) => {
     let signinContainer = document.querySelector(".signinContainer");
     signinContainer.style.display = "none";
+    main.style.opacity=1;
   },
   false
 );
@@ -268,6 +273,7 @@ signinToggle.addEventListener("click", (e) => {
   signupContainer.style.display = "none";
   let signinContainer = document.querySelector(".signinContainer");
   signinContainer.style.display = "block";
+  main.style.opacity=.7;
 });
 
 let signupToggle = document.querySelector(".signupToggle");
