@@ -395,6 +395,7 @@ function signinData() {
         // navSignup.innerHTML = '已登入'
         let signinContainer = document.querySelector(".signinContainer");
         signinContainer.style.display = "none";
+        main.style.opacity=1;
         getcookie();
       } else if (data["error"] == true) {
         // signinContainer.style.display= 'none';
