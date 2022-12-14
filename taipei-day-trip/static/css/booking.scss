@@ -1,0 +1,306 @@
+*{
+    box-sizing:border-box;          
+    margin:0;                       
+    padding:0;                      
+    font-family: 'Noto Sans TC';    
+    font-style: normal;      
+    text-decoration: none;       
+}
+
+@mixin rwdFrist{
+    @media(max-width:1250px){
+      @content;
+    }
+}
+@mixin rwdSecond{
+    @media(max-width:800px){
+      @content;
+    }
+}
+@mixin rwdThird{
+    @media(max-width:500px){
+      @content;
+    }
+}
+@mixin mobile{
+    @media(max-width:360px){
+      @content;
+    }
+}
+
+nav{
+    width:100%;
+    height:54px;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    background-color: white;
+    .nav-bar{
+        max-width:1200px;
+        margin: auto;
+        display:flex;
+        justify-content: 
+        space-between;                
+        @include rwdFrist{
+            width:90%;
+        }
+        @include rwdSecond{
+            width:90%;
+        }
+        @include rwdThird{
+            width:92%;
+        }
+        @include mobile{
+            width:90%;
+        }
+        .nav-bar-left{       
+            p{ 
+                padding: 10px 0;
+                font-size: 30px;
+                font-weight: 700;
+                color:#448899; 
+                @include rwdThird{
+                    font-size: 24px;
+                }
+                @include mobile{
+                    font-size: 24px;
+                }
+            }
+        }
+        .nav-bar-right{         
+            display:flex; 
+           p,.nav-signup{
+                padding: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 54px;
+                color: #666666;
+                padding: 0 10px;
+                @include mobile{
+                padding: 20px 10px; 
+                line-height: 13px;
+                }          
+            }
+            .nav-signout{
+                display: none;
+                padding: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 54px;
+                color: #666666;
+                padding: 0 10px;
+                @include mobile{
+                padding: 20px 10px; 
+                line-height: 13px;
+                }          
+            } 
+        }
+    }
+}
+main{
+    .main{
+        width: 70%;
+        margin: 0 auto;
+        position: relative;
+
+        @include mobile{
+            width:100%;
+            padding: 10px;
+        }
+        .icon_delete{
+            width: 30px;
+            height: 30xp;
+            position: absolute;
+            top:43px;
+            right:15px;
+            @include mobile{
+                top:530px;
+                right: 15px;
+            }
+        }
+        .page_top{
+            width: 100%;
+            margin-top: 100px;
+            @include mobile{
+                margin-top: 80px;
+            }
+            .page_top_title{
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 16px;
+                margin-bottom:35px ;
+                color: #666666;
+            }
+            .page_top_content{
+                width: 100%;
+                display: flex;
+                @include mobile{
+                    display: flex;
+                    flex-direction: column;
+                }
+             .page_top_content_img{
+                width: 266px;
+                height: 200px;
+                @include mobile{
+                    width:100%;
+                }
+                .booking_image{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+             }
+             .page_top_content_text{
+                margin-left:22px;
+                @include mobile{
+                    margin-top: 20px;
+                    margin-left:0px;
+                }
+                h2{
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 13px;
+                    color: #448899;
+                    margin-bottom: 30px;
+                }
+                p{
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 13px;
+                    color: #666666;
+                    margin: 20px 0 ;
+                }
+             }
+            }   
+        }
+        hr{
+            width: 100%;
+            margin-top: 40px;
+            border: 1px solid #E8E8E8;
+        }
+        .page_btm{
+            .page_btm_connect{
+                width: 100%;
+                margin-top: 44px;
+                // display: flex;
+                // flex-direction: column;
+                h3{
+                    font-weight: 700;
+                    font-size: 19px;
+                    line-height: 16px;
+                    color: #666666;
+                    margin-bottom: 31px;
+                }
+                .page_btm_connect_input{
+                    display: flex;
+                    flex-direction: column;
+                    label{
+                        display: flex;
+                        margin-bottom: 29px;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 38px;
+                        color: #666666;
+                        input{
+                            width: 200px;
+                            height: 38px;
+                            background: #FFFFFF;
+                            border: 1px solid #E8E8E8;border-radius: 5px;
+                            
+                        }
+                    }
+                    
+                }
+                p{
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 13px;
+                    color: #666666;
+
+                    @include mobile{
+                        line-height: 23px;
+                    }
+                    
+                }
+            }
+        }
+        .page_btm_creditCard{
+            margin-top: 44px;
+            h3{
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 16px;
+                color: #666666;
+            }
+            .page_btm_creditCard_input{
+                margin-top: 31px;
+                label{
+                    display: flex;
+                    margin-bottom: 29px;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 38px;
+                    color: #666666;
+                    input{
+                        width: 200px;
+                        height: 38px;
+                        background: #FFFFFF;
+                        border: 1px solid #E8E8E8;border-radius: 5px;
+                        
+                    }
+                }
+                p{
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 13px;
+                    color: #666666;
+                    
+                }
+            }
+        }
+
+        .page_checkout{
+            display: flex;
+            flex-direction: column;
+            // justify-content: flex-end;
+            align-items: flex-end;
+            p{
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 13px;
+                color: #666666;
+                margin-top: 43px;
+            }
+            button{
+                width: 173px;
+                height: 36px;
+                background: #448899;
+                border-radius: 5px;
+                border:none ;
+                color: #FFFFFF;
+                font-weight: 400;
+                font-size: 19px;
+                line-height: 16px;
+                margin-top: 26px;
+                margin-bottom: 62px;
+
+
+            }
+        }
+    }
+    
+}
+
+footer{
+    width: 100%;
+    height: 104px;
+    background: #757575;
+
+    p{
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 104px;
+    text-align: center;
+    }
+}
