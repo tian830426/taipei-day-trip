@@ -13,6 +13,8 @@ let attractionTransport = "";
 let attractionImg = "";
 let attractionImgLen = "";
 
+let attractionId = ""
+
 
 if  (attractionUrl != ""){
     getData(); 
@@ -25,8 +27,9 @@ function getData(){
     fetch(attractionUrl).then(function(response){
         return response.json();
     }).then(function(data){
-        console.log(data);
+        // console.log(data);
         attractionId = data["data"]["id"]
+        insert_newtour();
         
         attractions = data["data"];
         
@@ -83,11 +86,11 @@ function getData(){
 }
 
 document.getElementById('morning').addEventListener('click',(e)=>{
-    document.querySelector('.price').textContent = "新台幣2000元";
+    document.querySelector('#price').textContent = "2000";
 },false);
 
 document.getElementById('afternoon').addEventListener('click',(e)=>{
-    document.querySelector('.price').textContent = "新台幣2500元";
+    document.querySelector('#price').textContent = "2500";
 },false);
 
         let imgBoxes = document.querySelector('imgBoxes');
@@ -140,8 +143,6 @@ document.getElementById('afternoon').addEventListener('click',(e)=>{
             })
 
 //week-4 signin /signout
-
-
 // click  signup container alert
 let navSignup = document.querySelector(".nav-signup");
 navSignup.addEventListener(
@@ -342,13 +343,12 @@ function signinData() {
 
 //signin (GET)
 
-
 window.addEventListener('load',function(){
   console.log('抓到你刷新頁面了嗎，讓我們檢查看看 token');
   getcookie();
 })
 
-// getcookie();
+getcookie();
 function getcookie() {
   fetch("/api/user/auth", {
     method: "GET",
@@ -364,14 +364,15 @@ function getcookie() {
         navsignup.style.display = "none";
         let navsignout = document.querySelector(".nav-signout");
         navsignout.style.display = "block"; 
+      }
+      else{
+        console.log('未登入狀態');
       } 
     });
 }
 
-
-
-// signoutData();
-function signoutData() {}
+signoutData();
+function signoutData(){}
   let navsignout = document.querySelector(".nav-signout");
   navsignout.addEventListener("click", (e) => {
     fetch("/api/user/auth", {
@@ -386,9 +387,7 @@ function signoutData() {}
       .then(function (response) {
         // console.log(response);
         return response.json();
-      })
-
-      .then(function (data) {
+      }).then(function (data) {
         console.log(data);
         if (data['ok'] == true ) {
           console.log("成功清除");
@@ -400,6 +399,117 @@ function signoutData() {}
           console.log("有問題");
         }
       });
-  });
+  },false);
+
+//week-5
+
+//點擊預定行程頁面，
+let nav_booking = document.querySelector(".nav-booking")
+nav_booking.addEventListener('click',(e)=>{
+  console.log('確認登入狀態');
+  getcookie_navbooking();
+},false)
+
+function getcookie_navbooking(){
+  fetch("/api/user/auth", {
+    method: "GET",
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("取得token", data);
+      if (data["data"] != null) {
+        console.log("登入中狀態");
+        window.location.assign("http://172.20.10.2:3000/booking")
+      }
+      else{
+        //搜尋不到登入狀態 讓註冊登入視窗彈出
+        console.log('未登入狀態');
+        // window.location.replace(window.location.href);
+        let signupContainer = document.querySelector(".signupContainer");
+        signupContainer.style.display = "block";
+        let main = document.querySelector('#main');
+        main.style.opacity=.7;
+      } 
+    });
+} 
+
+// 點擊 開始預約行程
+let ready_booking = document.querySelector('.readyBooking')
+ready_booking.addEventListener('click',(e)=>{
+  console.log('進入 readybooking btm');
+  getcookie_readybooking();
+},false)
+
+function getcookie_readybooking(){
+  fetch("/api/user/auth", {
+    method: "GET",
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+
+      if (data["data"] != null) {
+        console.log("登入中狀態 ready book"); 
+        // console.log(data);
+        insert_newtour();
+      }
+      else{
+        //搜尋不到登入狀態 讓註冊登入視窗彈出
+        console.log('未登入狀態');
+        let signupContainer = document.querySelector(".signupContainer");
+        signupContainer.style.display = "block";
+        let main = document.querySelector('#main');
+        main.style.opacity=.7;
+      } 
+    });
+}
+
+function insert_newtour(){
+  let date = document.getElementById('date').value;
+  let time = document.getElementsByName('time');
+  for (var i = 0 ; length = time.length ; i++){
+    if(time[i].checked){
+      break;
+    }
+  }
+  let price = document.getElementById('price').textContent
+  let new_tour = {
+    attractionId: attractionId,
+    date: date,
+    time: time[i].value,
+    price: price
+  }
+  
+  fetch("/api/booking",{
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(new_tour),
+    caches: "no-cache",
+    headers: new Headers({
+      "content-type": "application/json",
+  }),
+}).then(function(response){
+  return response.json();
+}).then(function(data){
+  if (data['ok'] == true){
+    window.location.assign("http://172.20.10.2:3000/booking")
+  }
+  else{
+    console.log(data['error']);
+    // let booking_error = document.querySelector(".booking_error");
+    // booking_error.innerHTML = '新增失敗'
+    // booking_error.setAttribute('style','color:red');
+  }
+})
+}
 
 
+//點擊 登出系統 跳回首頁
+// let navsignout = document.querySelector(".nav-signout"); 
+navsignout.addEventListener('click',(e)=>{
+  console.log('回首頁');
+  window.location.assign("http://172.20.10.2:3000/") 
+})

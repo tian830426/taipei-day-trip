@@ -7,93 +7,17 @@
   text-decoration: none;
 }
 
-nav {
-  width: 100%;
-  height: 54px;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: white;
-}
-nav .nav-bar {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 1250px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-@media (max-width: 800px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-@media (max-width: 500px) {
-  nav .nav-bar {
-    width: 92%;
-  }
-}
-@media (max-width: 360px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-nav .nav-bar .nav-bar-left p {
-  padding: 10px 0;
-  font-size: 30px;
-  font-weight: 700;
-  color: #448899;
-}
-@media (max-width: 500px) {
-  nav .nav-bar .nav-bar-left p {
-    font-size: 24px;
-  }
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-left p {
-    font-size: 24px;
-  }
-}
-nav .nav-bar .nav-bar-right {
-  display: flex;
-}
-nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
-  padding: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 54px;
-  color: #666666;
-  padding: 0 10px;
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
-    padding: 20px 10px;
-    line-height: 13px;
-  }
-}
-nav .nav-bar .nav-bar-right .nav-signout {
-  display: none;
-  padding: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 54px;
-  color: #666666;
-  padding: 0 10px;
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-right .nav-signout {
-    padding: 20px 10px;
-    line-height: 13px;
-  }
-}
-
 main .main {
   width: 70%;
   margin: 0 auto;
   position: relative;
+}
+@media (max-width: 800px) {
+  main .main {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
 }
 @media (max-width: 360px) {
   main .main {
@@ -108,9 +32,15 @@ main .main .icon_delete {
   top: 43px;
   right: 15px;
 }
+@media (max-width: 800px) {
+  main .main .icon_delete {
+    top: 660px;
+    right: 20px;
+  }
+}
 @media (max-width: 360px) {
   main .main .icon_delete {
-    top: 530px;
+    top: 570px;
     right: 15px;
   }
 }
@@ -124,6 +54,7 @@ main .main .page_top {
   }
 }
 main .main .page_top .page_top_title {
+  display: flex;
   font-weight: 700;
   font-size: 19px;
   line-height: 16px;
@@ -133,6 +64,11 @@ main .main .page_top .page_top_title {
 main .main .page_top .page_top_content {
   width: 100%;
   display: flex;
+}
+@media (max-width: 800px) {
+  main .main .page_top .page_top_content {
+    display: block;
+  }
 }
 @media (max-width: 360px) {
   main .main .page_top .page_top_content {
@@ -144,9 +80,16 @@ main .main .page_top .page_top_content .page_top_content_img {
   width: 266px;
   height: 200px;
 }
-@media (max-width: 360px) {
+@media (max-width: 800px) {
   main .main .page_top .page_top_content .page_top_content_img {
     width: 100%;
+    height: 45vh;
+  }
+}
+@media (max-width: 360px) {
+  main .main .page_top .page_top_content .page_top_content_img {
+    width: 340px;
+    height: 256px;
   }
 }
 main .main .page_top .page_top_content .page_top_content_img .booking_image {
@@ -158,25 +101,41 @@ main .main .page_top .page_top_content .page_top_content_img .booking_image {
 main .main .page_top .page_top_content .page_top_content_text {
   margin-left: 22px;
 }
+@media (max-width: 800px) {
+  main .main .page_top .page_top_content .page_top_content_text {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+}
 @media (max-width: 360px) {
   main .main .page_top .page_top_content .page_top_content_text {
     margin-top: 20px;
     margin-left: 0px;
   }
 }
-main .main .page_top .page_top_content .page_top_content_text h2 {
+main .main .page_top .page_top_content .page_top_content_text div {
+  display: flex;
+}
+main .main .page_top .page_top_content .page_top_content_text div h2 {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   color: #448899;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 main .main .page_top .page_top_content .page_top_content_text p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 13px;
+  color: #666666;
+  margin: 10px 0;
+}
+main .main .page_top .page_top_content .page_top_content_text .p_style {
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
   color: #666666;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 main .main hr {
   width: 100%;
@@ -212,6 +171,7 @@ main .main .page_btm .page_btm_connect .page_btm_connect_input label input {
   background: #FFFFFF;
   border: 1px solid #E8E8E8;
   border-radius: 5px;
+  padding: 10px;
 }
 main .main .page_btm .page_btm_connect p {
   font-weight: 700;
@@ -219,9 +179,14 @@ main .main .page_btm .page_btm_connect p {
   line-height: 13px;
   color: #666666;
 }
+@media (max-width: 800px) {
+  main .main .page_btm .page_btm_connect p {
+    line-height: 25px;
+  }
+}
 @media (max-width: 360px) {
   main .main .page_btm .page_btm_connect p {
-    line-height: 23px;
+    line-height: 25px;
   }
 }
 main .main .page_btm_creditCard {
@@ -250,6 +215,7 @@ main .main .page_btm_creditCard .page_btm_creditCard_input label input {
   background: #FFFFFF;
   border: 1px solid #E8E8E8;
   border-radius: 5px;
+  padding: 10px;
 }
 main .main .page_btm_creditCard .page_btm_creditCard_input p {
   font-weight: 700;
@@ -262,7 +228,8 @@ main .main .page_checkout {
   flex-direction: column;
   align-items: flex-end;
 }
-main .main .page_checkout p {
+main .main .page_checkout div {
+  display: flex;
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
@@ -282,16 +249,29 @@ main .main .page_checkout button {
   margin-top: 26px;
   margin-bottom: 62px;
 }
-
-footer {
-  width: 100%;
-  height: 104px;
-  background: #757575;
+main .main_page {
+  width: 70%;
+  margin: 100px auto;
+  position: relative;
+  display: none;
 }
-footer p {
-  color: #FFFFFF;
+@media (max-width: 360px) {
+  main .main_page {
+    width: 100%;
+    padding: 10px;
+  }
+}
+main .main_page .page_top_title {
+  display: flex;
   font-weight: 700;
+  font-size: 19px;
+  line-height: 16px;
+  margin-bottom: 40px;
+  color: #666666;
+}
+main .main_page p {
+  font-weight: 500;
   font-size: 16px;
-  line-height: 104px;
-  text-align: center;
+  line-height: 13px;
+  color: #666666;
 }/*# sourceMappingURL=booking.css.map */

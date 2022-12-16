@@ -1,234 +1,4 @@
-let nextPage = 0; //預設page = 0
-let urlPage = "";
-let urlDemo = "/api/attractions?page=";
-let keyword = "";
-let urlKeywordDemo = "/api/attractions?page=0&keyword=";
-let judge = 0; //判斷是否有下一頁
-
-//進行全域變數宣告
-let attractions = "";
-let attractionImg = "";
-let attractionName = "";
-let attractionMrt = "";
-let attractionCategory = "";
-let attractionLen = 0;
-
-//設定 id 全域變數
-let attractionId = "";
-let attractionIdUrl = "";
-
-if (nextPage == 0) {
-  urlPage = urlDemo + nextPage;
-  getData();
-}
-
-function getData() {
-  fetch(urlPage)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      if (data["error"] == true) {
-        console.log("error page");
-        return "error page";
-      } else {
-        attractions = data["data"];
-        attractionLen = attractions.length;
-        loadPicture();
-
-        // 判斷是不是最後ㄧ頁
-        if (data["nextPage"] != null) {
-          judge = 1;
-        } else {
-          judge = 0;
-        }
-
-        // 判斷是否有keyword
-        if (urlPage.includes("keyword")) {
-          urlPage =
-            "/api/attractions?page=" + data["nextPage"] + "&keyword=" + keyword;
-        } else {
-          // console.log("nextPage= " + data["nextPage"]);
-          urlPage = urlDemo + data["nextPage"];
-          judge = 1;
-          loadMore();
-        }
-      }
-    });
-}
-
-//loading picture
-function loadPicture() {
-  for (let i = 0; i < attractionLen; i++) {
-    let item = document.createElement("div");
-    item.setAttribute("class", "item");
-    //a 連結
-    let itemId = document.createElement("a");
-    itemId.appendChild(item);
-
-    let nameTop = document.createElement("div");
-    nameTop.setAttribute("class", "name-top");
-    let nameBtm = document.createElement("div");
-    nameBtm.setAttribute("class", "name-btm");
-    item.appendChild(nameTop);
-    item.appendChild(nameBtm);
-
-    let imgBoxes = document.querySelector(".imgBoxes");
-    imgBoxes.appendChild(itemId);
-    // let imgBoxes = document.querySelector('.imgBoxes')
-    // imgBoxes.appendChild(item)
-
-    attractionImg = attractions[i]["images"][0];
-    attractionName = attractions[i]["name"];
-    attractionMrt = attractions[i]["mrt"];
-    attractionCategory = attractions[i]["category"];
-    // id
-    attractionId = attractions[i]["id"];
-    attractionIdUrl = "/attraction/" + attractionId;
-    itemId.setAttribute("href", attractionIdUrl);
-
-    let newImg = document.createElement("img");
-    newImg.setAttribute("class", "name-top");
-    newImg.setAttribute("src", attractionImg);
-
-    let newName = document.createElement("p");
-    newName.textContent = attractionName;
-    document.querySelectorAll(".name-top")[i].appendChild(newName);
-
-    let newMrt = document.createElement("p");
-    newMrt.textContent = attractionMrt;
-    document.querySelectorAll(".name-btm")[i].appendChild(newMrt);
-
-    let newCategory = document.createElement("p");
-    newCategory.textContent = attractionCategory;
-    document.querySelectorAll(".name-btm")[i].appendChild(newCategory);
-
-    nameTop.appendChild(newImg);
-    nameTop.appendChild(newName);
-    nameBtm.appendChild(newMrt);
-    nameBtm.appendChild(newCategory);
-  }
-}
-
-function loadMore() {
-  if (judge == 1) {
-    const loading = document.querySelector(".loading");
-    window.addEventListener("scroll", () => {
-      const scrollable =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY;
-
-      //提早感應
-      if (Math.ceil(scrolled) > scrollable - 50 && judge == 1) {
-        judge = 0;
-        showLoading();
-      }
-    });
-
-    function showLoading() {
-      setTimeout(getPost(), 2000);
-    }
-
-    function getPost() {
-      fetch(urlPage)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          attractions = data["data"];
-          attractionLen = data["data"].length;
-          loadPicture();
-
-          if (data["nextPage"] != null) {
-            urlPage = urlDemo + data["nextPage"];
-            judge = 1;
-            loadMore();
-          } else {
-            console.log("the last page");
-          }
-        });
-    }
-  } else {
-    console.log("stop");
-  }
-}
-
-let search = document.querySelector(".search");
-search.addEventListener("click", submit);
-function submit() {
-  let searchContainer = document.querySelector(".searchContainer");
-  let searchForm = document.querySelector(".searchForm");
-  let searchItem = document.querySelectorAll(".searchItem");
-  searchContainer.style.display = "block";
-  // searchContainer.classList.toggle('down');
-
-  //clean content
-  if (searchItem.length != 0) {
-    searchForm.innerHTML = "";
-  }
-
-  fetch("/api/categories")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      let categoriesLen = data["data"].length;
-      for (let i = 0; i < categoriesLen; i++) {
-        let searchItemNew = document.createElement("div");
-        searchItemNew.setAttribute("class", "searchItem");
-        searchItemNew.setAttribute("id", data["data"][i]);
-        let searchFormNew = document.querySelector(".searchForm");
-        let itemName = data["data"][i];
-        searchItemNew.textContent = itemName;
-        searchFormNew.appendChild(searchItemNew);
-      }
-
-      for (let i = 0; i < categoriesLen; i++) {
-        let itemName = "#" + data["data"][i];
-        let itemSearchId = document.querySelector(itemName);
-        itemSearchId.onclick = (e) => {
-          let search = document.querySelector(".search");
-          search.value = e.target.id;
-          searchContainer.style.display = "none";
-        };
-      }
-
-      let touchBody = document.querySelector("#body");
-      touchBody.addEventListener(
-        "click",
-        (e) => {
-          if (
-            e.target.className != "searchForm" &&
-            e.target.className != "searchItem" &&
-            e.target.className != "search"
-          ) {
-            searchContainer.style.display = "none";
-          }
-        },
-        false
-      );
-    });
-}
-
-//click icon -> clean imgBoxes -> return getDate()
-function icon() {
-  let icon = document.querySelector(".icon");
-  icon.addEventListener(
-    "click",
-    (e) => {
-      let imgBoxes = document.querySelector(".imgBoxes");
-      while (imgBoxes.hasChildNodes()) {
-        imgBoxes.removeChild(imgBoxes.firstChild);
-      }
-      urlPage = urlKeywordDemo + search.value;
-      keyword = search.value;
-      getData();
-    },
-    false
-  );
-}
-icon();
-
+//week-4 signin /signout
 // click  signup container alert
 let navSignup = document.querySelector(".nav-signup");
 navSignup.addEventListener(
@@ -238,7 +8,6 @@ navSignup.addEventListener(
     signupContainer.style.display = "block";
     let main = document.querySelector('#main');
     main.style.opacity=.7;
-   
   },
   false
 );
@@ -430,7 +199,6 @@ function signinData() {
 
 //signin (GET)
 
-
 window.addEventListener('load',function(){
   console.log('抓到你刷新頁面了嗎，讓我們檢查看看 token');
   getcookie();
@@ -446,25 +214,26 @@ function getcookie() {
     })
     .then(function (data) {
       console.log("取得token", data);
+      get_booker(data);
+      get_booker_two(data);
       if (data["data"] != null) {
         console.log("登入中狀態");
         let navsignup = document.querySelector(".nav-signup");
         navsignup.style.display = "none";
         let navsignout = document.querySelector(".nav-signout");
         navsignout.style.display = "block"; 
+        
       } 
     });
 }
-
 // signoutData();
-function signoutData() {}
+function signoutData(){}
   let navsignout = document.querySelector(".nav-signout");
   navsignout.addEventListener("click", (e) => {
     fetch("/api/user/auth", {
       method: "DELETE",
     })
       .then(function (response) {
-        // console.log(response);
         return response.json();
       })
 
@@ -482,10 +251,9 @@ function signoutData() {}
       });
   });
 
+//week-5
 
-  //week-5
-  
-  //點擊預定行程頁面，
+//點擊預定行程頁面，
 let nav_booking = document.querySelector(".nav-booking")
 nav_booking.addEventListener('click',(e)=>{
   console.log('確認登入狀態');
@@ -503,6 +271,7 @@ function getcookie_navbooking(){
       console.log("取得token", data);
       if (data["data"] != null) {
         console.log("登入中狀態");
+        
         window.location.assign("http://172.20.10.2:3000/booking")
       }
       else{
@@ -517,7 +286,86 @@ function getcookie_navbooking(){
     });
 } 
 
-//點擊 登出系統 跳回首頁
+//取得預定資料 印在前端畫面上
+  get_newtour();
+  function get_newtour(){
+  fetch("/api/booking",{
+    method:"GET",
+  }).then(function(response){
+    return response.json();
+  }).then(function(data){
+    console.log(data);
+    console.log(data['data']["attraction"]["image"]);
+
+    let booking_image = document.querySelector('.booking_image')
+    booking_image.setAttribute('src',data['data']["attraction"]["image"])
+
+    let city_name = document.querySelector('.city_name')
+    city_name.textContent = data['data']["attraction"]["name"]
+
+    let city_date = document.querySelector('.city_date')
+    city_date.textContent = data['data']["date"]
+
+    let city_time = document.querySelector('.city_time')
+    city_time.textContent = data['data']["time"]
+
+    let city_fee = document.querySelector('.city_fee')
+    city_fee.textContent = data['data']["price"]
+
+    let city_site = document.querySelector('.city_site')
+    city_site.textContent = data["data"]['attraction']["address"]
+
+    let city_price = document.querySelector('.city_price')
+    city_price.textContent = data['data']["price"]
+
+  })
+}
+//在booking 呼叫 token 資訊 取得登入者姓名
+function get_booker(data){
+  let city_booker = document.querySelector(".city_booker")
+  city_booker.textContent = data["data"]["name"]
+  
+}
+
+function get_booker_two(data){
+  let city_booker_two = document.querySelector(".city_booker_two")
+  city_booker_two.textContent = data["data"]["name"]
+}
+
+
+//delete method
+let icon_delete = document.querySelector('.icon_delete')
+icon_delete.addEventListener('click',(e)=>{
+  delete_newtour();
+},)
+
+function delete_newtour(){ 
+fetch("/api/booking", {
+  method: "DELETE",
+}).then(function (response) {
+    console.log(response);
+    return response.json();
+  }).then(function (data) {
+    console.log(data);
+    if(data["ok"] == true){
+      let main = document.querySelector('.main')
+      main.style.display='none';
+      let main_page = document.querySelector('.main_page')
+      main_page.style.display ='block';
+
+      let footer = document.querySelector('footer')
+      footer.style.display = 'none';
+      let footer_booking = document.querySelector('.footer_booking')
+      footer_booking.style.display = 'block';
+
+    }
+    else{
+      console.log('沒有成功刪除');
+    }
+   })
+  }
+
+  //點擊 登出系統 跳回首頁
 // let navsignout = document.querySelector(".nav-signout"); 
 navsignout.addEventListener('click',(e)=>{
   console.log('回首頁');

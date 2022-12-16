@@ -22,6 +22,7 @@ new = mysql.connector.connect(
   database="taipeiDayTrip" 
 )
 
+
 with open("taipei-attractions.json", "r" , encoding="utf-8") as response:
     data = json.load(response)  
 for item in data['result']['results']:
@@ -32,7 +33,6 @@ for item in data['result']['results']:
         file_format = "https"+item['file'].lower().split('https')[i]          
         if ".jpg" in file_format:    
             new_file.append(file_format) 
-    
     
     new_file = str(new_file)
     # .replace("[","").replace("]","").replace(",","").replace("'","")
@@ -74,6 +74,12 @@ for item in data['result']['results']:
     # mysql报错：1406, "Data too long for column
     # 參考資料：http://huanyouchen.github.io/2018/05/22/mysql-error-1406-Data-too-long-for-column/
     # SET @@global.sql_mode= '';
+
+
+
+
+
+
 
 
 

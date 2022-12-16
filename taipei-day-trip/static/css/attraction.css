@@ -7,330 +7,49 @@
   text-decoration: none;
 }
 
-nav {
-  width: 100%;
-  height: 54px;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: white;
-}
-nav .nav-bar {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 1200px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-@media (max-width: 1000px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-@media (max-width: 700px) {
-  nav .nav-bar {
-    width: 90%;
-  }
-}
-@media (max-width: 360px) {
-  nav .nav-bar {
-    width: 95%;
-  }
-}
-nav .nav-bar .nav-bar-left p {
-  font-weight: 700;
-  font-size: 30px;
-  color: #448899;
-  line-height: 34px;
-  padding: 10px 0;
-}
-@media (max-width: 700px) {
-  nav .nav-bar .nav-bar-left p {
-    font-size: 24px;
-  }
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-left p {
-    font-size: 24px;
-  }
-}
-nav .nav-bar .nav-bar-right {
-  display: flex;
-}
-nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
-  padding: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 54px;
-  color: #666666;
-  padding: 0 10px;
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-right p, nav .nav-bar .nav-bar-right .nav-signup {
-    padding: 20px 10px;
-    line-height: 13px;
-  }
-}
-nav .nav-bar .nav-bar-right .nav-signout {
-  display: none;
-  padding: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 54px;
-  color: #666666;
-  padding: 0 10px;
-}
-@media (max-width: 360px) {
-  nav .nav-bar .nav-bar-right .nav-signout {
-    padding: 20px 10px;
-    line-height: 13px;
-  }
-}
-
-.signinContainer {
-  width: 340px;
-  height: 275px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 4px 60px #AAAAAA;
-  border-radius: 6px;
-  top: 54px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  display: none;
-  position: fixed;
-  z-index: 10;
-}
-.signinContainer .borderTop {
-  width: 340px;
-  height: 10px;
-  position: absolute;
-  top: 0;
-  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
-  border-radius: 6px 6px 0 0;
-  margin-bottom: 15px;
-}
-.signinContainer .accountBox {
-  padding: 30px 15px 15px 15px;
-}
-.signinContainer .accountBox h3 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #666666;
-}
-.signinContainer .accountBox .accountContent {
-  display: flex;
-  flex-direction: column;
-}
-.signinContainer .accountBox .accountContent .email, .signinContainer .accountBox .accountContent .password {
-  width: 310px;
-  height: 47px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 13px;
-  padding: 10px;
-  color: #757575;
-  margin-bottom: 10px;
-  border: 1px solid #CCCCCC;
-  border-radius: 5px;
-}
-.signinContainer .accountBox .accountContent .signin_emailStatus {
-  font-weight: 500;
-  font-size: 12px;
-  color: #ff0707;
-  text-align: start;
-  margin: 0;
-  line-height: 12px;
-}
-.signinContainer .accountBox .signinBtn {
-  width: 310px;
-  height: 47px;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 400;
-  background: #448899;
-  border-radius: 5px;
-  font-size: 19px;
-  line-height: 16px;
-  margin-bottom: 15px;
-  border: none;
-}
-.signinContainer .accountBox .signinStatus {
-  font-weight: 500;
-  font-size: 16px;
-  color: #ff0707;
-  text-align: center;
-  margin: 0;
-  line-height: 30px;
-}
-.signinContainer .accountBox .signupToggle {
-  font-weight: 500;
-  font-size: 16px;
-  color: #666666;
-  text-align: center;
-  margin: 0;
-  line-height: 40px;
-}
-.signinContainer .accountBox .signinXmark {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 27px;
-  right: 17px;
-  font-size: 1rem;
-  font-weight: 200;
-  color: #666666;
-}
-
-.signupContainer {
-  width: 340px;
-  height: 332px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 4px 60px #AAAAAA;
-  border-radius: 6px;
-  top: 54px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  display: none;
-  position: fixed;
-  z-index: 10;
-}
-.signupContainer .borderTop {
-  width: 340px;
-  height: 10px;
-  position: absolute;
-  top: 0;
-  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
-  border-radius: 6px 6px 0 0;
-}
-.signupContainer .accountBox {
-  padding: 30px 15px 15px 15px;
-}
-.signupContainer .accountBox h3 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #666666;
-}
-.signupContainer .accountBox .accountContent {
-  display: flex;
-  flex-direction: column;
-}
-.signupContainer .accountBox .accountContent .name, .signupContainer .accountBox .accountContent .email, .signupContainer .accountBox .accountContent .password {
-  width: 310px;
-  height: 47px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 13px;
-  padding: 10px;
-  color: #757575;
-  margin-bottom: 10px;
-  border: 1px solid #CCCCCC;
-  border-radius: 5px;
-}
-.signupContainer .accountBox .accountContent .signup_emailStatus {
-  font-weight: 500;
-  font-size: 12px;
-  color: #ff0707;
-  text-align: start;
-  margin: 0;
-  line-height: 12px;
-}
-.signupContainer .accountBox .signupBtn {
-  width: 310px;
-  height: 47px;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 400;
-  background: #448899;
-  border-radius: 5px;
-  font-size: 19px;
-  line-height: 16px;
-  margin-bottom: 15px;
-  border: none;
-}
-.signupContainer .accountBox .signupStatus {
-  font-weight: 500;
-  font-size: 16px;
-  color: #ff0707;
-  text-align: center;
-  margin: 0;
-  line-height: 30px;
-}
-.signupContainer .accountBox .signinToggle {
-  font-weight: 500;
-  font-size: 16px;
-  color: #666666;
-  text-align: center;
-  margin: 0;
-  line-height: 35px;
-}
-.signupContainer .accountBox .signupXmark {
-  position: absolute;
-  top: 27px;
-  right: 17px;
-  font-size: 1rem;
-  font-weight: 200;
-  color: #666666;
-}
-
-main {
+body main {
   width: 100%;
   margin-bottom: 100px;
   padding-top: 54px;
 }
 @media (max-width: 1200px) {
-  main {
+  body main {
     padding-top: 40px;
   }
 }
-main .attractionPage {
+body main .attractionPage {
   max-width: 1200px;
   margin: 0 auto;
 }
 @media (max-width: 1200px) {
-  main .attractionPage {
+  body main .attractionPage {
     width: 100%;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage {
+  body main .attractionPage {
     width: 100%;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage {
+  body main .attractionPage {
     width: 100%;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage {
+  body main .attractionPage {
     padding-top: 0;
     width: 100%;
   }
 }
-main .attractionPage .pageTop {
+body main .attractionPage .pageTop {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 10px;
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop {
+  body main .attractionPage .pageTop {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -340,7 +59,7 @@ main .attractionPage .pageTop {
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .pageTop {
+  body main .attractionPage .pageTop {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -349,7 +68,7 @@ main .attractionPage .pageTop {
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop {
+  body main .attractionPage .pageTop {
     width: 100%;
     padding: 0;
     display: flex;
@@ -358,7 +77,7 @@ main .attractionPage .pageTop {
     margin: 0 auto;
   }
 }
-main .attractionPage .pageTop .pageTopImg {
+body main .attractionPage .pageTop .pageTopImg {
   width: 740px;
   height: 406px;
   overflow: hidden;
@@ -367,34 +86,34 @@ main .attractionPage .pageTop .pageTopImg {
      object-fit: cover;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .pageTop .pageTopImg {
+  body main .attractionPage .pageTop .pageTopImg {
     width: 100%;
     height: 406px;
     margin-left: 15px;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopImg {
+  body main .attractionPage .pageTop .pageTopImg {
     width: 100%;
     height: 406px;
     margin-left: 0px;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .pageTop .pageTopImg {
+  body main .attractionPage .pageTop .pageTopImg {
     width: 100%;
     height: 440px;
     margin-left: 0px;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopImg {
+  body main .attractionPage .pageTop .pageTopImg {
     width: 360px;
     height: 350px;
     margin-left: 0px;
   }
 }
-main .attractionPage .pageTop .pageTopImg .imgBoxes {
+body main .attractionPage .pageTop .pageTopImg .imgBoxes {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -405,24 +124,24 @@ main .attractionPage .pageTop .pageTopImg .imgBoxes {
   display: block;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes {
     display: block;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes {
     width: 100%;
     height: 100%;
     display: block;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes {
     width: 100%;
     display: block;
   }
 }
-main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+body main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -431,28 +150,28 @@ main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
      object-position: center center;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
     width: 100%;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
     width: 100%;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
     width: 100%;
     margin: 0 auto;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
+  body main .attractionPage .pageTop .pageTopImg .imgBoxes .swiperImg {
     width: 100%;
     margin: 0 auto;
   }
 }
-main .attractionPage .pageTop .pageTopImg .imgArrow {
+body main .attractionPage .pageTop .pageTopImg .imgArrow {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -463,7 +182,7 @@ main .attractionPage .pageTop .pageTopImg .imgArrow {
   left: 0;
   transform: translate(0, -50%);
 }
-main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock {
+body main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -474,13 +193,13 @@ main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock {
   justify-content: center;
   position: relative;
 }
-main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock i {
+body main .attractionPage .pageTop .pageTopImg .imgArrow .imgArrowBlock i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-main .attractionPage .pageTop .pageTopImg .swiper-pagination {
+body main .attractionPage .pageTop .pageTopImg .swiper-pagination {
   width: 100%;
   height: 15px;
   display: flex;
@@ -489,7 +208,7 @@ main .attractionPage .pageTop .pageTopImg .swiper-pagination {
   position: absolute;
   bottom: 12px;
 }
-main .attractionPage .pageTop .pageTopImg .swiper-pagination .pagination {
+body main .attractionPage .pageTop .pageTopImg .swiper-pagination .pagination {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -498,41 +217,41 @@ main .attractionPage .pageTop .pageTopImg .swiper-pagination .pagination {
   padding: 3px;
   margin-right: 8px;
 }
-main .attractionPage .pageTop .pageTopTour {
+body main .attractionPage .pageTop .pageTopTour {
   width: 50vw;
   margin: 10px 10px 20px 20px;
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopTour {
+  body main .attractionPage .pageTop .pageTopTour {
     margin-top: 20px;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour {
+  body main .attractionPage .pageTop .pageTopTour {
     width: 100vw;
     padding: 10px;
     margin: 0px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourTitle {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle {
   display: flex;
   flex-direction: column;
   color: #666666;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourTitle h2 {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle h2 {
   font-weight: 700;
   font-size: 24px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at {
   display: flex;
   margin-top: 15px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .category, main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .mrt {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .category, body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle .at .mrt {
   font-weight: 500;
   font-size: 16px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
-  height: 302px;
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+  height: 310px;
   background: #E8E8E8;
   border-radius: 5px;
   margin-top: 20px;
@@ -540,109 +259,112 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
   display: flex;
   flex-direction: column;
   color: #666666;
-  margin-bottom: 41px;
+  margin-bottom: 40px;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
     width: 50vw;
     height: 340px;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
     width: 90vw;
     height: 310px;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
     width: 100vw;
     height: 320px;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
     width: 100vw;
     height: 320px;
     margin: 15px 0;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking h4 {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking h4 {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   margin-bottom: 24px;
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking h4 {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking h4 {
     margin-bottom: 20px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
   margin-bottom: 24px;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
     line-height: 26px;
     margin-bottom: 10px;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
     line-height: 26px;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking p {
     line-height: 26px;
     margin-bottom: 10px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .date {
-  margin-bottom: 20px;
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
+  display: flex;
+  margin-bottom: 24px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .date label {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .date input {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label #date {
   width: 193px;
   height: 35px;
   padding: 5px 10px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time {
-  margin-bottom: 22px;
-}
-@media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time {
-    margin-bottom: 15px;
-  }
-}
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
+  margin-bottom: 24px;
   display: flex;
   justify-content: start;
   align-items: center;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div label {
-  font-weight: 700;
-  font-size: 16px;
+@media (max-width: 360px) {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
+    margin-bottom: 15px;
+  }
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div #morning, body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div #afternoon {
+    width: 18px;
+    height: 18px;
+    font-weight: 500;
+    font-size: 16x;
+    line-height: 13px;
+    accent-color: #448899;
+    margin-right: 4px;
+  }
+}
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
+  display: flex;
   line-height: 13px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div #morning, main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .time div #afternoon {
-  width: 18px;
-  height: 18px;
-  font-weight: 500;
-  font-size: 16x;
-  line-height: 13px;
-  accent-color: #448899;
-  margin-right: 4px;
-}
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash {
-  margin-bottom: 24px;
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash {
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
@@ -650,16 +372,22 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash {
   display: flex;
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash {
     margin-bottom: 15px;
   }
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .cash .price {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash div {
+  display: flex;
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
 }
-main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .readyBooking {
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash div #price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 13px;
+}
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .readyBooking {
   width: 154px;
   height: 36x;
   background: #448899;
@@ -674,78 +402,65 @@ main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .readyBooking {
   line-height: 16px;
   border: none;
 }
-main .attractionPage .hr {
+body main .attractionPage .hr {
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid #E8E8E8;
 }
 @media (max-width: 1200px) {
-  main .attractionPage .hr {
+  body main .attractionPage .hr {
     width: 95vw;
   }
 }
 @media (max-width: 1000px) {
-  main .attractionPage .hr {
+  body main .attractionPage .hr {
     width: 95vw;
   }
 }
 @media (max-width: 700px) {
-  main .attractionPage .hr {
+  body main .attractionPage .hr {
     width: 95vw;
   }
 }
 @media (max-width: 360px) {
-  main .attractionPage .hr {
+  body main .attractionPage .hr {
     width: 93%;
     margin-top: 10px;
   }
 }
-main .attractionPage .pageBtm {
+body main .attractionPage .pageBtm {
   margin: 40px 10px 20px 20px;
   color: #666666;
   font-size: 16px;
   line-height: 20px;
 }
 @media (max-width: 360px) {
-  main .attractionPage .pageBtm {
+  body main .attractionPage .pageBtm {
     margin: 40px 0 0 0;
     padding: 0 20px;
   }
 }
-main .attractionPage .pageBtm .content {
+body main .attractionPage .pageBtm .content {
   font-weight: 400;
   line-height: 30px;
 }
-main .attractionPage .pageBtm h4 {
+body main .attractionPage .pageBtm h4 {
   margin: 30px 0;
   font-weight: 700;
   line-height: 13px;
 }
-main .attractionPage .pageBtm h4 .address {
+body main .attractionPage .pageBtm h4 .address {
   margin: 10px 0;
   font-weight: 400;
   line-height: 30px;
 }
-main .attractionPage .pageBtm h4 {
+body main .attractionPage .pageBtm h4 {
   margin: 30px 0;
   font-weight: 700;
   line-height: 13px;
 }
-main .attractionPage .pageBtm h4 .traffic {
+body main .attractionPage .pageBtm h4 .traffic {
   margin: 10px 0;
   font-weight: 400;
   line-height: 30px;
-}
-
-footer {
-  width: 100%;
-  height: 104px;
-  background: #757575;
-}
-footer p {
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 104px;
-  text-align: center;
 }/*# sourceMappingURL=attraction.css.map */
