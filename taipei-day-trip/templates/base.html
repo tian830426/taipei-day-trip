@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/all.css" />
-    <link rel="stylesheet" href="../static/css/base.css">
-    <!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
-    <link rel="shortcut" href="" />
+    <link rel="stylesheet" href="../static/css/base.css" />
+    <link rel="shortcut" href="#" />
     <title>Taipei Day Trip</title>
     {% block css %} {% endblock %}
   </head>
@@ -20,7 +19,6 @@
           </div></a
         >
         <div class="nav-bar-right">
-          <!-- <a href="http://3.114.69.52:3000/booking"><p> 預設行程</p></a> -->
           <p class="nav-booking">預定行程</p>
           <p class="nav-signup">登入/註冊</p>
           <p class="nav-signout">登出系統</p>
@@ -102,7 +100,6 @@
     <footer class="footer_booking">
       <p>COPYRIGHT © 2021 台北一日遊</p>
     </footer>
-
+    {% block Javascript %}{% endblock %}
   </body>
-  {% block Javascript %}{% endblock %}
 </html>

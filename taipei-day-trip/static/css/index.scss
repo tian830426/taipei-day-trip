@@ -4,8 +4,12 @@
     padding:0;                      
     font-family: 'Noto Sans TC';    
     font-style: normal;      
-    text-decoration: none;       
+    text-decoration: none;
+    ol, ul, li, menu{
+    list-style: none;
 }
+}
+
 
 @mixin rwdFrist{
     @media(max-width:1250px){

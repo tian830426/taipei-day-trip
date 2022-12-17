@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test() {
+    let src="https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+    fetch(src).then(function(response) {
+        return response.json()
+    })  
+}
+let a = test()
+console.log(a) // ?
+console.log(typeof(a)) // ?
+
+    </script>
+</body>
+</html>
