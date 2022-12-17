@@ -36,12 +36,13 @@ def api_booking():
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
             for myresult_tour in myresult:
-                img = myresult_tour[3].split(' ')
-                
-                print(img)
                 print(myresult_tour)
-                print(myresult_tour[1])
-            if myresult_tour != None:
+            img = myresult_tour[3].split(' ')
+                
+            print(img)
+            print(myresult_tour)
+            print(myresult_tour[1])
+            if myresult != None:
                 return jsonify({
                     "data": {
                         "attraction": {
@@ -84,7 +85,7 @@ def api_booking():
                     print(myresult)
                     #如果資料庫有一筆資料便 更新取代原本資料 
                     if myresult != None :
-                        sql = 'UPDATE reservation set attractionId = %s, date =%s, time =%s, price=%s '
+                        sql = 'UPDATE reservation set attractionId = %s, date =%s, time =%s, price=%s'
                         val = (attractionId, date, time, price)
                         mycursor.execute(sql,val)
                         connection_object.commit()
