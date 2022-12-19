@@ -43,7 +43,7 @@ function navbar_booking_lib(){
             // console.log(data == "");
             // console.log(data == null);
             if (data == null){
-                console.log('null comein');
+                // console.log('null comein');
                 document.querySelector('.main').style.display = 'none';
                 document.querySelector('.main_page').style.display = 'block';
                 document.querySelector('footer').style.display = 'none';
