@@ -28,7 +28,7 @@ def api_booking():
     get_token = request.cookies.get("token")
     data = request.get_json()
     # print(data)
-    
+    response = ""
     try :
         if request.method == "GET":
             #data2.id 和 reservation.id 相同時取得以下資料 
@@ -47,7 +47,7 @@ def api_booking():
                 # print(myresult_tour)
                 # print(myresult_tour[1])
                 if myresult != 0:
-                    return jsonify({
+                    response =  jsonify({
                         "data": {
                             "attraction": {
                             "id": myresult_tour[0],
@@ -62,7 +62,7 @@ def api_booking():
                     })
             else:
                 print(myresultlen)
-                return jsonify({
+                response =  jsonify({
                     "data": None
                 }) 
         if request.method == "POST":
@@ -78,7 +78,7 @@ def api_booking():
             if get_token == None :
                 
                 # print(get_token)
-                return jsonify({
+                response = jsonify({
                     "error": True,
                     "message": "未登入狀態" 
                 })
@@ -96,7 +96,7 @@ def api_booking():
                         val = (attractionId, date, time, price)
                         mycursor.execute(sql,val)
                         connection_object.commit()
-                        return jsonify({
+                        response =  jsonify({
                             "ok": True
                         }) 
                     #如果資料庫沒有東西， 新增                   
@@ -106,12 +106,12 @@ def api_booking():
                         val = (attractionId, date, time, price)
                         mycursor.execute(sql,val)
                         connection_object.commit()
-                        return jsonify({
+                        response = jsonify({
                             "ok": True
                         })
                 else :
                     print ('填寫不完全')
-                    return jsonify({
+                    response = jsonify({
                         "error" : True,
                         "message" : "資料填寫不齊全" 
                     })
@@ -122,7 +122,7 @@ def api_booking():
             print('get_token')
             if get_token == None :
                 print(get_token)
-                return jsonify({
+                response =  jsonify({
                     "error": True,
                     "message": "未登入狀態" 
                 })
@@ -131,15 +131,16 @@ def api_booking():
                 sql = "DELETE FROM reservation"
                 mycursor.execute(sql,)
                 connection_object.commit()
-                return jsonify({
+                response = jsonify({
                     "ok": True
                 })
         mycursor.close()    
     except mysql.connector.Error as err:
         print(err)
-        return jsonify({
+        response = jsonify({
                 "error" : True,
                 "message" : "伺服器錯誤"
             },500)
     finally:
         connection_object.close()
+    return response

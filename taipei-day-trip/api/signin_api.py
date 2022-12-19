@@ -65,6 +65,7 @@ def api_signupData():
 @signin_api.route("/api/user/auth",methods=['PUT','GET','DELETE'])
 def api_signinData():
     connection_object = connection_pool.get_connection()
+    response = ""
     try:
         if request.method == "PUT":
             signinData = request.get_json() 
@@ -89,13 +90,13 @@ def api_signinData():
                 print(encoded_jwt)
                 success_token = jsonify({"ok": True}) 
                 success_token.set_cookie("token",encoded_jwt,max_age = 7 * 24 * 60 * 60)    
-                return success_token
+                response = success_token
             else:        
-                return jsonify({
+                response =  jsonify({
                     "error": True,
                     "message":"帳號密碼輸入錯誤"
                     })
-            mycursor.close()             
+            # mycursor.close()             
         if request.method == "GET":
             get_token = request.cookies.get("token")
             # print(get_token)
@@ -111,7 +112,7 @@ def api_signinData():
                 myresult = mycursor.fetchall()
                 # return decoded
                 for myresult_data in myresult:
-                    return jsonify({
+                    response =  jsonify({
                         "data": {
                         "id":myresult_data[0] ,
                         "name":myresult_data[1] ,
@@ -119,7 +120,7 @@ def api_signinData():
                         }
                     })
             else:
-                return jsonify({
+                response =  jsonify({
                     "data": None
                 })
         if request.method == "DELETE":
@@ -128,12 +129,14 @@ def api_signinData():
                 clear_cookie = jsonify({"ok": True})
                 clear_cookie.set_cookie('token','',expires = 0)
                 print (clear_cookie)
-                return clear_cookie
+                response = clear_cookie
     except mysql.connector.Error as err:
         print(err)
-        return jsonify({
+        response = jsonify({
                 "error" : True,
                 "message" : "系統錯誤"
             },500)
     finally:
+        # mycursor.close()
         connection_object.close()
+    return response
