@@ -15,7 +15,6 @@ function getcookie() {
       return response.json();
   }).then(function (data) {
     console.log("取得token", data);
-    
     if (data["data"] != null) {
       console.log("登入中狀態");
       get_booker(data);
@@ -96,6 +95,7 @@ function get_newtour(){
 
 //在booking 呼叫 token 資訊 取得登入者姓名
 function get_booker(data){
+  console.log(data["data"]["name"]);
   document.querySelector(".city_booker").textContent = data["data"]["name"]
 }
   // cookie_lib()
@@ -108,8 +108,9 @@ function get_booker_two(data){
 }
   
 //delete method
+delete_newtour() ;
+function delete_newtour(){ 
 document.querySelector('.icon_delete').addEventListener('click',(e)=>{
-  // function delete_newtour(){ 
   fetch("/api/booking", {
     method: "DELETE",
   }).then(function (response) {
@@ -120,7 +121,6 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
     if(data["ok"] == true){
       document.querySelector('.main').style.display='none';
       document.querySelector('.main_page').style.display ='block';
-
       document.querySelector('footer').style.display = 'none';
       document.querySelector('.footer_booking').style.display = 'block';
     }
@@ -129,8 +129,8 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
     }
    })
 } 
-,false)
-// delete_newtour() ;
+,false)}
+
 
 
 

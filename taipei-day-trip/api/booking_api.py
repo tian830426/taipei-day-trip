@@ -74,7 +74,7 @@ def api_booking():
             price = new_tour["price"]
             
             # 判斷是否登入狀態
-            if get_token == "" :
+            if get_token == None :
                 
                 # print(get_token)
                 return jsonify({
