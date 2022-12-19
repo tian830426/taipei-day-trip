@@ -25,6 +25,7 @@ signin_api = Blueprint("signin_api",__name__)
 # use signupData from frontend 
 @signin_api.route("/api/user", methods = ['POST'])
 def api_signupData():
+    connection_object = connection_pool.get_connection()
     response = ""
     try:    
         if request.method == "POST":
@@ -32,7 +33,6 @@ def api_signupData():
             name = signupData["name"]
             email = signupData["email"]
             password = signupData["password"]  
-            connection_object = connection_pool.get_connection()
             mycursor = connection_object.cursor()
             sql = "select email from userinformation where email = %s "
             val = (email,)
