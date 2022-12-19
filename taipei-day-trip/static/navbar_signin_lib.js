@@ -182,7 +182,7 @@ function navbar_signin_lib(){
 
     window.addEventListener('load',function(){
     console.log('抓到你刷新頁面了嗎，讓我們檢查看看 token');
-    // getcookie();
+    get_cookie();
     // let cookie_data = cookie_lib()
     })  
 
