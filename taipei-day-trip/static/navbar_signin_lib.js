@@ -201,7 +201,7 @@ function navbar_signin_lib(){
         let navsignout = document.querySelector(".nav-signout");
         navsignout.style.display = "none";
         console.log('回首頁');
-        window.location.assign("http://172.20.10.2:3000/")
+        window.location.assign("/")
         } else {
         console.log("有問題");
         }

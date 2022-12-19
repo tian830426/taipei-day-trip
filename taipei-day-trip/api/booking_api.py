@@ -26,7 +26,7 @@ def api_booking():
     connection_object = connection_pool.get_connection()
     get_token = request.cookies.get("token")
     data = request.get_json()
-    print(data)
+    # print(data)
     
     try :
         if request.method == "GET":
@@ -35,34 +35,39 @@ def api_booking():
             sql = "SELECT datas2.id,datas2.name,datas2.address,datas2.images,reservation.date,reservation.time,reservation.price FROM datas2 INNER JOIN reservation ON datas2.id = reservation.attractionId "
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
-            for myresult_tour in myresult:
-                print(myresult_tour)
-            img = myresult_tour[3].split(' ')
-                
-            print(img)
-            print(myresult_tour)
-            print(myresult_tour[1])
-            if myresult != None:
-                return jsonify({
-                    "data": {
-                        "attraction": {
-                        "id": myresult_tour[0],
-                        "name": myresult_tour[1],
-                        "address": myresult_tour[2],
-                        "image": img[0]
-                        },
-                        "date": myresult_tour[4],
+            myresultlen = len(myresult)
+            
+            if myresultlen == 1: 
+                print(myresultlen)
+                myresult_tour = myresult[0]
+                # print(myresult_tour)
+                img = myresult_tour[3].split(' ')
+                # print(img[0])
+                # print(myresult_tour)
+                # print(myresult_tour[1])
+                if myresult != 0:
+                    return jsonify({
+                        "data": {
+                            "attraction": {
+                            "id": myresult_tour[0],
+                            "name": myresult_tour[1],
+                            "address": myresult_tour[2],
+                            "image": img[0]
+                            },
+                            "date": myresult_tour[4],
                             "time": myresult_tour[5],
                             "price": myresult_tour[6]
-                        }
-                })
-            else :
+                            }
+                    })
+            else:
+                print(myresultlen)
                 return jsonify({
                     "data": None
                 }) 
         if request.method == "POST":
             new_tour = request.get_json()
-            print(new_tour)
+            # print(new_tour)
+            # print("----")
             attractionId = new_tour["attractionId"]
             date = new_tour["date"]
             time = new_tour["time"]
@@ -70,7 +75,8 @@ def api_booking():
             
             # 判斷是否登入狀態
             if get_token == "" :
-                print(get_token)
+                
+                # print(get_token)
                 return jsonify({
                     "error": True,
                     "message": "未登入狀態" 
@@ -82,7 +88,7 @@ def api_booking():
                     sql = "SELECT * FROM reservation"
                     mycursor.execute(sql)
                     myresult =  mycursor.fetchone()
-                    print(myresult)
+                    # print(myresult)
                     #如果資料庫有一筆資料便 更新取代原本資料 
                     if myresult != None :
                         sql = 'UPDATE reservation set attractionId = %s, date =%s, time =%s, price=%s'

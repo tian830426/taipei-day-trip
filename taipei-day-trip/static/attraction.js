@@ -223,7 +223,7 @@ function insert_newtour(){
 }).then(function(data){
   if (data['ok'] == true){
     console.log(data);
-    window.location.assign("http://172.20.10.2:3000/booking")
+    window.location.assign("/booking")
   }
   else{
     console.log(data['error']);
