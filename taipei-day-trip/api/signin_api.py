@@ -25,6 +25,7 @@ signin_api = Blueprint("signin_api",__name__)
 # use signupData from frontend 
 @signin_api.route("/api/user", methods = ['POST'])
 def api_signupData():
+    response = ""
     try:    
         if request.method == "POST":
             signupData = request.get_json()
@@ -38,7 +39,7 @@ def api_signupData():
             mycursor.execute(sql,val)
             myresult = mycursor.fetchall()     
             if (mycursor.rowcount != 0) :
-                return jsonify({
+                response = jsonify({
                     "error": True,
                     "message": "此email已被註冊"
                 })
@@ -48,18 +49,19 @@ def api_signupData():
                 val2 = (name, email, password)
                 mycursor2.execute(sql2,val2)
                 connection_object.commit()
-                return jsonify({
+                response = jsonify({
                     "ok": True
                 })
         mycursor.close()
         mycursor2.close() 
     except mysql.connector.Error as err:
-        return jsonify({
+        response = jsonify({
             "error" : True,
             "message" : "系統錯誤"
         },500)
     finally:
         connection_object.close()
+    return response
 
 # use signinData from frontend
 @signin_api.route("/api/user/auth",methods=['PUT','GET','DELETE'])
