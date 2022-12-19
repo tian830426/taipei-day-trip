@@ -25,11 +25,12 @@ booking_api = Blueprint("booking_api",__name__)
 @booking_api.route("/api/booking", methods= ['GET','POST','DELETE'])
 def api_booking():
     connection_object = connection_pool.get_connection()
-    get_token = request.cookies.get("token")
-    data = request.get_json()
+    
+    # data = request.get_json()
     # print(data)
     response = ""
     try :
+        get_token = request.cookies.get("token")
         if request.method == "GET":
             #data2.id 和 reservation.id 相同時取得以下資料 
             mycursor = connection_object.cursor()
@@ -37,7 +38,7 @@ def api_booking():
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
             myresultlen = len(myresult)
-            
+            mycursor.close()
             if myresultlen == 1: 
                 print(myresultlen)
                 myresult_tour = myresult[0]
@@ -98,10 +99,9 @@ def api_booking():
                         connection_object.commit()
                         response =  jsonify({
                             "ok": True
-                        }) 
+                        })
                     #如果資料庫沒有東西， 新增                   
                     else:
-                        mycursor = connection_object.cursor()
                         sql = "INSERT INTO reservation(attractionId, date, time, price) values (%s, %s, %s, %s)"
                         val = (attractionId, date, time, price)
                         mycursor.execute(sql,val)
@@ -109,6 +109,7 @@ def api_booking():
                         response = jsonify({
                             "ok": True
                         })
+                    mycursor.close()
                 else :
                     print ('填寫不完全')
                     response = jsonify({
@@ -134,7 +135,7 @@ def api_booking():
                 response = jsonify({
                     "ok": True
                 })
-        mycursor.close()    
+                mycursor.close()    
     except mysql.connector.Error as err:
         print(err)
         response = jsonify({

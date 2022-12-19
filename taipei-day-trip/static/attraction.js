@@ -36,7 +36,7 @@ function getData(){
     return response.json();
     }).then(function(data){
       attractionId = data["data"]["id"]
-      insert_newtour();
+      
         
       attractions = data["data"];
       attractionImg = attractions["images"];

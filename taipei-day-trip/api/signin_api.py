@@ -52,8 +52,8 @@ def api_signupData():
                 response = jsonify({
                     "ok": True
                 })
-        mycursor.close()
-        mycursor2.close() 
+                mycursor2.close()
+            mycursor.close()
     except mysql.connector.Error as err:
         response = jsonify({
             "error" : True,
