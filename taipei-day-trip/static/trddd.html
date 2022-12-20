@@ -8,7 +8,14 @@
 </head>
 <body>
     <script>
- async function test() {
+ let obj={x:3, y:4};
+let copy=obj;
+copy.x++;
+console.log(obj.x);
+    </script>
+</body>
+</html>
+<!-- async function test() {
     let src="https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
     let response = await fetch(src)
     let body = await response.json()
@@ -16,7 +23,4 @@
 }
 let a = await test()
 console.log(a) // ?
-console.log(typeof(a)) // ?
-    </script>
-</body>
-</html>
+console.log(typeof(a)) // ? -->

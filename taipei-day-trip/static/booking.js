@@ -25,6 +25,9 @@ function getcookie() {
       let navsignout = document.querySelector(".nav-signout");
       navsignout.style.display = "block";  
     }
+    else{
+      window.location.assign("/")
+    }
   });
 }
 
@@ -63,7 +66,7 @@ function get_newtour(){
       document.querySelector('.main_page').style.display = 'block';
       document.querySelector('footer').style.display = 'none';
       document.querySelector('.footer_booking').style.display = 'block';
-      // window.location.assign("/attraction/")
+      
     }
   })
 }
@@ -90,8 +93,6 @@ function get_newtour(){
   // }
 // })     
 // }
-
-
 
 //在booking 呼叫 token 資訊 取得登入者姓名
 function get_booker(data){
@@ -142,15 +143,3 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
 } 
 ,false)}
 
-
-
-
-// window.addEventListener('load',function(){
-//   console.log('抓到你刷新頁面了嗎，讓我們檢查看看 delete');
-//       document.querySelector('.main').style.display='none';
-//       document.querySelector('.main_page').style.display ='block';
-//       document.querySelector('footer').style.display = 'none';
-//       document.querySelector('.footer_booking').style.display = 'block';
-//   // getcookie();
-//   // let cookie_data = cookie_lib()
-//   }) 

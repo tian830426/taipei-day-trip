@@ -168,6 +168,7 @@ function navbar_signin_lib(){
                 }).then(function (data) {
                 console.log("取得token", data);
             if (data["data"] != null) {
+                // window.location.assign("/")
                 console.log("登入中狀態");
                 let navsignup = document.querySelector(".nav-signup");
                 navsignup.style.display = "none";
@@ -183,6 +184,7 @@ function navbar_signin_lib(){
     window.addEventListener('load',function(){
     console.log('抓到你刷新頁面了嗎，讓我們檢查看看 token');
     get_cookie();
+    get_cookie_booking();
     // let cookie_data = cookie_lib()
     })  
 

@@ -226,7 +226,8 @@ function insert_newtour(){
     window.location.assign("/booking")
   }
   else{
-    console.log(data['error']);
+    //未登入狀況進到/booking直接跳轉首頁
+    window.location.assign("/")
   }
 })
 }

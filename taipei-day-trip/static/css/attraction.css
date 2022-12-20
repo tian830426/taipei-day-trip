@@ -238,6 +238,11 @@ body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle {
   flex-direction: column;
   color: #666666;
 }
+@media (max-width: 360px) {
+  body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle {
+    width: 100%;
+  }
+}
 body main .attractionPage .pageTop .pageTopTour .pageTopTourTitle h2 {
   font-weight: 700;
   font-size: 24px;
@@ -275,7 +280,6 @@ body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
 }
 @media (max-width: 700px) {
   body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking {
-    width: 100vw;
     height: 320px;
   }
 }
@@ -340,28 +344,24 @@ body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div
   justify-content: start;
   align-items: center;
 }
-@media (max-width: 360px) {
-  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
-    margin-bottom: 15px;
-  }
-  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 26px;
-  }
-  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div #morning, body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div #afternoon {
-    width: 18px;
-    height: 18px;
-    font-weight: 500;
-    font-size: 16x;
-    line-height: 13px;
-    accent-color: #448899;
-    margin-right: 4px;
-  }
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label #morning, body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div label #afternoon {
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+  accent-color: #448899;
+  margin: auto 4px;
+  vertical-align: middle;
+  line-height: 22px;
 }
 body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div {
   display: flex;
   line-height: 13px;
+  margin-bottom: 15px;
 }
 body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash {
   margin-bottom: 12px;
@@ -370,11 +370,6 @@ body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div
   line-height: 13px;
   margin-right: 10px;
   display: flex;
-}
-@media (max-width: 360px) {
-  body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash {
-    margin-bottom: 15px;
-  }
 }
 body main .attractionPage .pageTop .pageTopTour .pageTopTourBooking .booking_div .cash div {
   display: flex;
