@@ -78,6 +78,32 @@ INSERT INTO `datas2` VALUES (1,'新北投溫泉區','養生溫泉','北投溫泉
 UNLOCK TABLES;
 
 --
+-- Table structure for table `reservation`
+--
+
+DROP TABLE IF EXISTS `reservation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reservation` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `attractionId` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reservation`
+--
+
+LOCK TABLES `reservation` WRITE;
+/*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `test`
 --
 
@@ -121,7 +147,7 @@ CREATE TABLE `userinformation` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id_people`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +156,7 @@ CREATE TABLE `userinformation` (
 
 LOCK TABLES `userinformation` WRITE;
 /*!40000 ALTER TABLE `userinformation` DISABLE KEYS */;
-INSERT INTO `userinformation` VALUES (1,'joyce','yehyachi0616@gmail.com','0616'),(2,'kiki','K333441@gmail.com','888'),(3,'Helen','process090212@gmail.com','110830'),(4,'Jesper','jesper0617@gmail.com','0617'),(5,'k','ti04an26@gmail.com','123'),(6,'kiki','0922@gmail.com','0922'),(7,'Becky','0919@gmail.com','0919'),(8,'Tony','0621@gmail.com','0621'),(9,'chi','0616@gmail.com','830616'),(10,'','',''),(11,'joyce','123','455'),(12,'Helen','b7264974@yahoo.com.tw','bb'),(13,'woman','dodoman','dodoman'),(14,'joyce','tt@gmail.com','ttyy'),(15,'zimin','800919@gmail.com','0919'),(16,'Helen','process0.--@gmail.com','110830'),(17,'Helen','process090212@gmail.','110830'),(18,'Helen','proce212@gmail.','110830'),(19,'Helen','process0902gmail.com','110830'),(20,'Helen','process090212gmail.com','110830');
+INSERT INTO `userinformation` VALUES (1,'joyce','yehyachi0616@gmail.com','0616'),(2,'kiki','K333441@gmail.com','888'),(3,'Helen','process090212@gmail.com','110830'),(4,'Jesper','jesper0617@gmail.com','0617'),(5,'k','ti04an26@gmail.com','123'),(6,'kiki','0922@gmail.com','0922'),(7,'Becky','0919@gmail.com','0919'),(8,'Tony','0621@gmail.com','0621'),(9,'chi','0616@gmail.com','830616'),(10,'','',''),(11,'joyce','123','455'),(12,'Helen','b7264974@yahoo.com.tw','bb'),(13,'woman','dodoman','dodoman'),(14,'joyce','tt@gmail.com','ttyy'),(15,'zimin','800919@gmail.com','0919'),(16,'Helen','process0.--@gmail.com','110830'),(17,'Helen','process090212@gmail.','110830'),(18,'Helen','proce212@gmail.','110830'),(19,'Helen','process0902gmail.com','110830'),(20,'Helen','process090212gmail.com','110830'),(21,'kelly Yang','process@gmail.com','1234567890');
 /*!40000 ALTER TABLE `userinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -143,4 +169,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12  0:01:05
+-- Dump completed on 2022-12-18  0:28:29
