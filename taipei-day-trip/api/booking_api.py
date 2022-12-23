@@ -22,7 +22,7 @@ booking_api = Blueprint("booking_api",__name__)
 #     **dbconfig
 # )
 
-@booking_api.route("/api/booking", methods= ['GET','POST','DELETE'])
+@booking_api.route("/api/booking", methods = ['GET','POST','DELETE'])
 def api_booking():
     connection_object = connection_pool.get_connection()
     
@@ -145,3 +145,7 @@ def api_booking():
     finally:
         connection_object.close()
     return response
+
+
+
+

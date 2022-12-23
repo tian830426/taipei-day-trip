@@ -201,7 +201,7 @@ main .main .page_btm_creditCard h3 {
 main .main .page_btm_creditCard .page_btm_creditCard_input {
   margin-top: 31px;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input label {
+main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container {
   display: flex;
   margin-bottom: 29px;
   font-weight: 500;
@@ -209,7 +209,7 @@ main .main .page_btm_creditCard .page_btm_creditCard_input label {
   line-height: 38px;
   color: #666666;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input label input {
+main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container .tpfield {
   width: 200px;
   height: 38px;
   background: #FFFFFF;

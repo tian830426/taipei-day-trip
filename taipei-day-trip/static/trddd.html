@@ -7,11 +7,94 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <script>
+
+        function free(){
+            return 123
+        }
+
+//利用全域變數 將值取出，再到要用的地方呼叫
+test()
+function test() {
+        let src="https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+         fetch(src).then(function(response) {
+            return response.json()
+        }).then(function(ball){
+            console.log(ball);
+            console.log(ball["id"]);
+            result(ball);
+            return ball
+        })
+        // .then(function(data){
+        //     console.log(data)
+        //     resultId(data);
+        // })
+    }
+
+    function test1() {
+        let src="https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+         fetch(src).then(function(response) {
+            return response.json()
+        }).then(function(play){
+            console.log(play);
+            console.log(ball["id"]);
+            result(ball);
+            return ball
+        })
+        // .then(function(data){
+        //     console.log(data)
+        //     resultId(data);
+        // })
+    }
+
+
+    function app(){
+
+        
+    }
+    function result(ball){
+        console.log(ball["id"]);
+    }
+
+    // function resultId(data){
+    //     console.log(data["id"]);
+    // }
+// function tree(data){
+//     console.log(data);
+//     console.log('123');
+// }
+
+// let a = test()
+// console.log(data["data"]);
+// console.log(a) // Promise
+// console.log(typeof(a)) // object
+
+// a.then(data)
+
+// a.then(function(data){
+//  console.log(data);
+//  console.log(123)
+// }).then(function(){
+
+//  console.log(456)
+// })
+//  console.log (789)
+    </script> -->
     <script>
- let obj={x:3, y:4};
-let copy=obj;
-copy.x++;
-console.log(obj.x);
+
+async function test() {
+    let src="https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+    let response = await fetch(src)
+    let body = await response.json()
+    return body
+}
+let abc = await test().then(function(body){
+
+})
+
+// let  = await test()
+console.log(abc) // ?
+console.log(typeof(abc)) // ?
     </script>
 </body>
 </html>
@@ -24,3 +107,9 @@ console.log(obj.x);
 let a = await test()
 console.log(a) // ?
 console.log(typeof(a)) // ? -->
+
+<!-- 
+let obj={x:3, y:4};
+let copy=obj;
+copy.x++;
+console.log(obj.x); -->

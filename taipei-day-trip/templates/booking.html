@@ -31,9 +31,9 @@
       <div class="page_btm_connect">
         <h3>您的聯絡資訊</h3>
         <div class="page_btm_connect_input">
-        <label for="">聯絡姓名：<input type="text" placeholder="Yakko" required /></label>
-        <label for="">聯絡信箱：<input type="text" placeholder="imyakkowu@gmail.com" required/></label>
-        <label for="">手機號碼：<input type="text" placeholder="" required/>
+        <label for="">聯絡姓名：<input type="text" id="name" placeholder="Yakko" required /></label>
+        <label for="">聯絡信箱：<input type="text" id="email" placeholder="imyakkowu@gmail.com" required/></label>
+        <label for="">手機號碼：<input type="text" id="phone_number" placeholder="" required/>
         </div></label>
         <p>
           請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
@@ -42,16 +42,20 @@
       <hr class="hr">
       <div class="page_btm_creditCard">
         <h3>信用卡付款資訊</h3>
-        <div class="page_btm_creditCard_input">
-        <label for="">卡片號碼：<input type="password" placeholder="**** **** ****" required/></label>
-        <label for="">過期時間：<input type="text" placeholder="MM / YY" required/></label>
-        <label for="">驗證密碼：<input type="text" placeholder="CVV"required/></label>
-        </div>
+          <div class="page_btm_creditCard_input">
+            <div class="tpfield_container">卡片號碼：<div class="tpfield" id="card-number"></div></div>
+          <div class="tpfield_container">過期時間：<div class="tpfield" id="card-expiration-date"></div></div>
+          <div class="tpfield_container">驗證密碼：<div class="tpfield" id="card-ccv"></div></div>
+          <!-- 卡片號碼：<div class="tpfield" id="card-number"></div>
+          過期時間：<div class="tpfield" id="card-expiration-date"></div>
+          驗證密碼：<div class="tpfield" id="card-ccv"></div> -->
+      </div>
+
       </div>
       <hr class="hr">
     </div>
     <div class="page_checkout"><div>總價：新台幣<p class="city_price"></p>元</div> 
-      <button>確認訂購並付款</button>
+      <button type="submit" class="submitButton">確認訂購並付款</button>
     </div>
   </section> 
 <!-- 新台幣 2000 元 -->
@@ -61,7 +65,9 @@
   </section> 
 </main>
 {% endblock %}
-
+jq
 {% block Javascript %}
 <script type="module" src="../static/booking.js"></script>
+<script src="https://js.tappaysdk.com/sdk/tpdirect/v5.14.0"></script>
+<!-- <script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script> -->
 {% endblock %}

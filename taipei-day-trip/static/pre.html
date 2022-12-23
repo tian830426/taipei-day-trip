@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script text="text/javascript" src="https://js.tappaysdk.com/tpdirect/v3"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <title>Connect payment with TapPay</title>
+</head>
+
+<body>
+    <div style="width: 480px; margin: 50px auto;">
+        <label>CardView</label>
+        <div id="cardview-container"></div>
+        <button id="submit-button" onclick="onClick()">Get Prime</button>
+        <pre id="result1"></pre>
+        <pre id="result2"></pre>
+    </div>
+    <script>
+        TPDirect.setupSDK(11327, "app_whdEWBH8e8Lzy4N6BysVRRMILYORF6UxXbiOFsICkz0J9j1C0JUlCHv1tVJC", "sandbox")
+        TPDirect.card.setup('#cardview-container')
+
+        var submitButton = document.querySelector('#submit-button')
+        var cardViewContainer = document.querySelector('#cardview-container')
+        
+
+        function onClick() {
+            TPDirect.card.getPrime(function (result) {
+                if (result.status !== 0) {
+                    console.log('getPrime 錯誤')
+                    return
+                }
+                alert('getPrime 成功')
+                var prime = result.card.prime
+                document.querySelector('#result1').innerHTML = JSON.stringify(result, null, 4)
+
+                $.post('/pay-by-prime', {prime: prime}, function(data) {
+                    alert('付款成功')
+                    document.querySelector('#result2').innerHTML = JSON.stringify(data, null, 4)
+                })
+            })
+        }
+    </script>
+</body>
+</html>

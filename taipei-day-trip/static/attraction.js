@@ -37,7 +37,6 @@ function getData(){
     }).then(function(data){
       attractionId = data["data"]["id"]
       
-        
       attractions = data["data"];
       attractionImg = attractions["images"];
       attractionImgLen = attractionImg.length;
@@ -99,7 +98,7 @@ document.getElementById('afternoon').addEventListener('click',(e)=>{
   document.querySelector('#price').textContent = "2500";
 },false);
 
-let imgBoxes = document.querySelector('imgBoxes');
+let imgBoxes = document.querySelector('.imgBoxes');
 let prev = document.querySelector('.prev');
 let next = document.querySelector('.next');
         
