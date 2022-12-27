@@ -24,7 +24,7 @@ def api_attractions():
             page_count_stage = page_num * page_count_maxnum
             mycursor = connection_object.cursor()
             # mycursor = new.cursor()
-            sql = "select * from datas2 limit %s,%s "
+            sql = "select * from attraction limit %s,%s "
             val = (page_count_stage,page_count_maxnum)
             mycursor.execute(sql,val)
             count_result = mycursor.fetchall()
@@ -70,7 +70,7 @@ def api_attractions():
             #讀取12筆資料
             mycursor1 = connection_object.cursor()
             # mycursor1 = new.cursor()
-            sql = "select * from datas2 where category = %s or name like concat('%',%s,'%') limit %s,%s"
+            sql = "select * from attraction where category = %s or name like concat('%',%s,'%') limit %s,%s"
             val = (key_word , key_word , page_num * page_count_maxnum , page_count_maxnum)
             mycursor1.execute(sql,val)
             key_word_result = mycursor1.fetchall()
@@ -79,7 +79,7 @@ def api_attractions():
             #讀取13筆資料去判斷是否有下一頁
             mycursor2 = connection_object.cursor()
             # mycursor2 = new.cursor()
-            sql2 = "select * from datas2 where category = %s or name like concat('%',%s,'%') limit %s,%s"
+            sql2 = "select * from attraction where category = %s or name like concat('%',%s,'%') limit %s,%s"
             val2 = (key_word , key_word , page_num * page_count_maxnum , page_count_maxnum+1)
             mycursor2.execute(sql2,val2)
             key_word_result2 = mycursor2.fetchall()
@@ -131,7 +131,7 @@ def api_attractionId(attractionId):
         #撈出id長度
             mycursor_len = connection_object.cursor()
             # mycursor_len = new.cursor() 
-            sql = 'select id from datas2'
+            sql = 'select id from attraction'
             mycursor_len.execute(sql)
             id_result_number = mycursor_len.fetchall()
             # mycursor_len.close()
@@ -141,7 +141,7 @@ def api_attractionId(attractionId):
             # print(type(id_result_item))
             mycursor_data = connection_object.cursor()
             # mycursor_data = new.cursor()
-            sql2 = "select * from datas2 where id = %s"
+            sql2 = "select * from attraction where id = %s"
             val2 = (id,)
             mycursor_data.execute(sql2,val2)
             id_result = mycursor_data.fetchone()

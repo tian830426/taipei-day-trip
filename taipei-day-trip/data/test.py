@@ -47,8 +47,8 @@ import mysql.connector
     # mycursor.execute(sql,val)
     # new.commit()
 
-    # 創建第二個資料庫 datas2
-    # create table datas2(id int ,
+    # 創建第二個資料庫 attraction
+    # create table attraction(id int ,
     # name varchar(255) ,
     # category varchar(255) ,
     # description TEXT,
@@ -61,7 +61,7 @@ import mysql.connector
 
     #增加資料到資料夾  
     # mycursor = new.cursor()
-    # sql = "INSERT INTO datas2(id, name, category, description, address, transport, mrt, lat, lng, images) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    # sql = "INSERT INTO attraction(id, name, category, description, address, transport, mrt, lat, lng, images) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     # val=(item['_id'], item['name'], item['CAT'].replace(" ",""), item['description'], item['address'], item['direction'], item['MRT'], item['latitude'], item['longitude'], item['file'])
     # mycursor.execute(sql,val)
     # new.commit()
@@ -101,6 +101,9 @@ import mysql.connector
     
     #更改欄位 姓名
     #ALTER TABLE userinformation RENAME COLUMN username TO email;
+    
+    #更改資料夾 姓名
+    # RENAME TABLE old_table TO new_table;
 
 
     #創建 order 資料表

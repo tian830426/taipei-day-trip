@@ -20,7 +20,7 @@ def api_orderId(orderNumber):
     try:
         if id != "" :
             mycursor = connection_object.cursor()
-            sql = "SELECT datas2.id,datas2.name,datas2.address,cart.attraction_image, cart.order_number,order_price,cart.trip_date, cart.trip_time, cart.contact_name, cart.contact_email, cart.contact_phone, cart.status FROM datas2 INNER JOIN cart ON datas2.id = cart.attraction_Id "
+            sql = "SELECT attraction.id, attraction.name,attraction.address,cart.attraction_image, cart.order_number,order_price,cart.trip_date, cart.trip_time, cart.contact_name, cart.contact_email, cart.contact_phone, cart.status FROM attraction INNER JOIN cart ON attraction.id = cart.attraction_Id "
             # val = (id)
             mycursor.execute(sql)
             myresult = mycursor.fetchall()

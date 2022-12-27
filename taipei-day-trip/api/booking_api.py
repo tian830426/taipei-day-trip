@@ -19,7 +19,7 @@ def api_booking():
         if request.method == "GET":
             #data2.id 和 reservation.id 相同時取得以下資料 
             mycursor = connection_object.cursor()
-            sql = "SELECT datas2.id,datas2.name,datas2.address,datas2.images,reservation.date,reservation.time,reservation.price FROM datas2 INNER JOIN reservation ON datas2.id = reservation.attractionId "
+            sql = "SELECT attraction.id, attraction.name, attraction.address, attraction.images, reservation.date, reservation.time,reservation.price FROM attraction INNER JOIN reservation ON attraction.id = reservation.attractionId "
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
             myresultlen = len(myresult)
