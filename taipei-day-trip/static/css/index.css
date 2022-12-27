@@ -10,7 +10,7 @@
   list-style: none;
 }
 
-body #main .pageOne {
+body #main .main_bgimage {
   width: 100%;
   height: 320px;
   margin-top: 54px;
@@ -19,7 +19,7 @@ body #main .pageOne {
   background-size: cover;
   position: relative;
 }
-body #main .pageOne .text {
+body #main .main_bgimage .main_bgimage_content {
   position: absolute;
   width: 1200px;
   margin-top: 85px;
@@ -27,27 +27,27 @@ body #main .pageOne .text {
   transform: translate(-50%, 0%);
 }
 @media (max-width: 1250px) {
-  body #main .pageOne .text {
+  body #main .main_bgimage .main_bgimage_content {
     width: 90%;
   }
 }
 @media (max-width: 800px) {
-  body #main .pageOne .text {
+  body #main .main_bgimage .main_bgimage_content {
     width: 90%;
   }
 }
 @media (max-width: 500px) {
-  body #main .pageOne .text {
+  body #main .main_bgimage .main_bgimage_content {
     width: 92%;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text {
+  body #main .main_bgimage .main_bgimage_content {
     width: 100%;
     padding: 15px;
   }
 }
-body #main .pageOne .text h2 {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_title {
   font-weight: 700;
   font-size: 28px;
   line-height: 24px;
@@ -55,11 +55,11 @@ body #main .pageOne .text h2 {
   margin: 30px 0;
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text h2 {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_title {
     font-size: 26px;
   }
 }
-body #main .pageOne .text p {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_subtitle {
   margin: 30px 0;
   font-weight: 700;
   font-size: 16px;
@@ -67,27 +67,27 @@ body #main .pageOne .text p {
   color: #F8F8F8;
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text p {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_subtitle {
     font-size: 15px;
   }
 }
-body #main .pageOne .text .but {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container {
   width: 460px;
   height: 46px;
   display: flex;
 }
 @media (max-width: 500px) {
-  body #main .pageOne .text .but {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container {
     width: 310px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .but {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container {
     width: 280px;
     height: 40px;
   }
 }
-body #main .pageOne .text .but .search {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchBar {
   width: 400px;
   background: #FFFFFF;
   font-weight: 700;
@@ -99,16 +99,16 @@ body #main .pageOne .text .but .search {
   border-radius: 6px 0 0 6px;
 }
 @media (max-width: 500px) {
-  body #main .pageOne .text .but .search {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchBar {
     width: 280px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .but .search {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchBar {
     width: 230px;
   }
 }
-body #main .pageOne .text .but .icon {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon {
   width: 60px;
   height: 46px;
   background: #448899;
@@ -119,29 +119,29 @@ body #main .pageOne .text .but .icon {
   justify-content: center;
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .but .icon {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon {
     height: 40px;
   }
 }
-body #main .pageOne .text .but .icon i {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i {
   color: #F8F8F8;
   font-size: 30px;
 }
 @media (max-width: 500px) {
-  body #main .pageOne .text .but .icon i {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i {
     font-size: 26px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .but .icon i {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i {
     font-size: 24px;
   }
 }
-body #main .pageOne .text .searchContainer {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog {
   width: 400px;
   display: none;
 }
-body #main .pageOne .text .searchContainer .searchForm {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form {
   width: 100%;
   height: 100%;
   display: grid;
@@ -154,13 +154,13 @@ body #main .pageOne .text .searchContainer .searchForm {
   background-color: #FFFFFF;
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .searchContainer .searchForm {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form {
     width: 322px;
     height: 100%;
     padding-right: 34px;
   }
 }
-body #main .pageOne .text .searchContainer .searchForm .searchItem {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item {
   width: 120px;
   height: 40px;
   align-items: center;
@@ -171,21 +171,21 @@ body #main .pageOne .text .searchContainer .searchForm .searchItem {
   line-height: 20px;
 }
 @media (max-width: 360px) {
-  body #main .pageOne .text .searchContainer .searchForm .searchItem {
+  body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item {
     width: 96px;
     height: 100%;
   }
 }
-body #main .pageOne .text .searchContainer .searchForm .searchItem:hover {
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item:hover {
   width: 100%;
   height: 100%;
   background-color: rgb(232, 232, 232);
   border-radius: 5px;
 }
-body #main .pageTwo {
+body #main .main_container {
   width: 100%;
 }
-body #main .pageTwo .imgBoxes {
+body #main .main_container .main_imgBoxes {
   width: 1200px;
   margin: 55px auto;
   display: grid;
@@ -194,7 +194,7 @@ body #main .pageTwo .imgBoxes {
   grid-gap: 30px;
 }
 @media (max-width: 1250px) {
-  body #main .pageTwo .imgBoxes {
+  body #main .main_container .main_imgBoxes {
     width: 90%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -203,7 +203,7 @@ body #main .pageTwo .imgBoxes {
   }
 }
 @media (max-width: 800px) {
-  body #main .pageTwo .imgBoxes {
+  body #main .main_container .main_imgBoxes {
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -212,14 +212,14 @@ body #main .pageTwo .imgBoxes {
   }
 }
 @media (max-width: 500px) {
-  body #main .pageTwo .imgBoxes {
+  body #main .main_container .main_imgBoxes {
     width: 92%;
     margin: 30px auto;
     grid-gap: 15px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageTwo .imgBoxes {
+  body #main .main_container .main_imgBoxes {
     width: 90%;
     grid-template-columns: repeat(1, 322px);
     grid-template-rows: repeat(12, 235px);
@@ -227,14 +227,14 @@ body #main .pageTwo .imgBoxes {
     margin: 30px auto;
   }
 }
-body #main .pageTwo .imgBoxes .item {
+body #main .main_container .main_imgBoxes .main_imgBoxes_item {
   width: 100%;
   height: 100%;
   outline: 1px solid rgb(208, 208, 208);
   border-radius: 5px;
   z-index: -1;
 }
-body #main .pageTwo .imgBoxes .item .name-top {
+body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameTop {
   width: 100%;
   height: 197px;
   display: flex;
@@ -244,7 +244,7 @@ body #main .pageTwo .imgBoxes .item .name-top {
   -o-object-fit: cover;
      object-fit: cover;
 }
-body #main .pageTwo .imgBoxes .item .name-top p {
+body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameTop p {
   width: 100%;
   display: inline-block;
   max-height: 40vh;
@@ -258,23 +258,23 @@ body #main .pageTwo .imgBoxes .item .name-top p {
   font-size: 16px;
 }
 @media (max-width: 1250px) {
-  body #main .pageTwo .imgBoxes .item .name-top p {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameTop p {
     font-size: 15px;
   }
 }
 @media (max-width: 500px) {
-  body #main .pageTwo .imgBoxes .item .name-top p {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameTop p {
     font-size: 13px;
     padding: 4px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageTwo .imgBoxes .item .name-top p {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameTop p {
     line-height: 20px;
     font-size: 15px;
   }
 }
-body #main .pageTwo .imgBoxes .item .name-btm {
+body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameBtm {
   width: 100%;
   height: 40px;
   display: flex;
@@ -282,11 +282,11 @@ body #main .pageTwo .imgBoxes .item .name-btm {
   align-items: center;
 }
 @media (max-width: 360px) {
-  body #main .pageTwo .imgBoxes .item .name-btm {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameBtm {
     height: 45px;
   }
 }
-body #main .pageTwo .imgBoxes .item .name-btm p {
+body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameBtm p {
   padding: 10px;
   gap: 4px;
   font-size: 16px;
@@ -298,13 +298,13 @@ body #main .pageTwo .imgBoxes .item .name-btm p {
   max-height: 20vh;
 }
 @media (max-width: 500px) {
-  body #main .pageTwo .imgBoxes .item .name-btm p {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameBtm p {
     font-size: 13px;
     padding: 4px;
   }
 }
 @media (max-width: 360px) {
-  body #main .pageTwo .imgBoxes .item .name-btm p {
+  body #main .main_container .main_imgBoxes .main_imgBoxes_item .main_imgBoxes_item_nameBtm p {
     line-height: 14px;
   }
 }

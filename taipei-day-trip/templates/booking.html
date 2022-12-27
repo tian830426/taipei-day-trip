@@ -6,9 +6,9 @@
 
 {% block main %}
 <main id="main">
-  <section class="main">
+  <section class="booking_page">
     <img src="../static/img/icon_delete.png" alt="" class="icon_delete">
-    <div class="page_top">
+    <div class="booking_page_top">
       <div class="page_top_title">您好，<p class="city_booker"></p>，待預定的行程如下</div>
       <div class="page_top_content">
         <div class="page_top_content_img">
@@ -59,15 +59,14 @@
     </div>
   </section> 
 <!-- 新台幣 2000 元 -->
-  <section class="main_page">
+  <section class="other_booking_page">
     <div class="page_top_title">您好，<div class="city_booker"></div>，待預定的行程如下</div>
-    <p>目前沒有任何待預訂的行程</p>
+    <p>目前沒有任何待預訂的行程，<a href="/">返回首頁</a></p>
   </section> 
 </main>
 {% endblock %}
-jq
+
 {% block Javascript %}
 <script type="module" src="../static/booking.js"></script>
 <script src="https://js.tappaysdk.com/sdk/tpdirect/v5.14.0"></script>
-<!-- <script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script> -->
 {% endblock %}

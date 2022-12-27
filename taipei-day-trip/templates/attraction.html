@@ -6,55 +6,54 @@
 
 {% block main %}
 <main id="main">
-      <section class="attractionPage">
-        <div class="pageTop">
-          <div class="pageTopImg">
-            <div class="imgBoxes">
-             
+      <section class="attraction_page">
+        <div class="attraction_page_top_content">
+          <div class="attraction_page_top_imgContainer">
+            <div class="attraction_page_top_imgBoxes">
             </div>
-            <div class="imgArrow">
-              <div class="imgArrowBlock prev">
+            <div class="attraction_page_top_imgArrow">
+              <div class="imgArrow_block prev">
                 <i class="fa-solid fa-angle-left"></i>
               </div>
-              <div class="imgArrowBlock next">
+              <div class="imgArrow_block next">
                 <i class="fa-solid fa-angle-right"></i>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper_pagination"></div>
           </div>
-          <div class="pageTopTour">
-            <div class="pageTopTourTitle">
-              <h2></h2>
-              <div class="at">
-                <div class="category"></div>
+          <div class="attraction_page_tour">
+            <div class="attraction_page_tour_content">
+              <h2 class="attraction_page_tour_title"></h2>
+              <div class="attraction_page_tour_subtitle">
+                <div class="attraction_page_tour_category"></div>
                 <div>&nbsp;at&nbsp;</div>
-                <div class="mrt"></div>
+                <div class="attraction_page_tour_mrt"></div>
               </div>
             </div>
-            <div class="pageTopTourBooking">
+            <div class="attraction_page_tour_block">
               <h4>訂購導覽行程</h4>
               <p>以此景點為中心的一日行程，帶您探索城市角落故事</p>
-                <div class="booking_div"><label for="">選擇日期：&nbsp;<input type="date" id="date" /></label></div>
-               <div class="booking_div"><label for="">選擇時間：&nbsp;<input
+                <div class="attraction_page_tour_block_input"><label for="">選擇日期：&nbsp;<input type="date" id="date" /></label></div>
+               <div class="attraction_page_tour_block_input"><label for="">選擇時間：&nbsp;<input
                    type="radio" name="time" id="morning"  class="time" value="上半天"
                   checked="checked"/>上半天 &ensp;
                   <input type="radio" id="afternoon" name="time" class="time" value="下半天"/>下半天</label></div>
-                  <div class="booking_div"><label for="" class="cash">導覽費用：&nbsp;<div>新台幣<p id="price">2000</p>元</div>
+                  <div class="attraction_page_tour_block_input"><label for="" class="cash">導覽費用：&nbsp;<div>新台幣<p id="price">2000</p>元</div>
                 </label></div>          
-              <div class="readyBooking">開始預約行程</div>
+              <div class="attraction_page_tour_block_booking_btn">開始預約行程</div>
             </div>
           </div>
         </div>
         <hr class="hr" />
-        <div class="pageBtm">
-          <p class="content"></p>
+        <div class="attraction_page_btm">
+          <p class="attraction_page_btm_content"></p>
           <h4>
             景點地址：
-            <p class="address"></p>
+            <p class="attraction_page_btm_address"></p>
           </h4>
           <h4>
             交通方式：
-            <p class="traffic"></p>
+            <p class="attraction_page_btm_traffic"></p>
           </h4>
         </div>
       </section>

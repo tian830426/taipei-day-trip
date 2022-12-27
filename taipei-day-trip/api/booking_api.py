@@ -7,21 +7,6 @@ from api.connector import connection_pool
 
 booking_api = Blueprint("booking_api",__name__)
 
-# #insert connector.pooling 
-# dbconfig = {
-#     "user" : "root",
-#     "password" : "tian0426",
-#     "host" : "localhost",
-#     "database" : "taipeiDayTrip",
-# }
-
-# connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-#     pool_name = "wehelp_pool",
-#     pool_size = 5,
-#     pool_reset_session = True,
-#     **dbconfig
-# )
-
 @booking_api.route("/api/booking", methods = ['GET','POST','DELETE'])
 def api_booking():
     connection_object = connection_pool.get_connection()
@@ -68,6 +53,7 @@ def api_booking():
                 }) 
         if request.method == "POST":
             new_tour = request.get_json()
+            get_cookie_token = request.cookies.get("token")
             # print(new_tour)
             # print("----")
             attractionId = new_tour["attractionId"]

@@ -5,27 +5,29 @@
   font-family: "Noto Sans TC";
   font-style: normal;
   text-decoration: none;
+  border: none;
+  outline: none;
 }
 
-main .main {
+#main .booking_page {
   width: 70%;
   margin: 0 auto;
   position: relative;
 }
 @media (max-width: 800px) {
-  main .main {
+  #main .booking_page {
     width: 100%;
     height: 100%;
     padding: 10px;
   }
 }
 @media (max-width: 360px) {
-  main .main {
+  #main .booking_page {
     width: 100%;
     padding: 10px;
   }
 }
-main .main .icon_delete {
+#main .booking_page .icon_delete {
   width: 30px;
   height: 30xp;
   position: absolute;
@@ -33,27 +35,27 @@ main .main .icon_delete {
   right: 15px;
 }
 @media (max-width: 800px) {
-  main .main .icon_delete {
+  #main .booking_page .icon_delete {
     top: 660px;
     right: 20px;
   }
 }
 @media (max-width: 360px) {
-  main .main .icon_delete {
+  #main .booking_page .icon_delete {
     top: 570px;
     right: 15px;
   }
 }
-main .main .page_top {
+#main .booking_page .booking_page_top {
   width: 100%;
   margin-top: 100px;
 }
 @media (max-width: 360px) {
-  main .main .page_top {
+  #main .booking_page .booking_page_top {
     margin-top: 80px;
   }
 }
-main .main .page_top .page_top_title {
+#main .booking_page .booking_page_top .page_top_title {
   display: flex;
   font-weight: 700;
   font-size: 19px;
@@ -61,103 +63,103 @@ main .main .page_top .page_top_title {
   margin-bottom: 35px;
   color: #666666;
 }
-main .main .page_top .page_top_content {
+#main .booking_page .booking_page_top .page_top_content {
   width: 100%;
   display: flex;
 }
 @media (max-width: 800px) {
-  main .main .page_top .page_top_content {
+  #main .booking_page .booking_page_top .page_top_content {
     display: block;
   }
 }
 @media (max-width: 360px) {
-  main .main .page_top .page_top_content {
+  #main .booking_page .booking_page_top .page_top_content {
     display: flex;
     flex-direction: column;
   }
 }
-main .main .page_top .page_top_content .page_top_content_img {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_img {
   width: 266px;
   height: 200px;
 }
 @media (max-width: 800px) {
-  main .main .page_top .page_top_content .page_top_content_img {
+  #main .booking_page .booking_page_top .page_top_content .page_top_content_img {
     width: 100%;
     height: 45vh;
   }
 }
 @media (max-width: 360px) {
-  main .main .page_top .page_top_content .page_top_content_img {
+  #main .booking_page .booking_page_top .page_top_content .page_top_content_img {
     width: 340px;
     height: 256px;
   }
 }
-main .main .page_top .page_top_content .page_top_content_img .booking_image {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_img .booking_image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-main .main .page_top .page_top_content .page_top_content_text {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_text {
   margin-left: 22px;
 }
 @media (max-width: 800px) {
-  main .main .page_top .page_top_content .page_top_content_text {
+  #main .booking_page .booking_page_top .page_top_content .page_top_content_text {
     margin-left: 0px;
     margin-top: 20px;
   }
 }
 @media (max-width: 360px) {
-  main .main .page_top .page_top_content .page_top_content_text {
+  #main .booking_page .booking_page_top .page_top_content .page_top_content_text {
     margin-top: 20px;
     margin-left: 0px;
   }
 }
-main .main .page_top .page_top_content .page_top_content_text div {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_text div {
   display: flex;
 }
-main .main .page_top .page_top_content .page_top_content_text div h2 {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_text div h2 {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   color: #448899;
   margin-bottom: 20px;
 }
-main .main .page_top .page_top_content .page_top_content_text p {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_text p {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   color: #666666;
   margin: 10px 0;
 }
-main .main .page_top .page_top_content .page_top_content_text .p_style {
+#main .booking_page .booking_page_top .page_top_content .page_top_content_text .p_style {
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
   color: #666666;
   margin: 10px 0;
 }
-main .main hr {
+#main .booking_page hr {
   width: 100%;
   margin-top: 40px;
   border: 1px solid #E8E8E8;
 }
-main .main .page_btm .page_btm_connect {
+#main .booking_page .page_btm .page_btm_connect {
   width: 100%;
   margin-top: 44px;
 }
-main .main .page_btm .page_btm_connect h3 {
+#main .booking_page .page_btm .page_btm_connect h3 {
   font-weight: 700;
   font-size: 19px;
   line-height: 16px;
   color: #666666;
   margin-bottom: 31px;
 }
-main .main .page_btm .page_btm_connect .page_btm_connect_input {
+#main .booking_page .page_btm .page_btm_connect .page_btm_connect_input {
   display: flex;
   flex-direction: column;
 }
-main .main .page_btm .page_btm_connect .page_btm_connect_input label {
+#main .booking_page .page_btm .page_btm_connect .page_btm_connect_input label {
   display: flex;
   margin-bottom: 29px;
   font-weight: 500;
@@ -165,7 +167,7 @@ main .main .page_btm .page_btm_connect .page_btm_connect_input label {
   line-height: 38px;
   color: #666666;
 }
-main .main .page_btm .page_btm_connect .page_btm_connect_input label input {
+#main .booking_page .page_btm .page_btm_connect .page_btm_connect_input label input {
   width: 200px;
   height: 38px;
   background: #FFFFFF;
@@ -173,35 +175,35 @@ main .main .page_btm .page_btm_connect .page_btm_connect_input label input {
   border-radius: 5px;
   padding: 10px;
 }
-main .main .page_btm .page_btm_connect p {
+#main .booking_page .page_btm .page_btm_connect p {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   color: #666666;
 }
 @media (max-width: 800px) {
-  main .main .page_btm .page_btm_connect p {
+  #main .booking_page .page_btm .page_btm_connect p {
     line-height: 25px;
   }
 }
 @media (max-width: 360px) {
-  main .main .page_btm .page_btm_connect p {
+  #main .booking_page .page_btm .page_btm_connect p {
     line-height: 25px;
   }
 }
-main .main .page_btm_creditCard {
+#main .booking_page .page_btm_creditCard {
   margin-top: 44px;
 }
-main .main .page_btm_creditCard h3 {
+#main .booking_page .page_btm_creditCard h3 {
   font-weight: 700;
   font-size: 19px;
   line-height: 16px;
   color: #666666;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input {
+#main .booking_page .page_btm_creditCard .page_btm_creditCard_input {
   margin-top: 31px;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container {
+#main .booking_page .page_btm_creditCard .page_btm_creditCard_input .tpfield_container {
   display: flex;
   margin-bottom: 29px;
   font-weight: 500;
@@ -209,7 +211,7 @@ main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container {
   line-height: 38px;
   color: #666666;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container .tpfield {
+#main .booking_page .page_btm_creditCard .page_btm_creditCard_input .tpfield_container .tpfield {
   width: 200px;
   height: 38px;
   background: #FFFFFF;
@@ -217,18 +219,18 @@ main .main .page_btm_creditCard .page_btm_creditCard_input .tpfield_container .t
   border-radius: 5px;
   padding: 10px;
 }
-main .main .page_btm_creditCard .page_btm_creditCard_input p {
+#main .booking_page .page_btm_creditCard .page_btm_creditCard_input p {
   font-weight: 700;
   font-size: 16px;
   line-height: 13px;
   color: #666666;
 }
-main .main .page_checkout {
+#main .booking_page .page_checkout {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-main .main .page_checkout div {
+#main .booking_page .page_checkout div {
   display: flex;
   font-weight: 700;
   font-size: 16px;
@@ -236,7 +238,7 @@ main .main .page_checkout div {
   color: #666666;
   margin-top: 43px;
 }
-main .main .page_checkout button {
+#main .booking_page .page_checkout button {
   width: 173px;
   height: 36px;
   background: #448899;
@@ -249,19 +251,19 @@ main .main .page_checkout button {
   margin-top: 26px;
   margin-bottom: 62px;
 }
-main .main_page {
+#main .other_booking_page {
   width: 70%;
   margin: 100px auto;
   position: relative;
   display: none;
 }
 @media (max-width: 360px) {
-  main .main_page {
+  #main .other_booking_page {
     width: 100%;
     padding: 10px;
   }
 }
-main .main_page .page_top_title {
+#main .other_booking_page .page_top_title {
   display: flex;
   font-weight: 700;
   font-size: 19px;
@@ -269,9 +271,19 @@ main .main_page .page_top_title {
   margin-bottom: 40px;
   color: #666666;
 }
-main .main_page p {
+#main .other_booking_page p {
   font-weight: 500;
   font-size: 16px;
   line-height: 13px;
+  color: #666666;
+}
+#main .other_booking_page p a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 13px;
+  color: #2f2f2f;
+}
+#main .other_booking_page p a:hover {
+  font-size: 18px;
   color: #666666;
 }/*# sourceMappingURL=booking.css.map */

@@ -1,5 +1,5 @@
-import navbar_signin_lib from "./navbar_signin_lib.js" 
-navbar_signin_lib()
+import navbar_signup_signin_lib from "./navbar_signup_signin_lib.js" 
+navbar_signup_signin_lib()
 
 // import cookie_lib from "./cookie_lib.js"
 // cookie_lib()
@@ -14,7 +14,7 @@ let keyword = "";
 let urlKeywordDemo = "/api/attractions?page=0&keyword=";
 let judge = 0; //判斷是否有下一頁
 
-//進行全域變數宣告
+//set up global variable
 let attractions = "";
 let attractionImg = "";
 let attractionName = "";
@@ -22,17 +22,17 @@ let attractionMrt = "";
 let attractionCategory = "";
 let attractionLen = 0;
 
-//設定 id 全域變數
+//set up id global variable
 let attractionId = "";
 let attractionIdUrl = "";
 
 if (nextPage == 0) {
   urlPage = urlDemo + nextPage;
-  getData();
+  get_data();
 }
 
 //get datas2
-function getData() {
+function get_data() {
   fetch(urlPage)
     .then(function (response) {
       return response.json();
@@ -43,7 +43,7 @@ function getData() {
       else {
         attractions = data["data"];
         attractionLen = attractions.length;
-        loadPicture();
+        load_picture();
 
         // 判斷是不是最後ㄧ頁
         if (data["nextPage"] != null) {
@@ -60,29 +60,30 @@ function getData() {
           // console.log("nextPage= " + data["nextPage"]);
           urlPage = urlDemo + data["nextPage"];
           judge = 1;
-          loadMore();
+          load_more();
         }
       }
     });
 }
 
 //loading picture
-function loadPicture() {
+function load_picture() {
   for(let i = 0; i < attractionLen; i++) {
     let item = document.createElement("div");
-    item.setAttribute("class", "item");
+    item.setAttribute("class", "main_imgBoxes_item");
+
     //a 連結
     let itemId = document.createElement("a");
     itemId.appendChild(item);
 
     let nameTop = document.createElement("div");
-    nameTop.setAttribute("class", "name-top");
+    nameTop.setAttribute("class", "main_imgBoxes_item_nameTop");
     let nameBtm = document.createElement("div");
-    nameBtm.setAttribute("class", "name-btm");
+    nameBtm.setAttribute("class", "main_imgBoxes_item_nameBtm");
     item.appendChild(nameTop);
     item.appendChild(nameBtm);
 
-    let imgBoxes = document.querySelector(".imgBoxes");
+    let imgBoxes = document.querySelector(".main_imgBoxes");
     imgBoxes.appendChild(itemId);
 
     attractionImg = attractions[i]["images"][0];
@@ -96,20 +97,20 @@ function loadPicture() {
     itemId.setAttribute("href", attractionIdUrl);
 
     let newImg = document.createElement("img");
-    newImg.setAttribute("class", "name-top");
+    newImg.setAttribute("class", "main_imgBoxes_item_nameTop");
     newImg.setAttribute("src", attractionImg);
 
     let newName = document.createElement("p");
     newName.textContent = attractionName;
-    document.querySelectorAll(".name-top")[i].appendChild(newName);
+    document.querySelectorAll(".main_imgBoxes_item_nameTop")[i].appendChild(newName);
 
     let newMrt = document.createElement("p");
     newMrt.textContent = attractionMrt;
-    document.querySelectorAll(".name-btm")[i].appendChild(newMrt);
+    document.querySelectorAll(".main_imgBoxes_item_nameBtm")[i].appendChild(newMrt);
 
     let newCategory = document.createElement("p");
     newCategory.textContent = attractionCategory;
-    document.querySelectorAll(".name-btm")[i].appendChild(newCategory);
+    document.querySelectorAll(".main_imgBoxes_item_nameBtm")[i].appendChild(newCategory);
 
     nameTop.appendChild(newImg);
     nameTop.appendChild(newName);
@@ -118,7 +119,7 @@ function loadPicture() {
   }
 }
 
-function loadMore() {
+function load_more() {
   if (judge == 1) {
     const loading = document.querySelector(".loading");
       window.addEventListener("scroll", () => {
@@ -142,12 +143,12 @@ function loadMore() {
     }).then(function (data) {
       attractions = data["data"];
       attractionLen = data["data"].length;
-      loadPicture();
+      load_picture();
 
       if (data["nextPage"] != null) {
         urlPage = urlDemo + data["nextPage"];
         judge = 1;
-        loadMore();
+        load_more();
         } else {
         console.log("the last page");
       }
@@ -158,12 +159,12 @@ function loadMore() {
   }
 }
 
-let search = document.querySelector(".search");
+let search = document.querySelector(".main_bgimage_searchBar");
 search.addEventListener("click", submit);
 function submit() {
-  let searchContainer = document.querySelector(".searchContainer");
-  let searchForm = document.querySelector(".searchForm");
-  let searchItem = document.querySelectorAll(".searchItem");
+  let searchContainer = document.querySelector(".main_bgimage_search_dialog");
+  let searchForm = document.querySelector(".main_bgimage_search_form");
+  let searchItem = document.querySelectorAll(".main_bgimage_search_item");
   searchContainer.style.display = "block";
   // searchContainer.classList.toggle('down');
 
@@ -179,9 +180,9 @@ function submit() {
       let categoriesLen = data["data"].length;
       for (let i = 0; i < categoriesLen; i++) {
         let searchItemNew = document.createElement("div");
-        searchItemNew.setAttribute("class", "searchItem");
+        searchItemNew.setAttribute("class", "main_bgimage_search_item");
         searchItemNew.setAttribute("id", data["data"][i]);
-        let searchFormNew = document.querySelector(".searchForm");
+        let searchFormNew = document.querySelector(".main_bgimage_search_form");
         let itemName = data["data"][i];
         searchItemNew.textContent = itemName;
         searchFormNew.appendChild(searchItemNew);
@@ -191,18 +192,18 @@ function submit() {
         let itemName = "#" + data["data"][i];
         let itemSearchId = document.querySelector(itemName);
         itemSearchId.onclick = (e) => {
-        let search = document.querySelector(".search");
+        let search = document.querySelector(".main_bgimage_searchBar");
         search.value = e.target.id;
         searchContainer.style.display = "none";
         };
       }
 
-      let touchBody = document.querySelector("#body");
+      let touchBody = document.querySelector("body");
       touchBody.addEventListener("click",(e) => {
       if(
-        e.target.className != "searchForm" &&
-        e.target.className != "searchItem" &&
-        e.target.className != "search"
+        e.target.className != "main_bgimage_search_form" &&
+        e.target.className != "main_bgimage_search_item" &&
+        e.target.className != "main_bgimage_searchBar"
         ){
         searchContainer.style.display = "none";
         }},false);
@@ -211,15 +212,17 @@ function submit() {
 
 //click icon -> clean imgBoxes -> return getDate()
 function icon() {
-  let icon = document.querySelector(".icon");
+  let icon = document.querySelector(".main_bgimage_searchIcon");
   icon.addEventListener("click",(e) => {
-    let imgBoxes = document.querySelector(".imgBoxes");
+    let imgBoxes = document.querySelector(".main_imgBoxes");
     while (imgBoxes.hasChildNodes()) {
     imgBoxes.removeChild(imgBoxes.firstChild);
     }
     urlPage = urlKeywordDemo + search.value;
     keyword = search.value;
-    getData();
+
+    get_data();
+    
   },false)
 }
 icon();

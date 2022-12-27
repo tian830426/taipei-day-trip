@@ -1,4 +1,4 @@
-# import 
+# import model
 from flask import *
 import mysql.connector
 import mysql.connector.pooling
@@ -9,7 +9,7 @@ app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
-#blue print public setting
+# set up blue_print public 
 from flask import Flask
 app = Blueprint('app', __name__)
 app = Flask(__name__)
@@ -23,7 +23,7 @@ from api.orders_api import orders_api
 # set up session secret_key
 app.secret_key='tian12345'
 
-# insert mysql.connector 
+# set up mysql.connector 
 # new = mysql.connector.connect(
 #   host="localhost",
 #   user="root",
@@ -31,7 +31,7 @@ app.secret_key='tian12345'
 #   database="taipeiDayTrip" 
 # )
 
-#insert connector.pooling 
+# set up connector.pooling 
 dbconfig = {
     "user" : "root",
     "password" : "tian0426",
@@ -46,7 +46,7 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     **dbconfig
 )
 
-# Pages
+# Pages of separate frontend and backend
 @app.route("/")
 def index():
     return render_template("index.html")

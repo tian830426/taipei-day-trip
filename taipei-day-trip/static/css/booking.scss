@@ -4,7 +4,9 @@
     padding:0;                      
     font-family: 'Noto Sans TC';    
     font-style: normal;      
-    text-decoration: none;       
+    text-decoration: none;   
+    border: none;
+    outline: none;    
 }
 
 @mixin rwdFrist{
@@ -27,8 +29,8 @@
       @content;
     }
 }
-main{
-    .main{
+#main{
+    .booking_page{
         width: 70%;
         margin: 0 auto;
         position: relative;
@@ -57,7 +59,7 @@ main{
                 right: 15px;
             }
         }
-        .page_top{
+        .booking_page_top{
             width: 100%;
             margin-top: 100px;
             @include mobile{
@@ -263,7 +265,7 @@ main{
         }
     }
 // 沒有任何行程的顯示頁面
-    .main_page{
+    .other_booking_page{
         width: 70%;
         margin: 100px auto;
         position: relative;
@@ -285,6 +287,16 @@ main{
             font-size: 16px;
             line-height: 13px;
             color: #666666;
+            a{
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 13px;
+                color: #2f2f2f;    
+            }
+             a:hover{
+                    font-size: 18px;
+                    color: #666666
+                } 
         }
     }
     

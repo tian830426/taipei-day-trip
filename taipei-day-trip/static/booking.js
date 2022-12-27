@@ -1,5 +1,5 @@
-import navbar_signin_lib from "./navbar_signin_lib.js" 
-navbar_signin_lib()
+import navbar_signup_signin_lib from "./navbar_signup_signin_lib.js" 
+navbar_signup_signin_lib()
 
 // import cookie_lib from "./cookie_lib.js"
 // cookie_lib()
@@ -19,11 +19,10 @@ function getcookie() {
     if (data["data"] != null) {
       console.log("登入中狀態");
       get_booker(data);
-      // get_booker_two(data);
       get_newtour();
-      let navsignup = document.querySelector(".nav-signup");
+      let navsignup = document.querySelector(".navbar_signup_signin_btn");
       navsignup.style.display = "none";
-      let navsignout = document.querySelector(".nav-signout");
+      let navsignout = document.querySelector(".navbar_signout_btn");
       navsignout.style.display = "block";  
     }
     else{
@@ -31,7 +30,6 @@ function getcookie() {
     }
   });
 }
-
 
 let attraction_data = ""
 //取得預定資料 印在前端畫面上
@@ -64,14 +62,14 @@ function get_newtour(){
       let city_price = document.querySelector('.city_price')
       city_price.textContent = data['data']["price"]
       
-      console.log(data["data"]);
+      // console.log(data["data"]);
       // get_prime_data();
     }
     else{
-      document.querySelector('.main').style.display = 'none';
-      document.querySelector('.main_page').style.display = 'block';
+      document.querySelector('.booking_page').style.display = 'none';
+      document.querySelector('.other_booking_page').style.display = 'block';
       document.querySelector('footer').style.display = 'none';
-      document.querySelector('.footer_booking').style.display = 'block'; 
+      document.querySelector('.footer_booking_page_no_reservation').style.display = 'block'; 
     }
       attraction_data = data;
     // return data
@@ -117,10 +115,10 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
   }).then(function (data) {
     console.log(data);
     if(data["ok"] == true){
-      document.querySelector('.main').style.display='none';
-      document.querySelector('.main_page').style.display ='block';
+      document.querySelector('.booking_page').style.display='none';
+      document.querySelector('.other_booking_page').style.display ='block';
       document.querySelector('footer').style.display = 'none';
-      document.querySelector('.footer_booking').style.display = 'block';
+      document.querySelector('.footer_booking_page_no_reservation').style.display = 'block';
     }
     else{
       console.log('沒有成功刪除');
@@ -289,11 +287,11 @@ document.querySelector('.submitButton').addEventListener("click",
   function (event) {
     console.log(event);
     event.preventDefault()
-  
+    
     // 取得 TapPay Fields 的 status
     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
     console.log(tappayStatus)
-  
+    
     // 確認是否可以 getPrime
     if (tappayStatus.canGetPrime === false) {
         alert('can not get prime')
@@ -306,15 +304,28 @@ document.querySelector('.submitButton').addEventListener("click",
             alert('get prime error ' + result.msg)
             return
         }
-        alert('get prime 成功，prime: ' + result.card.prime)
+        // alert('get prime 成功，prime: ' + result.card.prime)
 
         let prime = result.card.prime
+        console.log(prime);
+        // let status = result.status
 
         let name = document.getElementById('name').value
         let email = document.getElementById('email').value
         let phone_number = document.getElementById
           ('phone_number').value 
-        
+
+        let email_rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    
+        //validate ok or not
+        if(email.search(email_rule)!= -1){
+            console.log('true');
+        }else{
+            document.querySelector(".navbar_signin_dialog").style.height = "345px";
+            document.querySelector(".navbar_signin_email_status").innerHTML = "信箱格式輸入錯誤!";
+          }
+      
+        // console.log(result.status);
         get_attraction_data(prime,name,email,phone_number);
         // return prime
         // get_prime_data(data);
@@ -397,12 +408,6 @@ TPDirect.ccv.setup({
 
 function get_attraction_data(prime,name,email,phone_number){
   let data = attraction_data
-  // let abc = get_prime_data(prime);
-  // console.log(abc);
-  // abc().then(a=>{
-  //   console.log(a);
-  // })
- 
   const prime_data = {
     "prime" : prime,
     "order" :{
@@ -424,7 +429,7 @@ function get_attraction_data(prime,name,email,phone_number){
       }
     }
   }
-  console.log(prime_data);
+
   fetch("/api/orders",{
     method: "POST",
     credentials: "include",
@@ -435,12 +440,25 @@ function get_attraction_data(prime,name,email,phone_number){
     }),
   }).then(function(response){
     return response.json();
+  }).then(function(data){
+    console.log(data);
+    let thankyou_url = "";
+    if (data["data"]["number"] != ""){
+      let order_number = data["data"]["number"];
+      console.log(order_number);
+      thankyou_url = "/thankyou?number=" + order_number;
+      window.location.assign(thankyou_url);
+      // return get_order_number(order_number)
+    }
+    else{
+      window.location.assign("/")
+      console.log("有其他錯誤，返回首頁");
+      // 製作失敗頁面及連結可跳回 booking頁面
+      
+    }
   })
-  // .then(function(data){
-  //   console.log(data);
-  //   return data
-  // })
 }
+
 
 
 
