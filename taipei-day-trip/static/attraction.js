@@ -7,6 +7,9 @@ navbar_signup_signin_lib()
 import navbar_booking_lib from "./navbar_booking_lib.js"
 navbar_booking_lib()
 
+// import navbar_member_lib from "./navbar_member_lib.js" 
+// navbar_member_lib()
+
 //set up global variable
 let attractionIdDemo = "/api"
 let attractionUrl = "";
@@ -207,3 +210,7 @@ function insert_booking(){
 })
 }
 
+// 設定日期僅能選擇目前日期
+var minDate = new Date();
+minDate.setDate(minDate.getDate());
+document.getElementById("date").min = minDate.toISOString().split("T")[0];

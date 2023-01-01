@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block main %}
+<div id=loading >
+  正在載入中,請稍等.....</div>
 <main id="main">
   <section class="booking_page">
     <img src="../static/img/icon_delete.png" alt="" class="icon_delete">
@@ -31,9 +33,10 @@
       <div class="page_btm_connect">
         <h3>您的聯絡資訊</h3>
         <div class="page_btm_connect_input">
-        <label for="">聯絡姓名：<input type="text" id="name" placeholder="Yakko" required /></label>
-        <label for="">聯絡信箱：<input type="text" id="email" placeholder="imyakkowu@gmail.com" required/></label>
-        <label for="">手機號碼：<input type="text" id="phone_number" placeholder="" required/>
+        <label for="">聯絡姓名：<input type="text" id="name" placeholder="請輸入姓名" required /></label>
+        <label for="">聯絡信箱：<input type="email" id="email" placeholder="請輸入信箱" required/></label>
+        <div class="page_btm_connect_email_status"></div>
+        <label for="">手機號碼：<input type="tel" id="phone_number" placeholder="請輸入手機號碼" min="10" max="10" required/>
         </div></label>
         <p>
           請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
@@ -59,14 +62,15 @@
     </div>
   </section> 
 <!-- 新台幣 2000 元 -->
-  <section class="other_booking_page">
+<section class="other_booking_page">
     <div class="page_top_title">您好，<div class="city_booker"></div>，待預定的行程如下</div>
     <p>目前沒有任何待預訂的行程，<a href="/">返回首頁</a></p>
-  </section> 
+</section> 
 </main>
 {% endblock %}
 
 {% block Javascript %}
 <script type="module" src="../static/booking.js"></script>
+<script src="../static/setting.js"></script>
 <script src="https://js.tappaysdk.com/sdk/tpdirect/v5.14.0"></script>
 {% endblock %}

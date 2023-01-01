@@ -396,6 +396,7 @@ body main .attraction_page .attraction_page_top_content .attraction_page_tour .a
   font-size: 19px;
   line-height: 16px;
   border: none;
+  cursor: pointer;
 }
 body main .attraction_page .hr {
   max-width: 1200px;

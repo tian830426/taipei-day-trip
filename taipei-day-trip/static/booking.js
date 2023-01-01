@@ -7,6 +7,18 @@ navbar_signup_signin_lib()
 import navbar_booking_lib from "./navbar_booking_lib.js"
 navbar_booking_lib()
 
+// import navbar_member_lib from "./navbar_member_lib.js" 
+// navbar_member_lib()
+
+// import TapPay from "./TapPay.js"
+// TapPay()
+
+// closeDiv();
+// function closeDiv()
+// {document.getElementById('loading').style.visibility='hidden';
+// // document.getElementById('main').style.visibility='visible';
+// }
+
 getcookie();
 //取得後端回傳token
 function getcookie() {
@@ -18,12 +30,12 @@ function getcookie() {
     console.log("取得token", data);
     if (data["data"] != null) {
       console.log("登入中狀態");
-      get_booker(data);
-      get_newtour();
       let navsignup = document.querySelector(".navbar_signup_signin_btn");
       navsignup.style.display = "none";
       let navsignout = document.querySelector(".navbar_signout_btn");
       navsignout.style.display = "block";  
+      get_newtour();
+      get_booker(data);
     }
     else{
       window.location.assign("/")
@@ -61,9 +73,6 @@ function get_newtour(){
 
       let city_price = document.querySelector('.city_price')
       city_price.textContent = data['data']["price"]
-      
-      // console.log(data["data"]);
-      // get_prime_data();
     }
     else{
       document.querySelector('.booking_page').style.display = 'none';
@@ -72,11 +81,7 @@ function get_newtour(){
       document.querySelector('.footer_booking_page_no_reservation').style.display = 'block'; 
     }
       attraction_data = data;
-    // return data
   })
-  // .then(function(data){
-  //   get_attraction_data(data);
-  // })
 }
 
 //在booking 呼叫 token 資訊 取得登入者姓名
@@ -87,22 +92,8 @@ function get_booker(data){
     // console.log(booker);
     booker.textContent = data["data"]["name"]
   }
-  // document.querySelectorAll(".city_booker").textContent = data["data"]["name"]
 }
 
-// var btns = document.querySelectorAll('button');
-// for (let btn of btns) {
-//   console.log(btn);
-// }
-  // cookie_lib()
-  // let data = cookie_lib()
-  
-
-// function get_booker_two(data){
-//   // let data = cookie_lib()
-//   document.querySelector(".city_booker_two").textContent = data["data"]["name"]
-// }
-  
 //delete method
 delete_newtour() ;
 function delete_newtour(){ 
@@ -127,9 +118,8 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
 } 
 ,false)}
 
-//week-6
-//設定參數
-TPDirect.setupSDK(126946, "app_a8IwE6ugbKnbBObGwX624iLJJRwgGkkluDMG6GmyXxPzivIR5hmsbchImJMG", 'sandbox')
+//設定TapPay參數
+TPDirect.setupSDK(`${APP_ID}`,`${APP_KEY}`, 'sandbox')
 
 //設定外觀
 TPDirect.card.setup({
@@ -227,7 +217,6 @@ TPDirect.card.setup({
 //   // }
 //   // 4242 4242 4242 4242
 //   // console.log((data));
-
 //   })
   // TPDirect.card.onUpdate();
 
@@ -278,11 +267,6 @@ TPDirect.card.setup({
 // call TPDirect.card.getPrime when user submit form to get tappay prime
 // $('form').on('submit', onSubmit)
 
-// let prime = ""
-// let name = ""
-// let email = ""
-// let phone_number = ""
-
 document.querySelector('.submitButton').addEventListener("click",
   function (event) {
     console.log(event);
@@ -301,8 +285,9 @@ document.querySelector('.submitButton').addEventListener("click",
     // Get prime
     TPDirect.card.getPrime((result) => {
         if (result.status !== 0) {
-            alert('get prime error ' + result.msg)
-            return
+          console.log("沒有成功拿到prime");
+            // alert('get prime error ' + result.msg)
+            // return
         }
         // alert('get prime 成功，prime: ' + result.card.prime)
 
@@ -321,8 +306,7 @@ document.querySelector('.submitButton').addEventListener("click",
         if(email.search(email_rule)!= -1){
             console.log('true');
         }else{
-            document.querySelector(".navbar_signin_dialog").style.height = "345px";
-            document.querySelector(".navbar_signin_email_status").innerHTML = "信箱格式輸入錯誤!";
+            document.querySelector(".page_btm_connect_email_status").innerHTML = "信箱格式輸入錯誤!";
           }
       
         // console.log(result.status);
@@ -406,6 +390,7 @@ TPDirect.ccv.setup({
 //   return a
 // }
 
+// TapPay(get_attraction_data)
 function get_attraction_data(prime,name,email,phone_number){
   let data = attraction_data
   const prime_data = {

@@ -117,11 +117,15 @@ body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .m
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 @media (max-width: 360px) {
   body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon {
     height: 40px;
   }
+}
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon:hover {
+  background: #5cb6cd;
 }
 body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i {
   color: #F8F8F8;
@@ -136,6 +140,10 @@ body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .m
   body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i {
     font-size: 24px;
   }
+}
+body #main .main_bgimage .main_bgimage_content .main_bgimage_search_container .main_bgimage_searchIcon i:hover {
+  font-size: 31px;
+  color: #448899;
 }
 body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog {
   width: 400px;
@@ -163,12 +171,14 @@ body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main
 body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item {
   width: 120px;
   height: 40px;
+  text-align: center;
   align-items: center;
-  padding: 10px 15px;
   gap: 4px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 40px;
+  color: #757575;
+  cursor: pointer;
 }
 @media (max-width: 360px) {
   body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item {
@@ -179,8 +189,10 @@ body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main
 body #main .main_bgimage .main_bgimage_content .main_bgimage_search_dialog .main_bgimage_search_form .main_bgimage_search_item:hover {
   width: 100%;
   height: 100%;
-  background-color: rgb(232, 232, 232);
+  color: #555555;
+  background-color: rgb(246, 246, 246);
   border-radius: 5px;
+  font-size: 16px;
 }
 body #main .main_container {
   width: 100%;

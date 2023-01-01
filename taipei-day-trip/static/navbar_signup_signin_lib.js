@@ -40,10 +40,24 @@ function navbar_signup_signin_lib(){
         // get_signin_data();
     })
 
+    let checkEye_signup = document.getElementById("checkEye_signup");
+    let floatingPassword_signup =  document.getElementById("signup_password");
+    checkEye_signup.addEventListener("click", function(e){
+    if(e.target.classList.contains('fa-eye')){
+        e.target.classList.remove('fa-eye');
+        e.target.classList.add('fa-eye-slash');
+        floatingPassword_signup.setAttribute('type','text')
+    }else{
+        floatingPassword_signup.setAttribute('type','password');
+        e.target.classList.remove('fa-eye-slash');
+        e.target.classList.add('fa-eye')
+    }
+    });
+
     function get_signup_data(){
-        const name = document.getElementById("signup_name").value;
-        const email = document.getElementById("signup_email").value;
-        const password = document.getElementById("signup_password").value;
+        let name = document.getElementById("signup_name").value;
+        let email = document.getElementById("signup_email").value;
+        let password = document.getElementById("signup_password").value;
 
         //about email regex
         let email_rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
@@ -90,10 +104,41 @@ function navbar_signup_signin_lib(){
         get_signin_data();
     },false)
 
-    function get_signin_data() {
-        const email = document.getElementById("signin_email").value;
-        const password = document.getElementById("signin_password").value;
 
+    let checkEye_signin = document.getElementById("checkEye_signin");
+    let floatingPassword_signin =  document.getElementById("signin_password");
+    checkEye_signin.addEventListener("click", function(e){
+    if(e.target.classList.contains('fa-eye')){
+        e.target.classList.remove('fa-eye');
+        e.target.classList.add('fa-eye-slash');
+        floatingPassword_signin.setAttribute('type','text')
+    }else{
+        floatingPassword_signin.setAttribute('type','password');
+        e.target.classList.remove('fa-eye-slash');
+        e.target.classList.add('fa-eye')
+    }
+    });
+
+    // let checkEye_signup = document.getElementById("checkEye_signup");
+    // let floatingPassword_signup =  document.getElementById("signup_password");
+    // checkEye_signup.addEventListener("click", function(e){
+    // if(e.target.classList.contains('fa-eye')){
+    //     e.target.classList.remove('fa-eye');
+    //     e.target.classList.add('fa-eye-slash');
+    //     floatingPassword_signup.setAttribute('type','text')
+    // }else{
+    //     floatingPassword_signup.setAttribute('type','password');
+    //     e.target.classList.remove('fa-eye-slash');
+    //     e.target.classList.add('fa-eye')
+    // }
+    // });
+
+
+    function get_signin_data() {
+        let email = document.getElementById("signin_email").value;
+        let password = document.getElementById("signin_password").value;
+
+    
         let email_rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     
         //validate ok or not
@@ -102,6 +147,7 @@ function navbar_signup_signin_lib(){
         }else{
             document.querySelector(".navbar_signin_dialog").style.height = "345px";
             document.querySelector(".navbar_signin_email_status").innerHTML = "信箱格式輸入錯誤!";
+            document.querySelector("#checkEye_signin").style.top = "160px"
         }
 
         const get_signin_data = {
@@ -146,6 +192,7 @@ function navbar_signup_signin_lib(){
             console.log(" login status !");
             document.querySelector(".navbar_signup_signin_btn").style.display = "none";
             document.querySelector(".navbar_signout_btn").style.display = "block"; 
+            // document.querySelector(".navbar_member_btn").style.display = "block";
         }
         else{
             console.log('signout status !');
@@ -169,6 +216,7 @@ function navbar_signup_signin_lib(){
         console.log("clean up");
         document.querySelector(".navbar_signup_signin_btn").style.display = "block";
         document.querySelector(".navbar_signout_btn").style.display = "none";
+        // document.querySelector(".navbar_member_btn").style.display = "none";
         window.location.assign("/")
     } 
     else {

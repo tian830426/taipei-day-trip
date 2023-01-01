@@ -118,9 +118,14 @@ body{
                 display:flex;    
                 align-items: center;
                 justify-content: center;
+                cursor: pointer; 
                 @include mobile{
                     height: 40px;
                 }
+                &:hover{
+                    background:#5cb6cd;
+                }
+
                 i{
                     color: #F8F8F8;
                     font-size: 30px;
@@ -130,6 +135,10 @@ body{
                     @include mobile{
                     font-size: 24px; 
                     }
+                }
+                i:hover{
+                    font-size: 31px;
+                    color: #448899;
                 }
             }   
         }
@@ -156,22 +165,28 @@ body{
                 .main_bgimage_search_item{
                     width: 120px;
                     height: 40px;
+                    text-align: center;
                     align-items: center;
-                    padding: 10px 15px;
+                    // padding: 10px 15px;
                     gap: 4px;
                     font-weight: 500;
                     font-size: 14px;
-                    line-height: 20px;
+                    line-height: 40px;
+                    color:#757575;
+                    cursor: pointer; 
                     @include mobile{ 
                         width: 96px;
                         height: 100%;     
                     } 
                 }
+               
                 .main_bgimage_search_item:hover{
                     width: 100%;
                     height: 100%;
-                    background-color: rgba(232, 232, 232, 1);
+                    color:#555555;
+                    background-color: rgb(246, 246, 246);
                     border-radius: 5px;
+                    font-size: 16px;
                 }
             }
         }   
@@ -249,7 +264,12 @@ body{
                         @include mobile{
                             line-height: 20px; 
                             font-size: 15px;
-                        } 
+                        }
+                        // p:hover{
+                        //     color: white;
+                        //     opacity: .8;
+                        //     font-size: 17px;
+                        // } 
                     }
                 }
                 .main_imgBoxes_item_nameBtm{

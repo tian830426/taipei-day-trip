@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/all.css" />
     <link rel="stylesheet" href="../static/css/base.css" />
-    <link rel="shortcut" href="#" />
+    <link rel="stylesheet" href="twicon/twicon.css">
+    <link rel="shortcut icon" href="../static/img/hall_favicon.ico" />
     <title>Taipei Day Trip</title>
     {% block css %} {% endblock %}
   </head>
@@ -19,9 +20,19 @@
           </div></a
         >
         <div class="navbar_mainmenu">
-          <p class="navbar_booking_btn">預定行程</p>
-          <p class="navbar_signup_signin_btn">登入/註冊</p>
-          <p class="navbar_signout_btn">登出系統</p>
+          <label for="switch"><i class="fa-solid fa-bars"></i></label> <!--漢堡按鈕圖示-->
+          <input type="checkbox" id="switch"> <!--選單開關-->
+          <ul class="menu_bar">
+             <li class="navbar_booking_btn">預定行程</li>
+          <li class="navbar_signup_signin_btn">登入/註冊</li>
+          <!-- <li class="navbar_member_btn">會員中心
+            <ul class="navbar_memeber_dropdown_menu">
+              <li class="navbar_memeber_dropdown_item revise_user_data">修改會員資料</li>
+               <li class="navbar_memeber_dropdown_item search_order_number">查詢訂單編號</li> 
+            </ul>
+          </li> -->
+          <li class="navbar_signout_btn">登出系統</li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -29,6 +40,7 @@
     <div class="navbar_signup_dialog">
       <div class="navbar_signup_style_bgimage"></div>
       <div class="navbar_signup_style_textbox">
+        <i id="checkEye_signup" class="fas fa-eye"></i>
         <h3>註冊會員帳號</h3>
         <div class="navbar_signup_account_content">
           <input
@@ -40,7 +52,7 @@
             required
           />
           <input
-            type="text"
+            type="email"
             class="email"
             name="email"
             id="signup_email"
@@ -66,10 +78,11 @@
     <div class="navbar_signin_dialog">
       <div class="navbar_signin_style_bgimage"></div>
       <div class="navbar_signin_style_textbox">
+        <i id="checkEye_signin" class="fas fa-eye"></i>
         <h3>登入會員帳號</h3>
         <div class="navbar_signin_account_content">
           <input
-            type="text"
+            type="email"
             name="email"
             class="email"
             id="signin_email"
@@ -96,10 +109,10 @@
     {% block main %}{% endblock %}
 
     <footer>
-      <p>COPYRIGHT © 2021 台北一日遊</p>
+      <p>COPYRIGHT © 2022 台北一日遊</p>
     </footer>
     <footer class="footer_booking_page_no_reservation">
-      <p>COPYRIGHT © 2021 台北一日遊</p>
+      <p>COPYRIGHT © 2022 台北一日遊</p>
     </footer>
     {% block Javascript %}{% endblock %}
   </body>

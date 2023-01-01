@@ -7,6 +7,9 @@ navbar_signup_signin_lib()
 import navbar_booking_lib from "./navbar_booking_lib.js"
 navbar_booking_lib()
 
+// import navbar_member_lib from "./navbar_member_lib.js" 
+// navbar_member_lib()
+
 let nextPage = 0; //預設page = 0
 let urlPage = "";
 let urlDemo = "/api/attractions?page=";
@@ -31,7 +34,7 @@ if (nextPage == 0) {
   get_data();
 }
 
-//get datas2
+//get attraction database
 function get_data() {
   fetch(urlPage)
     .then(function (response) {

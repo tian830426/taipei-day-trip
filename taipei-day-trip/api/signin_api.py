@@ -5,7 +5,15 @@ import json
 import jwt
 from api.connector import connection_pool
 
+#python dotenv .env
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 signin_api = Blueprint("signin_api",__name__)
+
+jwt_secret_key = os.getenv('JWT_SECRET_KEY')
+print(jwt_secret_key)
 
 # get signup_data from frontend 
 @signin_api.route("/api/user", methods = ['POST'])
@@ -68,9 +76,9 @@ def api_signin_data():
             myresult = mycursor.fetchall()
             
             if  mycursor.rowcount != 0 :
-                secret_key ='12345'
-                encoded_jwt = jwt.encode({"email":email}, secret_key, algorithm="HS256")
-                # encoded_jwt = jwt.encode({"id":id,"name":name ,"email":email}, secret_key, algorithm="HS256")
+                
+                encoded_jwt = jwt.encode({"email":email}, jwt_secret_key, algorithm="HS256")
+                # encoded_jwt = jwt.encode({"id":id,"name":name ,"email":email}, jwt_secret_key, algorithm="HS256")
                 # print(encoded_jwt)
                 get_jwt_token = jsonify({"ok": True}) 
                 get_jwt_token.set_cookie("token",encoded_jwt,max_age = 7 * 24 * 60 * 60)    
@@ -85,8 +93,8 @@ def api_signin_data():
             get_cookie_token = request.cookies.get("token")
             # print(get_cookie_token)
             if get_cookie_token != None:
-                secret_key = '12345'
-                decoded = jwt.decode(get_cookie_token,secret_key,algorithms = 'HS256')
+                
+                decoded = jwt.decode(get_cookie_token,jwt_secret_key,algorithms = 'HS256')
                 # print(decoded)
                 # print(decoded["email"])
                 mycursor = connection_object.cursor()

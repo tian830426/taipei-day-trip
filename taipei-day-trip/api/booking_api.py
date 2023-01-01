@@ -27,11 +27,7 @@ def api_booking():
             if myresultlen == 1: 
                 print(myresultlen)
                 myresult_tour = myresult[0]
-                # print(myresult_tour)
                 img = myresult_tour[3].split(' ')
-                # print(img[0])
-                # print(myresult_tour)
-                # print(myresult_tour[1])
                 if myresult != 0:
                     response =  jsonify({
                         "data": {

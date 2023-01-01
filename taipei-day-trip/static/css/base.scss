@@ -72,23 +72,118 @@ body{
                     @include mobile{
                         font-size: 24px;
                     }
+                    &:hover{
+                      color:#5cb6cd;
+                    }
                 }
             }
             .navbar_mainmenu{         
                 display:flex; 
-               p,.navbar_signin_signup_btn{
+                /* 隱藏 checkbox */
+                @include rwdThird{
+                flex-direction: column;
+                justify-content: end;
+                align-items: flex-end;
+                }
+                input{
+                    display: none;
+                    @include mobile{
+                        display: none;
+                    }
+                }
+                input:checked ~ .menu_bar {
+                    @include rwdThird{
+                    max-height: 300px;
+                    
+                    }
+                    }
+                label{
+                    // width: 20px;
+                    // height: 20px;
+                    display: none;
+                    cursor: pointer;
+                    
+                    // justify-content: end;
+                    @include rwdThird{
+                        display: block;
+                        // float: right;
+                        font-size: 20px;
+                        // padding-right: 10px;
+                        line-height: 54px;
+                        color: #666666;
+
+                    }
+                    img{
+                        @include mobile{
+                            float: left;
+                            margin: 0 auto;
+                            // width: 30px;   
+                            // vertical-align: middle;
+                        }
+                    }
+                }
+                .menu_bar{
+                  display: flex;
+
+                @include rwdThird{
+                    // margin-top: 20px;
+                    max-width: 100%;
+                    flex-direction: column;
+                    text-align: center;
+                    border-bottom: 1px solid #efefef;
+                    // display: none;
+                    // clear: both;
+                    flex-direction: column;
+                    background: #fff;
+                    max-height: 0;
+                    overflow: hidden;
+                    // transition: .5s; /* 動畫秒數 */
+                  }
+                @include mobile{
+                    text-align: center;
+                    border-bottom: 1px solid #efefef;
+                }
+                    .navbar_booking_btn{
                     padding: 5px;
                     font-weight: 500;
                     font-size: 16px;
                     line-height: 54px;
                     color: #666666;
                     padding: 0 10px;
+                    cursor: pointer; 
                     @include mobile{
                         padding: 20px 10px; 
                         line-height: 13px;
-                    }          
-                }
-                .navbar_signout_btn{
+                        text-align: center;
+                        border-bottom: 1px solid #efefef;
+                    }
+                    &:hover{
+                        color:#448899 ;
+                        opacity: .85;
+                        font-size: 17px;
+                    }           
+                    }
+                    .navbar_signup_signin_btn{
+                    padding: 5px;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 54px;
+                    color: #666666;
+                    padding: 0 10px;
+                    cursor: pointer; 
+                    @include mobile{
+                        padding: 20px 10px; 
+                        line-height: 13px;
+                        text-align: center;
+                        border-bottom: 1px solid #efefef;
+                    }
+                    &:hover{
+                        color:#448899 ;
+                        opacity: .85;
+                        font-size: 17px;
+                    }           
+                 }
+                 .navbar_member_btn{
                     display: none;
                     padding: 5px;
                     font-weight: 500;
@@ -96,11 +191,74 @@ body{
                     line-height: 54px;
                     color: #666666;
                     padding: 0 10px;
+                    cursor: pointer; 
+                    position: relative;
                     @include mobile{
                         padding: 20px 10px; 
                         line-height: 13px;
-                    }          
-                } 
+                        text-align: center;
+                        border-bottom: 1px solid #efefef;
+                    }
+                    &:hover{
+                            color:#448899 ;
+                            opacity: .85;
+                            font-size: 17px;
+                        .navbar_memeber_dropdown_menu{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                    .navbar_memeber_dropdown_menu{
+                        margin-top: 10px;
+                        display: none;
+                        width: 140px;
+                        height: 120px;
+                        position: absolute;
+                        top:50px;
+                        left: 0px;
+                        
+                        .navbar_memeber_dropdown_item{
+                            width: 85%;
+                            height: 85%;
+                            text-align: center;
+                            margin-top: 10px;
+                            background-color:rgb(206, 206, 206);
+                            border-radius: 3px;
+                            font-size: 14px;
+                            color: #666666;
+                            cursor: pointer; 
+                            &:hover{
+                                opacity: 0.85;
+                                font-size: 16px;
+                                color:#5cb6cd;
+                                background-color: rgb(223, 223, 223)
+                            }
+                        }
+                    }
+                 }
+                 .navbar_signout_btn{
+                    display: none;
+                    padding: 5px;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 54px;
+                    color: #666666;
+                    padding: 0 10px;
+                    cursor: pointer; 
+                    @include mobile{
+                        padding: 20px 10px; 
+                        line-height: 13px;
+                    } 
+                    &:hover{
+                        color:#448899 ;
+                        opacity: .85;
+                        font-size: 17px;
+                    }         
+                 } 
+                
+                
+                }
+                
             }
         }
     }
@@ -130,7 +288,17 @@ body{
             border-radius: 6px 6px 0 0 ;
         }
         .navbar_signup_style_textbox{
+            position: relative;
             padding: 30px 15px 15px 15px;
+            #checkEye_signup{
+                position: absolute;
+                top:200px;
+                right:8%;
+                color: #666666;
+                // top: 50%;
+                // right: 50%;
+                // transform: translateY(-50%);
+              }
             h3{
                 font-weight: 700;
                 font-size: 24px;
@@ -140,6 +308,7 @@ body{
                 color: #666666;
             }
             .navbar_signup_account_content{
+                
                 display: flex;
                 flex-direction: column;
                 .name,.email,.password{
@@ -232,6 +401,16 @@ body{
         }
         .navbar_signin_style_textbox{
             padding: 30px 15px 15px 15px;
+            #checkEye_signin{
+                position: absolute;
+                // top:52.5%;
+                top:143px;
+                right:8%;
+                color: #666666;
+                // top: 50%;
+                // right: 50%;
+                // transform: translateY(-50%);
+              }
             h3{
                 font-weight: 700;
                 font-size: 24px;

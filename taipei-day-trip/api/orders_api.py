@@ -7,10 +7,15 @@ from api.connector import connection_pool
 from datetime import datetime
 import requests
 
+#python dotenv .env
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 orders_api = Blueprint("orders_api",__name__)
 
 #錯誤卡號測試:4242 4216 0218 4242	
-# 根據訂單編號取得訂單資訊
+#根據訂單編號取得訂單資訊及狀態
 @orders_api.route("/api/order/<orderNumber>", methods =["GET"])
 def api_orderId(orderNumber):
     id = str(orderNumber)
@@ -20,33 +25,31 @@ def api_orderId(orderNumber):
     try:
         if id != "" :
             mycursor = connection_object.cursor()
-            sql = "SELECT attraction.id, attraction.name,attraction.address,cart.attraction_image, cart.order_number,order_price,cart.trip_date, cart.trip_time, cart.contact_name, cart.contact_email, cart.contact_phone, cart.status FROM attraction INNER JOIN cart ON attraction.id = cart.attraction_Id "
-            # val = (id)
-            mycursor.execute(sql)
+            sql = "SELECT attraction.id, attraction.name, attraction.address, cart.attraction_image, cart.order_number, order_price, cart.trip_date, cart.trip_time, cart.contact_name, cart.contact_email, cart.contact_phone, cart.status FROM attraction INNER JOIN cart ON attraction.id = cart.attraction_Id "
+            mycursor.execute(sql,)
             myresult = mycursor.fetchall()
-            for myresult_data in myresult:
-                # return print(myresult_data)
-                print(myresult_data)
+            for order_data in myresult:
+                print(order_data)
             response = jsonify({
                 "data": {
-                    "number": myresult_data[4],
-                    "price": myresult_data[5],
+                    "number": order_data[4],
+                    "price": order_data[5],
                     "trip": {
                     "attraction": {
-                        "id": myresult_data[0],
-                        "name": myresult_data[1],
-                        "address": myresult_data[2],
-                        "image": myresult_data[3]
+                        "id": order_data[0],
+                        "name": order_data[1],
+                        "address": order_data[2],
+                        "image": order_data[3]
                     },
-                    "date": myresult_data[6],
-                    "time": myresult_data[7]
+                    "date": order_data[6],
+                    "time": order_data[7]
                     },
                     "contact": {
-                    "name": myresult_data[8],
-                    "email": myresult_data[9],
-                    "phone": myresult_data[10]
+                    "name": order_data[8],
+                    "email": order_data[9],
+                    "phone": order_data[10]
                     },
-                    "status": myresult_data[11]
+                    "status": order_data[11]
                 }
             }) 
             mycursor.close()
@@ -69,7 +72,7 @@ def api_orderId(orderNumber):
         connection_object.close()        
     return response 
 
-# 建立新的訂單，完成付款程序
+# 建立新訂單，完成付款程序
 @orders_api.route("/api/orders", methods = ['POST'])
 def api_orders():
     connection_object = connection_pool.get_connection()
@@ -104,10 +107,10 @@ def api_orders():
              
             if payment_status == "未付款" :
                 pay_by_prime_for_tappay = {
-                    "partner_key": "partner_E1yyIWjZ5VH2LExKvU2kzPZ0Ja3Uob75tetg2FR0rJkhrZrkEqqVBVk0",
+                    "partner_key": os.getenv('PARTNER_KEY'),
                     "prime": prime,
                     "amount": order_price,
-                    "merchant_id": "Tian0426_CTBC",
+                    "merchant_id": os.getenv('MERCHANT_ID'),
                     "details": "taipei day trip",
                     "cardholder": {
                         "name": contact_name,
@@ -119,7 +122,7 @@ def api_orders():
                 url = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
                 headers = {
                     "content-type": "application/json",
-                    "x-api-key":"partner_E1yyIWjZ5VH2LExKvU2kzPZ0Ja3Uob75tetg2FR0rJkhrZrkEqqVBVk0"
+                    "x-api-key": os.getenv('X-API-KEY')
                 }
                 response = requests.post(url, json=pay_by_prime_for_tappay, headers=headers)
                 response_data = response.json()

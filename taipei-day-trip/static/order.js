@@ -1,11 +1,14 @@
 import navbar_signup_signin_lib from "./navbar_signup_signin_lib.js" 
 navbar_signup_signin_lib()
 
-// import cookie_lib from "./cookie_lib.js"
-// cookie_lib()
+import cookie_lib from "./cookie_lib.js"
+cookie_lib()
 
 import navbar_booking_lib from "./navbar_booking_lib.js"
 navbar_booking_lib()
+
+// import navbar_member_lib from "./navbar_member_lib.js" 
+// navbar_member_lib()
 
 getcookie();
 //取得後端回傳token
@@ -22,7 +25,7 @@ function getcookie() {
       navsignup.style.display = "none";
       let navsignout = document.querySelector(".navbar_signout_btn");
       navsignout.style.display = "block";
-      get_order_number();
+     
     }
     else{
       window.location.assign("/")
@@ -30,6 +33,7 @@ function getcookie() {
   });
 }
 
+ get_order_number();
 function get_order_number(){
     let thankyou_page_url = window.location.search
     // let thankyou_url = "/thankyou"

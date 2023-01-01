@@ -29,6 +29,21 @@
       @content;
     }
 }
+// position:absolute; left:423px; top:261px; width:227px; height:20px; z-index:1
+
+// #loading{
+//     width: 2000px;
+//     height: 2000px;
+//     position:absolute;
+//     background: rgb(255, 255, 255);
+//     color: #983131;
+//     left:0;
+//     top:0; 
+//     // width:227px;
+//     // height:20px;
+//     z-index:1;
+// }
+
 #main{
     .booking_page{
         width: 70%;
@@ -51,17 +66,20 @@
             top:43px;
             right:15px;
             @include rwdSecond {
-                top:660px;
+                top:600px;
                 right: 20px;
             }
             @include mobile{
-                top:570px;
+                top:580px;
                 right: 15px;
             }
         }
         .booking_page_top{
             width: 100%;
             margin-top: 100px;
+            @include rwdSecond{
+                margin-top:35px;
+            }
             @include mobile{
                 margin-top: 80px;
             }
@@ -173,6 +191,14 @@
                             
                         }
                     }
+                    .page_btm_connect_email_status{
+                    font-weight: 500;
+                    font-size: 12px;
+                    color: #ff0707;
+                    text-align: start;
+                    margin: 0;
+                    line-height: 16px;
+                    }
                     
                 }
                 p{
@@ -212,7 +238,8 @@
                         width: 200px;
                         height: 38px;
                         background: #FFFFFF;
-                        border: 1px solid #E8E8E8;border-radius: 5px;
+                        border: 1px solid #E8E8E8;
+                        border-radius: 5px;
                         padding:10px;
                         
                     }

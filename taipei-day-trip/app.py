@@ -5,6 +5,22 @@ import mysql.connector.pooling
 import json
 import jwt
 
+#python dotenv .env
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+dbconfig = {
+"user" : os.getenv('MYSQL_USER'), 
+"password" : os.getenv('MYSQL_PASSWORD'), 
+"host" : os.getenv('MYSQL_HOST'), 
+"database" : os.getenv('MYSQL_DATABASE'),
+}
+
+# set up session secret_key
+session_secret_key = os.getenv('SESSION_SECRET_KEY')
+app.secret_key=session_secret_key
+
 app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
@@ -19,25 +35,7 @@ from api.categories_api import categories_api
 from api.signin_api import signin_api
 from api.booking_api import booking_api
 from api.orders_api import orders_api
-
-# set up session secret_key
-app.secret_key='tian12345'
-
-# set up mysql.connector 
-# new = mysql.connector.connect(
-#   host="localhost",
-#   user="root",
-#   password="tian0426",
-#   database="taipeiDayTrip" 
-# )
-
-# set up connector.pooling 
-dbconfig = {
-    "user" : "root",
-    "password" : "tian0426",
-    "host" : "localhost",
-    "database" : "taipeiDayTrip",
-}
+from api.member_api import member_api
 
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_name = "wehelp_pool",
@@ -59,12 +57,16 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
     return render_template("thankyou.html")
+@app.route("/member")
+def member():
+    return render_template("member.html")
 
 app.register_blueprint(attraction_api)
 app.register_blueprint(categories_api)
 app.register_blueprint(signin_api)
 app.register_blueprint(booking_api)
 app.register_blueprint(orders_api)
+app.register_blueprint(member_api)
 
 app.run(host='0.0.0.0',port=3000)
 
