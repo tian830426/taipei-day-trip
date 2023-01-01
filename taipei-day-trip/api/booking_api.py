@@ -7,22 +7,7 @@ from api.connector import connection_pool
 
 booking_api = Blueprint("booking_api",__name__)
 
-# #insert connector.pooling 
-# dbconfig = {
-#     "user" : "root",
-#     "password" : "tian0426",
-#     "host" : "localhost",
-#     "database" : "taipeiDayTrip",
-# }
-
-# connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-#     pool_name = "wehelp_pool",
-#     pool_size = 5,
-#     pool_reset_session = True,
-#     **dbconfig
-# )
-
-@booking_api.route("/api/booking", methods= ['GET','POST','DELETE'])
+@booking_api.route("/api/booking", methods = ['GET','POST','DELETE'])
 def api_booking():
     connection_object = connection_pool.get_connection()
     
@@ -34,7 +19,7 @@ def api_booking():
         if request.method == "GET":
             #data2.id 和 reservation.id 相同時取得以下資料 
             mycursor = connection_object.cursor()
-            sql = "SELECT datas2.id,datas2.name,datas2.address,datas2.images,reservation.date,reservation.time,reservation.price FROM datas2 INNER JOIN reservation ON datas2.id = reservation.attractionId "
+            sql = "SELECT attraction.id, attraction.name, attraction.address, attraction.images, reservation.date, reservation.time,reservation.price FROM attraction INNER JOIN reservation ON attraction.id = reservation.attractionId "
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
             myresultlen = len(myresult)
@@ -42,11 +27,7 @@ def api_booking():
             if myresultlen == 1: 
                 print(myresultlen)
                 myresult_tour = myresult[0]
-                # print(myresult_tour)
                 img = myresult_tour[3].split(' ')
-                # print(img[0])
-                # print(myresult_tour)
-                # print(myresult_tour[1])
                 if myresult != 0:
                     response =  jsonify({
                         "data": {
@@ -68,6 +49,7 @@ def api_booking():
                 }) 
         if request.method == "POST":
             new_tour = request.get_json()
+            get_cookie_token = request.cookies.get("token")
             # print(new_tour)
             # print("----")
             attractionId = new_tour["attractionId"]
@@ -145,3 +127,7 @@ def api_booking():
     finally:
         connection_object.close()
     return response
+
+
+
+

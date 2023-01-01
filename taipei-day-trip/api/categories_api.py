@@ -29,7 +29,7 @@ def api_categories():
     try:
         mycursor = connection_object.cursor()
         # mycursor = new.cursor()
-        sql = "select distinct category from datas2 "
+        sql = "select distinct category from attraction "
         mycursor.execute(sql)
         category_result = mycursor.fetchall()
         category_data = [cat[0] for cat in category_result]

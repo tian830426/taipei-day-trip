@@ -3,7 +3,7 @@
 
 function navbar_booking_lib(){
     //click navbar_booking_btn 
-    document.querySelector(".nav-booking").addEventListener('click',(e)=>{
+    document.querySelector(".navbar_booking_btn").addEventListener('click',(e)=>{
     console.log('確認登入狀態');
     getcookie_navbooking();
     },false) }
@@ -24,7 +24,7 @@ function navbar_booking_lib(){
             else{
                 //搜尋不到登入狀態 讓註冊登入視窗彈出
                 console.log('未登入狀態');
-                document.querySelector(".signupContainer").style.display = "block";
+                document.querySelector(".navbar_signup_dialog").style.display = "block";
                 document.querySelector('#main').style.opacity=.7;
             } 
         });
@@ -47,7 +47,7 @@ function navbar_booking_lib(){
                 document.querySelector('.main').style.display = 'none';
                 document.querySelector('.main_page').style.display = 'block';
                 document.querySelector('footer').style.display = 'none';
-                document.querySelector('.footer_booking').style.display = 'block';
+                document.querySelector('.footer_booking_page_no_reservation').style.display = 'block';
             }
             else{
                 console.log(data["data"]);

@@ -4,7 +4,9 @@
     padding:0;                      
     font-family: 'Noto Sans TC';    
     font-style: normal;      
-    text-decoration: none;       
+    text-decoration: none;   
+    border: none;
+    outline: none;    
 }
 
 @mixin rwdFrist{
@@ -27,8 +29,23 @@
       @content;
     }
 }
-main{
-    .main{
+// position:absolute; left:423px; top:261px; width:227px; height:20px; z-index:1
+
+// #loading{
+//     width: 2000px;
+//     height: 2000px;
+//     position:absolute;
+//     background: rgb(255, 255, 255);
+//     color: #983131;
+//     left:0;
+//     top:0; 
+//     // width:227px;
+//     // height:20px;
+//     z-index:1;
+// }
+
+#main{
+    .booking_page{
         width: 70%;
         margin: 0 auto;
         position: relative;
@@ -49,17 +66,20 @@ main{
             top:43px;
             right:15px;
             @include rwdSecond {
-                top:660px;
+                top:600px;
                 right: 20px;
             }
             @include mobile{
-                top:570px;
+                top:580px;
                 right: 15px;
             }
         }
-        .page_top{
+        .booking_page_top{
             width: 100%;
             margin-top: 100px;
+            @include rwdSecond{
+                margin-top:35px;
+            }
             @include mobile{
                 margin-top: 80px;
             }
@@ -171,6 +191,14 @@ main{
                             
                         }
                     }
+                    .page_btm_connect_email_status{
+                    font-weight: 500;
+                    font-size: 12px;
+                    color: #ff0707;
+                    text-align: start;
+                    margin: 0;
+                    line-height: 16px;
+                    }
                     
                 }
                 p{
@@ -198,18 +226,20 @@ main{
             }
             .page_btm_creditCard_input{
                 margin-top: 31px;
-                label{
+                .tpfield_container{
                     display: flex;
+                    // flex-direction: column;
                     margin-bottom: 29px;
                     font-weight: 500;
                     font-size: 16px;
                     line-height: 38px;
                     color: #666666;
-                    input{
+                    .tpfield{
                         width: 200px;
                         height: 38px;
                         background: #FFFFFF;
-                        border: 1px solid #E8E8E8;border-radius: 5px;
+                        border: 1px solid #E8E8E8;
+                        border-radius: 5px;
                         padding:10px;
                         
                     }
@@ -222,6 +252,13 @@ main{
                     
                 }
             }
+            // .tpfield {
+            //     height: 40px;
+            //     width: 300px;
+            //     border: 1px solid gray;
+            //     margin: 5px 0;
+            //     padding: 5px;
+            // }
         }
 
         .page_checkout{
@@ -251,13 +288,11 @@ main{
                 line-height: 16px;
                 margin-top: 26px;
                 margin-bottom: 62px;
-
-
             }
         }
     }
 // 沒有任何行程的顯示頁面
-    .main_page{
+    .other_booking_page{
         width: 70%;
         margin: 100px auto;
         position: relative;
@@ -279,6 +314,16 @@ main{
             font-size: 16px;
             line-height: 13px;
             color: #666666;
+            a{
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 13px;
+                color: #2f2f2f;    
+            }
+             a:hover{
+                    font-size: 18px;
+                    color: #666666
+                } 
         }
     }
     

@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
+}
+
+#main .thankyou_page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#main .thankyou_page .thankyou_page_content {
+  margin-top: 90px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+#main .thankyou_page .thankyou_page_content h2 {
+  color: #666666;
+}
+#main .thankyou_page .thankyou_page_content div {
+  display: flex;
+  justify-content: center;
+}
+#main .thankyou_page .thankyou_page_content div div {
+  color: #666666;
+}
+#main .thankyou_page .thankyou_page_content p {
+  color: #666666;
+}
+#main .thankyou_page_error {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#main .thankyou_page_error .thankyou_page_error_content {
+  margin: 90px 0;
+  line-height: 45px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+#main .thankyou_page_error .thankyou_page_error_content h2 {
+  color: #666666;
+}
+#main .thankyou_page_error .thankyou_page_error_content a {
+  font-size: 18px;
+  color: #302f2f;
+}
+#main .thankyou_page_error .thankyou_page_error_content a:hover {
+  font-weight: 700;
+  font-size: 20px;
+  color: #666666;
+}/*# sourceMappingURL=thankyou.css.map */

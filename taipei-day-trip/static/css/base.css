@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,6 +9,8 @@
 }
 * ol, * ul, * li, * menu {
   list-style: none;
+  border: none;
+  outline: none;
 }
 
 body nav {
@@ -18,66 +21,159 @@ body nav {
   z-index: 2;
   background-color: white;
 }
-body nav .nav-bar {
+body nav .navbar {
   max-width: 1200px;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
 @media (max-width: 1250px) {
-  body nav .nav-bar {
+  body nav .navbar {
     width: 90%;
   }
 }
 @media (max-width: 800px) {
-  body nav .nav-bar {
+  body nav .navbar {
     width: 90%;
   }
 }
 @media (max-width: 500px) {
-  body nav .nav-bar {
+  body nav .navbar {
     width: 92%;
   }
 }
 @media (max-width: 360px) {
-  body nav .nav-bar {
+  body nav .navbar {
     width: 90%;
   }
 }
-body nav .nav-bar .nav-bar-left p {
+body nav .navbar .navbar_title p {
   padding: 10px 0;
   font-size: 30px;
   font-weight: 700;
   color: #448899;
 }
 @media (max-width: 500px) {
-  body nav .nav-bar .nav-bar-left p {
+  body nav .navbar .navbar_title p {
     font-size: 24px;
   }
 }
 @media (max-width: 360px) {
-  body nav .nav-bar .nav-bar-left p {
+  body nav .navbar .navbar_title p {
     font-size: 24px;
   }
 }
-body nav .nav-bar .nav-bar-right {
+body nav .navbar .navbar_title p:hover {
+  color: #5cb6cd;
+}
+body nav .navbar .navbar_mainmenu {
+  display: flex;
+  /* 隱藏 checkbox */
+}
+@media (max-width: 500px) {
+  body nav .navbar .navbar_mainmenu {
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+  }
+}
+body nav .navbar .navbar_mainmenu input {
+  display: none;
+}
+@media (max-width: 360px) {
+  body nav .navbar .navbar_mainmenu input {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  body nav .navbar .navbar_mainmenu input:checked ~ .menu_bar {
+    max-height: 300px;
+  }
+}
+body nav .navbar .navbar_mainmenu label {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  body nav .navbar .navbar_mainmenu label {
+    display: block;
+    font-size: 20px;
+    line-height: 54px;
+    color: #666666;
+  }
+}
+@media (max-width: 360px) {
+  body nav .navbar .navbar_mainmenu label img {
+    float: left;
+    margin: 0 auto;
+  }
+}
+body nav .navbar .navbar_mainmenu .menu_bar {
   display: flex;
 }
-body nav .nav-bar .nav-bar-right p, body nav .nav-bar .nav-bar-right .nav-signup {
+@media (max-width: 500px) {
+  body nav .navbar .navbar_mainmenu .menu_bar {
+    max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+    flex-direction: column;
+    background: #fff;
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+@media (max-width: 360px) {
+  body nav .navbar .navbar_mainmenu .menu_bar {
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+  }
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_booking_btn {
   padding: 5px;
   font-weight: 500;
   font-size: 16px;
   line-height: 54px;
   color: #666666;
   padding: 0 10px;
+  cursor: pointer;
 }
 @media (max-width: 360px) {
-  body nav .nav-bar .nav-bar-right p, body nav .nav-bar .nav-bar-right .nav-signup {
+  body nav .navbar .navbar_mainmenu .menu_bar .navbar_booking_btn {
     padding: 20px 10px;
     line-height: 13px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
   }
 }
-body nav .nav-bar .nav-bar-right .nav-signout {
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_booking_btn:hover {
+  color: #448899;
+  opacity: 0.85;
+  font-size: 17px;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_signup_signin_btn {
+  padding: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 54px;
+  color: #666666;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media (max-width: 360px) {
+  body nav .navbar .navbar_mainmenu .menu_bar .navbar_signup_signin_btn {
+    padding: 20px 10px;
+    line-height: 13px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+  }
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_signup_signin_btn:hover {
+  color: #448899;
+  opacity: 0.85;
+  font-size: 17px;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn {
   display: none;
   padding: 5px;
   font-weight: 500;
@@ -85,14 +181,177 @@ body nav .nav-bar .nav-bar-right .nav-signout {
   line-height: 54px;
   color: #666666;
   padding: 0 10px;
+  cursor: pointer;
+  position: relative;
 }
 @media (max-width: 360px) {
-  body nav .nav-bar .nav-bar-right .nav-signout {
+  body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn {
+    padding: 20px 10px;
+    line-height: 13px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+  }
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn:hover {
+  color: #448899;
+  opacity: 0.85;
+  font-size: 17px;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn:hover .navbar_memeber_dropdown_menu {
+  display: flex;
+  flex-direction: column;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn .navbar_memeber_dropdown_menu {
+  margin-top: 10px;
+  display: none;
+  width: 140px;
+  height: 120px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn .navbar_memeber_dropdown_menu .navbar_memeber_dropdown_item {
+  width: 85%;
+  height: 85%;
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  font-size: 14px;
+  color: #666666;
+  cursor: pointer;
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_member_btn .navbar_memeber_dropdown_menu .navbar_memeber_dropdown_item:hover {
+  opacity: 0.85;
+  font-size: 16px;
+  color: #5cb6cd;
+  background-color: rgb(223, 223, 223);
+}
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_signout_btn {
+  display: none;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 54px;
+  color: #666666;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media (max-width: 360px) {
+  body nav .navbar .navbar_mainmenu .menu_bar .navbar_signout_btn {
     padding: 20px 10px;
     line-height: 13px;
   }
 }
-body .signinContainer {
+body nav .navbar .navbar_mainmenu .menu_bar .navbar_signout_btn:hover {
+  color: #448899;
+  opacity: 0.85;
+  font-size: 17px;
+}
+body .navbar_signup_dialog {
+  width: 340px;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 60px #AAAAAA;
+  border-radius: 6px;
+  top: 54px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: none;
+  position: fixed;
+  z-index: 10;
+}
+body .navbar_signup_dialog .navbar_signup_style_bgimage {
+  width: 340px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+  border-radius: 6px 6px 0 0;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox {
+  position: relative;
+  padding: 30px 15px 15px 15px;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox #checkEye_signup {
+  position: absolute;
+  top: 200px;
+  right: 8%;
+  color: #666666;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #666666;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_account_content {
+  display: flex;
+  flex-direction: column;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_account_content .name, body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_account_content .email, body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_account_content .password {
+  width: 310px;
+  height: 47px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 13px;
+  padding: 10px;
+  color: #757575;
+  margin-bottom: 10px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_account_content .navbar_signup_email_status {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ff0707;
+  text-align: start;
+  margin: 0;
+  line-height: 16px;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_btn {
+  width: 310px;
+  height: 47px;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 400;
+  background: #448899;
+  border-radius: 5px;
+  font-size: 19px;
+  line-height: 16px;
+  margin-bottom: 15px;
+  border: none;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_status {
+  font-weight: 500;
+  font-size: 16px;
+  color: #ff0707;
+  text-align: center;
+  margin: 0;
+  line-height: 30px;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signin_toggle {
+  font-weight: 500;
+  font-size: 16px;
+  color: #666666;
+  text-align: center;
+  margin: 0;
+  line-height: 35px;
+}
+body .navbar_signup_dialog .navbar_signup_style_textbox .navbar_signup_xmark {
+  position: absolute;
+  top: 27px;
+  right: 17px;
+  font-size: 1rem;
+  font-weight: 200;
+  color: #666666;
+}
+body .navbar_signin_dialog {
   width: 340px;
   height: 275px;
   display: flex;
@@ -110,7 +369,7 @@ body .signinContainer {
   position: fixed;
   z-index: 10;
 }
-body .signinContainer .borderTop {
+body .navbar_signin_dialog .navbar_signin_style_bgimage {
   width: 340px;
   height: 10px;
   position: absolute;
@@ -119,10 +378,16 @@ body .signinContainer .borderTop {
   border-radius: 6px 6px 0 0;
   margin-bottom: 15px;
 }
-body .signinContainer .accountBox {
+body .navbar_signin_dialog .navbar_signin_style_textbox {
   padding: 30px 15px 15px 15px;
 }
-body .signinContainer .accountBox h3 {
+body .navbar_signin_dialog .navbar_signin_style_textbox #checkEye_signin {
+  position: absolute;
+  top: 143px;
+  right: 8%;
+  color: #666666;
+}
+body .navbar_signin_dialog .navbar_signin_style_textbox h3 {
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
@@ -130,11 +395,11 @@ body .signinContainer .accountBox h3 {
   text-align: center;
   color: #666666;
 }
-body .signinContainer .accountBox .accountContent {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_account_content {
   display: flex;
   flex-direction: column;
 }
-body .signinContainer .accountBox .accountContent .email, body .signinContainer .accountBox .accountContent .password {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_account_content .email, body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_account_content .password {
   width: 310px;
   height: 47px;
   font-weight: 500;
@@ -146,15 +411,15 @@ body .signinContainer .accountBox .accountContent .email, body .signinContainer 
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
-body .signinContainer .accountBox .accountContent .signin_emailStatus {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_account_content .navbar_signin_email_status {
   font-weight: 500;
   font-size: 12px;
   color: #ff0707;
   text-align: start;
   margin: 0;
-  line-height: 12px;
+  line-height: 16px;
 }
-body .signinContainer .accountBox .signinBtn {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_btn {
   width: 310px;
   height: 47px;
   text-align: center;
@@ -167,7 +432,7 @@ body .signinContainer .accountBox .signinBtn {
   margin-bottom: 15px;
   border: none;
 }
-body .signinContainer .accountBox .signinStatus {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_status {
   font-weight: 500;
   font-size: 16px;
   color: #ff0707;
@@ -175,7 +440,7 @@ body .signinContainer .accountBox .signinStatus {
   margin: 0;
   line-height: 30px;
 }
-body .signinContainer .accountBox .signupToggle {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signup_toggle {
   font-weight: 500;
   font-size: 16px;
   color: #666666;
@@ -183,106 +448,10 @@ body .signinContainer .accountBox .signupToggle {
   margin: 0;
   line-height: 40px;
 }
-body .signinContainer .accountBox .signinXmark {
+body .navbar_signin_dialog .navbar_signin_style_textbox .navbar_signin_xmark {
   position: absolute;
   width: 16px;
   height: 16px;
-  top: 27px;
-  right: 17px;
-  font-size: 1rem;
-  font-weight: 200;
-  color: #666666;
-}
-body .signupContainer {
-  width: 340px;
-  height: 332px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 4px 60px #AAAAAA;
-  border-radius: 6px;
-  top: 54px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  display: none;
-  position: fixed;
-  z-index: 10;
-}
-body .signupContainer .borderTop {
-  width: 340px;
-  height: 10px;
-  position: absolute;
-  top: 0;
-  background-image: linear-gradient(270deg, #337788 0%, #66AABB 100%);
-  border-radius: 6px 6px 0 0;
-}
-body .signupContainer .accountBox {
-  padding: 30px 15px 15px 15px;
-}
-body .signupContainer .accountBox h3 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #666666;
-}
-body .signupContainer .accountBox .accountContent {
-  display: flex;
-  flex-direction: column;
-}
-body .signupContainer .accountBox .accountContent .name, body .signupContainer .accountBox .accountContent .email, body .signupContainer .accountBox .accountContent .password {
-  width: 310px;
-  height: 47px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 13px;
-  padding: 10px;
-  color: #757575;
-  margin-bottom: 10px;
-  border: 1px solid #CCCCCC;
-  border-radius: 5px;
-}
-body .signupContainer .accountBox .accountContent .signup_emailStatus {
-  font-weight: 500;
-  font-size: 12px;
-  color: #ff0707;
-  text-align: start;
-  margin: 0;
-  line-height: 12px;
-}
-body .signupContainer .accountBox .signupBtn {
-  width: 310px;
-  height: 47px;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 400;
-  background: #448899;
-  border-radius: 5px;
-  font-size: 19px;
-  line-height: 16px;
-  margin-bottom: 15px;
-  border: none;
-}
-body .signupContainer .accountBox .signupStatus {
-  font-weight: 500;
-  font-size: 16px;
-  color: #ff0707;
-  text-align: center;
-  margin: 0;
-  line-height: 30px;
-}
-body .signupContainer .accountBox .signinToggle {
-  font-weight: 500;
-  font-size: 16px;
-  color: #666666;
-  text-align: center;
-  margin: 0;
-  line-height: 35px;
-}
-body .signupContainer .accountBox .signupXmark {
-  position: absolute;
   top: 27px;
   right: 17px;
   font-size: 1rem;
@@ -301,13 +470,13 @@ body footer p {
   line-height: 104px;
   text-align: center;
 }
-body .footer_booking {
+body .footer_booking_page_no_reservation {
   width: 100%;
   height: 90vh;
   background: #757575;
   display: none;
 }
-body .footer_booking p {
+body .footer_booking_page_no_reservation p {
   color: #FFFFFF;
   font-weight: 700;
   font-size: 16px;

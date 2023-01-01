@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block css %} 
+<link rel="stylesheet" href="../static/css/thankyou.css" />
+{% endblock %}
+
+{% block main %}
+<main id="main">
+    <section class="thankyou_page">
+        <div class="thankyou_page_content">
+            <h2>感謝您的預定</h2>
+            <div ><div>您的訂單編號:  </div><div class="order_number"></div></div>
+            <p>請妥善保管訂單編號，方便查詢！</p>
+        </div>
+    </section>
+    <section class="thankyou_page_error">
+        <div class="thankyou_page_error_content">
+            <h2>付款失敗，請重新選購 !</h2>
+            <p><a href="/booking">返回預定頁面</a></p>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block Javascript %}
+<script type="module" src="../static/order.js"></script>
+<script src="https://js.tappaysdk.com/sdk/tpdirect/v5.14.0"></script>
+{% endblock %}
