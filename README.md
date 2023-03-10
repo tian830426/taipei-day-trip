@@ -32,7 +32,7 @@
 
 ## Architecture
 
-<img src="https://github.com/vkmouse/taipei-day-trip/blob/main/docs/Architecture.png" width=800 />
+<img src="https://github.com/tian830426/taipei-day-trip/blob/main/taipei-day-trip/taipei-day-trip%20Architecture.png" width=800 />
 
 ## Database Schema
 
