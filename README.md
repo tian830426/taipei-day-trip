@@ -1,4 +1,4 @@
-# Taipei-day-trip-website
+# Taipei-day-trip website
 
 :closed_lock_with_key: Test account and password
 
@@ -31,6 +31,8 @@
 - Online payment system with Tappay.
 
 ## Architecture
+
+<img src="https://github.com/vkmouse/taipei-day-trip/blob/main/docs/Architecture.png" width=800 />
 
 ## Database Schema
 
