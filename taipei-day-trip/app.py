@@ -35,7 +35,7 @@ from api.categories_api import categories_api
 from api.signin_api import signin_api
 from api.booking_api import booking_api
 from api.orders_api import orders_api
-from api.member_api import member_api
+# from api.member_api import member_api
 
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_name = "wehelp_pool",
@@ -57,16 +57,16 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
     return render_template("thankyou.html")
-@app.route("/member")
-def member():
-    return render_template("member.html")
+# @app.route("/member")
+# def member():
+#     return render_template("member.html")
 
 app.register_blueprint(attraction_api)
 app.register_blueprint(categories_api)
 app.register_blueprint(signin_api)
 app.register_blueprint(booking_api)
 app.register_blueprint(orders_api)
-app.register_blueprint(member_api)
+# app.register_blueprint(member_api)
 
 app.run(host='0.0.0.0',port=3000)
 
