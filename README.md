@@ -23,12 +23,10 @@
 
 ## Main Features
 
-- Build membership system, register and login.
-- Support keywords search and fuzzy search.
-- Responsive Web Design.
-- Infinite scroll.
-- Uses JWT tokens and includes both access and refresh tokens.
-- Online payment system with Tappay.
+- Application with front-end using JavaScript and back-end using Python Flask for achieving front-end and back-end separation, and deployed it on AWS EC2.
+- The member system utilizes JWT tokens, including access tokens and refresh tokens.
+- The system integrates TapPay, a third-party payment system, as a payment method.
+- Included search function with fuzzy matching capability and infinite scrolling.
 
 ## Architecture
 
@@ -40,7 +38,7 @@
 ## Backend Techinique
 
 ### Environment
-- Python flask
+- Python Flask
 
 ### Database
 - MySQL
@@ -52,17 +50,16 @@
 - Git
 - GitHub
 
-
 ## Frontend Technique
 - HTML
 - SCSS
-- Javascript
+- JavaScript
 
 ## API Doc
 [API Doc](https://app.swaggerhub.com/apis-docs/padax/taipei-day-trip/1.1.0)
 
 ## Contact
--👩‍💻 Kuan-yu, Lin
+-👩‍💻 Kuan-Yu, Lin
 <br>
 -:email: process090212@gmail.com
 
