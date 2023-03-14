@@ -23,7 +23,8 @@
 
 ## Main Features
 
-- Application with front-end using JavaScript and back-end using Python Flask for achieving front-end and back-end separation, and deployed it on AWS EC2.
+- Application with front-end using JavaScript and back-end using Python Flask for
+  achieving front-end and back-end separation, and deployed it on AWS EC2.
 - The member system utilizes JWT tokens, including access tokens and refresh tokens.
 - The system integrates TapPay, a third-party payment system, as a payment method.
 - Included search function with fuzzy matching capability and infinite scrolling.
