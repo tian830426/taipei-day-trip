@@ -1,10 +1,19 @@
-# Taipei-day-trip website
+# Taipei Day Trip 
+Taipei Day Trip is an E-commerce website for travel in Taipei.
+
+[Live Demo](http://3.114.69.52:3000/)
 
 :closed_lock_with_key: Test account and password
 
 |Account|Password|
 |---|---|
 |test@test.com|test123|
+
+:closed_lock_with_key: Test Credit Card info
+
+|Card Number|M/Y|Num|
+|---|---|---|
+|424242442424242|01/24|123|
 
 
 ## Table of Contents 
@@ -29,12 +38,8 @@
 - The system integrates TapPay, a third-party payment system, as a payment method.
 - Included search function with fuzzy matching capability and infinite scrolling.
 
-## Architecture
-
-<img src="https://github.com/tian830426/taipei-day-trip/blob/main/taipei-day-trip/taipei-day-trip%20Architecture.png" width=800 />
-
 ## Database Schema
-
+<img src="https://github.com/tian830426/taipei-day-trip/blob/main/taipei-day-trip/taipei-day-trip%20Architecture.png" width=800 />
 
 ## Backend Techinique
 
