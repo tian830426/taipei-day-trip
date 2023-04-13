@@ -128,7 +128,6 @@ def api_orders():
                 response_data = response.json()
                 status = response_data["status"]
 
-                # print(status)
                 if status == 0:
                     payment_status = "已付款"
                     mycursor = connection_object.cursor()

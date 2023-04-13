@@ -119,8 +119,8 @@ document.querySelector('.icon_delete').addEventListener('click',(e)=>{
 ,false)}
 
 //設定TapPay參數
-TPDirect.setupSDK(`${APP_ID}`,`${APP_KEY}`, 'sandbox')
-
+// TPDirect.setupSDK(`${APP_ID}`,`${APP_KEY}`, 'sandbox')
+TPDirect.setupSDK(126946,"app_a8IwE6ugbKnbBObGwX624iLJJRwgGkkluDMG6GmyXxPzivIR5hmsbchImJMG","sandbox")
 //設定外觀
 TPDirect.card.setup({
   // Display ccv field
