@@ -138,7 +138,6 @@ function navbar_signup_signin_lib(){
         let email = document.getElementById("signin_email").value;
         let password = document.getElementById("signin_password").value;
 
-    
         let email_rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     
         //validate ok or not

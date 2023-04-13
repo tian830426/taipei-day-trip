@@ -79,7 +79,7 @@ def api_signin_data():
                 
                 encoded_jwt = jwt.encode({"email":email}, jwt_secret_key, algorithm="HS256")
                 # encoded_jwt = jwt.encode({"id":id,"name":name ,"email":email}, jwt_secret_key, algorithm="HS256")
-                # print(encoded_jwt)
+                print(encoded_jwt)
                 get_jwt_token = jsonify({"ok": True}) 
                 get_jwt_token.set_cookie("token",encoded_jwt,max_age = 7 * 24 * 60 * 60)    
                 response = get_jwt_token
